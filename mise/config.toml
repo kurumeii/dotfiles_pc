@@ -16,6 +16,13 @@ bat = "latest"
 ripgrep = "latest"
 resvg = "latest"
 python = "latest"
+opencode = "latest"
+gemini-cli = "latest"
+fd = "latest"
+ast-grep = "latest"
+difftastic = "latest"
+oh-my-posh = "latest"
+fastfetch = "latest"
 
 [settings]
 verbose = false

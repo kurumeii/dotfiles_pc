@@ -1,6 +1,0 @@
-packages = ["default"]
-
-[variables]
-username = "andrew nguyen"
-email = "andrew.nguyen1@techvify.com.vn"
-pc_name = "andrew.nguyen1"

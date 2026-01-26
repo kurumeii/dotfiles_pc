@@ -1,0 +1,30 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+bat = "~/.config/bat"
+btop = "~/.config/btop"
+gh = "~/.config/gh"
+lazygit = "~/.config/lazygit"
+mise = "~/.config/mise"
+nvim = "~/.config/nvim"
+"opencode/opencode.json" = "~/.config/opencode/opencode.json"
+rg = "~/.config/rg"
+wezterm = "~/.config/wezterm"
+"zed/config" = "~/.config/zed/config"
+vimrc = "~/.vimrc"
+"andrew.omp.json" = "~/andrew.omp.json"
+"scoop-bak.json" = "~/scoop-bak.json"
+"winget-apps.bak" = "~/winget-apps.bak"
+gitconfig = "~/.gitconfig"
+Powershell = "~/Documents/PowerShell/"
+"Powershell/Scripts" = "~/Documents/PowerShell/Scripts/"
+
+[default.variables]
+username = "andrew nguyen"
+email = "ngphuchoanganh@gmail.com"
+
+[settings]
+default_target_type = "automatic"
