@@ -1,0 +1,8 @@
+packages = ["default"]
+
+[variables]
+username = "andrew nguyen"
+email = "ngphuchoanganh@gmail.com"
+pc_name = "andrew.nguyen1"
+TAVILY_API_KEY = "keepassxc-cli show -k <saved-key-path> <db-path> [<group>|<entry>] -s"
+CONTEXT_7_API_KEY = "keepassxc-cli show -k <saved-key-path> <db-path> [<group>|<entry>] -s"
