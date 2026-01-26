@@ -1,0 +1,28 @@
+
+[user]
+	name = "{{username}}"
+	email = "{{email}}"
+[credential]
+	helper = manager
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RF
+	autocrlf = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[diff]
+	tool = nvim
+[difftool "nvim"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+	tool = nvim
+[mergetool "nvim"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" -c \"botright split $MERGED\" -c \"set diff\""
+	trustExitCode = false
+	keepBackup = false
+[credential "https://github.com"]
+	helper = 
+	helper = !'C:\\Users\\\{{pc_name}}\\.local\\share\\mise\\installs\\gh\\2.86.0\\bin\\gh.exe' auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !'C:\\Users\\\{{pc_name}}\\.local\\share\\mise\\installs\\gh\\2.86.0\\bin\\gh.exe' auth git-credential
+

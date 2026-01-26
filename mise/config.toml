@@ -1,0 +1,26 @@
+[tools]
+bun = "latest"
+# lazygit = "latest"
+node = ["latest", "lts"]
+opencode = "latest"
+pnpm = "latest"
+rust = "nightly"
+uv = "latest"
+yq = "latest"
+zoxide = "latest"
+gh = "latest"
+fzf = "latest"
+jq = "latest"
+lazygit = "latest"
+lazydocker = "latest"
+bat = "latest"
+ripgrep = "latest"
+resvg = "latest"
+python = "latest"
+
+[settings]
+verbose = false
+trusted_config_paths = [
+	"~/.home/mise/config.toml",
+	"~/.pc_dotfiles/mise/config.toml",
+]
