@@ -1,4 +1,4 @@
-local colorscheme = "gruvbox-material"
+local colorscheme = "rose-pine"
 local transparent = true
 local add = MiniDeps.add
 
@@ -49,6 +49,19 @@ if colorscheme == "tokyonight" then
 		style = "night",
 	})
 end
+
+if colorscheme == "rose-pine" then
+	add({
+		source = "rose-pine/neovim",
+		name = "rose-pine",
+	})
+	require("rose-pine").setup({
+		styles = {
+			transparency = transparent,
+		},
+	})
+end
+
 if colorscheme == "mini" then
 	vim.cmd.colorscheme("miniwinter")
 else

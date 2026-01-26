@@ -1,4 +1,4 @@
---- @type Wezterm
+---@type Wezterm
 local wez = require("wezterm")
 local mux = wez.mux
 local config = wez.config_builder()
@@ -39,13 +39,12 @@ local join_mods = function(m)
 end
 
 config = {
-	font = wez.font("CaskaydiaCove Nerd Font"),
+	font = wez.font("JetBrainsMono Nerd Font", { weight = "Medium" }),
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
-	front_end = "OpenGL",
-	webgpu_power_preference = "HighPerformance",
+	-- front_end = "OpenGL",
 	freetype_load_target = "Light",
-	line_height = 1.1,
+	line_height = 1,
 	win32_system_backdrop = "Acrylic",
 	window_background_opacity = 0.7,
 	wsl_domains = {
