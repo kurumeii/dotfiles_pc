@@ -2,7 +2,6 @@
 bun = "latest"
 # lazygit = "latest"
 node = ["latest", "lts"]
-opencode = "latest"
 pnpm = "latest"
 rust = "nightly"
 uv = "latest"
