@@ -6,7 +6,7 @@ depends = []
 [default.files]
 bat = "~/.config/bat"
 btop = "~/.config/btop"
-"gh/config" = "~/.config/gh/config.yml"
+gh = "~/.config/gh/"
 lazygit = "~/.config/lazygit"
 mise = "~/.config/mise"
 nvim = "~/.config/nvim"

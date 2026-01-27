@@ -33,7 +33,7 @@ local sk_cli = require("sidekick.cli")
 local get_installed = { installed = true }
 
 utils.map("n", utils.L("aa"), function()
-  sk_cli.toggle("gemini")
+  sk_cli.toggle("opencode")
 end, "Agent: Toggle")
 utils.map({ "x", "n" }, utils.L("as"), function()
   sk_cli.send({ msg = "{this}", filter = get_installed })
