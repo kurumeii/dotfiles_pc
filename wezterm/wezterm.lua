@@ -46,7 +46,7 @@ config = {
 	freetype_load_target = "Light",
 	line_height = 1,
 	win32_system_backdrop = "Acrylic",
-	window_background_opacity = 0.7,
+	window_background_opacity = 1,
 	wsl_domains = {
 		{
 			name = items.ubuntu.label,
@@ -65,7 +65,7 @@ config = {
 	cursor_blink_rate = 500,
 	tab_bar_at_bottom = false,
 
-	color_scheme = "GruvboxDark",
+	color_scheme = "Tokyo Night (Gogh)",
 	enable_scroll_bar = false,
 	window_decorations = "RESIZE",
 	window_padding = {
