@@ -551,22 +551,4 @@ _G.mininvim = {
       [950] = "4c0519",
     },
   },
-  utils = {
-    -- Central LSP config merger
-    ---@overload fun(cfg: table): table                   -- global merge
-    ---@overload fun(server: string, cfg: table): table    -- server specific merge
-    ---@param a string|table
-    ---@param b? table
-    lsp = function(a, b)
-      local server, cfg
-      if type(a) == "string" then
-        server, cfg = a, b or {}
-      else
-        server, cfg = "*", a or {}
-      end
-      _G.mininvim._lsp_configs = _G.mininvim._lsp_configs or { ["*"] = {} }
-      vim.tbl_deep_extend("force", _G.mininvim._lsp_configs[server] or {}, cfg)
-      vim.lsp.config(server, cfg)
-    end,
-  },
 }

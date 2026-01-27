@@ -1,5 +1,5 @@
 local colorscheme = "rose-pine"
-local transparent = true
+local transparent = false
 local add = MiniDeps.add
 
 if colorscheme == "gruvbox" then
@@ -25,10 +25,7 @@ if colorscheme == "kanagawa" then
   })
 end
 if colorscheme == "catppuccin" then
-  add({
-    source = "catppuccin/nvim",
-    name = "catppuccin",
-  })
+  add({ source = "catppuccin/nvim", name = "catppuccin" })
   require("catppuccin").setup({
     dim_inactive = {
       enabled = true,
