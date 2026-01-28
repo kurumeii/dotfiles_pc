@@ -1,5 +1,6 @@
 Import-Module Terminal-Icons
-Import-Module posh-git
+# Import-Module posh-git
+Import-Module git-aliases -DisableNameChecking
 Import-Module DockerCompletion
 
 # enable completion in current shell, use absolute path because PowerShell Core not respect $env:PSModulePath
@@ -18,6 +19,7 @@ $env:PowerShell_dir = "$env:USERPROFILE\Documents\PowerShell"
 $env:RIPGREP_CONFIG_PATH = "$env:USERPROFILE\.config\rg\.ripgreprc"
 $env:TAVILY_API_KEY = "{{TAVILY_API_KEY}}"
 $env:CONTEXT_7_API_KEY = "{{CONTEXT_7_API_KEY}}"
+$env:GITHUB_TOKEN = "{{GITHUB_TOKEN}}"
 
 (&mise activate pwsh) | Out-String | Invoke-Expression
 
