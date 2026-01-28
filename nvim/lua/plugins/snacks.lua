@@ -151,6 +151,19 @@ utils.map("n", utils.L("tf"), function()
   })
 end, "Terminal New (Float)")
 
+utils.map("n", utils.L("ty"), function()
+  Snacks.terminal.open("yazi", {
+    win = {
+      style = "float",
+      enter = true,
+      width = 0.7,
+      border = "rounded",
+      title = "Yazi",
+      title_pos = "center",
+    },
+  })
+end)
+
 utils.map("n", utils.L("td"), function()
   local terms = get_terms()
   if #terms == 0 then
