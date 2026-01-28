@@ -15,7 +15,7 @@ rg = "~/.config/rg"
 wezterm = "~/.config/wezterm"
 "zed/config" = "~/.config/zed/config"
 vimrc = "~/.vimrc"
-"andrew.omp.json" = "~/andrew.omp.json"
+"andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
 "scoop-bak.json" = "~/scoop-bak.json"
 "winget-apps.bak" = "~/winget-apps.bak"
 gitconfig = "~/.gitconfig"
