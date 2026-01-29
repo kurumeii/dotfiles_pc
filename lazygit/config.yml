@@ -8,4 +8,4 @@ gui:
     rate: 60
 git:
   pagers:
-    - pager: diff-so-fancy
+      - externalDiffCommand: difft --color=always --display=inline

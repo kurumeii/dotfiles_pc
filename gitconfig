@@ -4,14 +4,20 @@
 [credential]
 	helper = manager
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RF
+; pager = diff-so-fancy | less --tabs=4 -RF
 	autocrlf = true
-[interactive]
-	diffFilter = diff-so-fancy --patch
+; [interactive]
+; 	diffFilter = diff-so-fancy --patch
+[difftool "difftastic"]
+    # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
+		cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+[difftool]
+    prompt = false
+[pager]
+    difftool = true
 [diff]
-	tool = nvim
-[difftool "nvim"]
-	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+tool = difftastic
+; tool = nvim
 [merge]
 	tool = nvim
 [mergetool "nvim"]
@@ -24,4 +30,3 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !'C:\\Users\\\{{pc_name}}\\.local\\share\\mise\\installs\\gh\\2.86.0\\bin\\gh.exe' auth git-credential
-
