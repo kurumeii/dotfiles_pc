@@ -1,5 +1,5 @@
 Import-Module Terminal-Icons
-# Import-Module posh-git
+Import-Module git-completion
 Import-Module git-aliases -DisableNameChecking
 Import-Module DockerCompletion
 
@@ -43,12 +43,12 @@ fastfetch -c examples/8.jsonc
 
 function which ($command)
 {
-	Get-Command -Name $command -ErrorAction SilentlyContinue |
-  Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+  Get-Command -Name $command -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
 function zod
 {
-	zed.exe --user-data-dir "$env:USERPROFILE\.config\zed" $args
+  zed.exe --user-data-dir "$env:USERPROFILE\.config\zed" $args
 }
 

@@ -4,6 +4,7 @@ local mux = wez.mux
 local config = wez.config_builder()
 -- local tabline = wez.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local tabbar = wez.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+local tab_pos = "top"
 
 local items = {
 	pwsh = {
@@ -63,9 +64,9 @@ config = {
 	-- kde_window_background_blur = true,
 	default_cursor_style = "BlinkingBlock",
 	cursor_blink_rate = 500,
-	tab_bar_at_bottom = false,
+	tab_bar_at_bottom = not tab_pos == "top",
 
-	color_scheme = "Tokyo Night (Gogh)",
+	color_scheme = "Catppuccin Macchiato (Gogh)",
 	enable_scroll_bar = false,
 	window_decorations = "RESIZE",
 	window_padding = {
@@ -257,7 +258,14 @@ config = {
 
 -- tabline.apply_to_config(config)
 
-tabbar.apply_to_config(config)
+tabbar.apply_to_config(config, {
+	position = tab_pos,
+	modules = {
+		clock = { enabled = false },
+		zoom = { enabled = true },
+    cwd = {enabled = false}
+	},
+})
 
 wez.on("gui-startup", function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
