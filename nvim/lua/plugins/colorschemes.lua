@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin"
+local colorscheme = "gruvbox"
 local transparent = false
 local add = require("mini.deps").add
 
@@ -25,7 +25,7 @@ require("kanagawa").setup({
   dimInactive = true,
 })
 require("catppuccin").setup({
-  flavour = "macchiato",
+  flavour = "mocha",
   transparent_background = transparent,
   auto_integrations = true,
   integrations = {

@@ -1,4 +1,4 @@
-packages = ["default"]
+packages = ["default", "windows"] #["linux"]
 
 [variables]
 username = "andrew nguyen"
