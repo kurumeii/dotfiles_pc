@@ -128,6 +128,11 @@ config = {
 			}),
 		},
 		{
+			key = "f", -- Focus
+			mods = mods.L,
+			action = wez.action.TogglePaneZoomState,
+		},
+		{
 			key = "\\", -- Toggle launcher for workspace
 			mods = mods.L,
 			action = wez.action.ShowLauncherArgs({
