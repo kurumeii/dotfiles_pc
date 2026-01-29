@@ -2,7 +2,6 @@
 
 [default]
 depends = []
-
 [default.files]
 bat = "~/.config/bat"
 btop = "~/.config/btop"
@@ -16,11 +15,23 @@ wezterm = "~/.config/wezterm"
 "zed/config" = "~/.config/zed/config"
 vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
-"scoop-bak.json" = "~/scoop-bak.json"
-"winget-apps.bak" = "~/winget-apps.bak"
 gitconfig = "~/.gitconfig"
+
+[windows]
+depends = []
+[windows.files]
 Powershell = "~/Documents/PowerShell/"
 "Powershell/Scripts" = "~/Documents/PowerShell/Scripts/"
+"scoop-bak.json" = "~/scoop-bak.json"
+"winget-apps.bak" = "~/winget-apps.bak"
+[windows.variables]
+shell = "pwsh"
+
+[linux]
+depends = []
+[linux.files]
+[liniux.variables]
+shell = "zsh"
 
 [default.variables]
 username = "andrew nguyen"

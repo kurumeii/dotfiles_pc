@@ -1,11 +1,20 @@
 ---
 gui:
   nerdFontsVersion: '3'
-  showBranchCommitHash: true
+  showRandomTip: false
+  showBranchCommitHash: false
   showCommandLog: true
   spinner:
     frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-    rate: 60
+    rate: 120
 git:
+  fetchAll: true
+  autoFetch: true
+  mainBranches:
+    - main
+    - master
   pagers:
       - externalDiffCommand: difft --color=always --display=inline
+refresher:
+  refreshInterval: 10
+  fetchInterval: 30
