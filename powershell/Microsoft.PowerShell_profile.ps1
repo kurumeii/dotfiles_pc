@@ -19,6 +19,7 @@ $env:PowerShell_dir = "$env:USERPROFILE\Documents\PowerShell"
 $env:RIPGREP_CONFIG_PATH = "$env:USERPROFILE\.config\rg\.ripgreprc"
 $env:TAVILY_API_KEY = "{{TAVILY_API_KEY}}"
 $env:CONTEXT_7_API_KEY = "{{CONTEXT_7_API_KEY}}"
+$env:BRAVE_API_KEY = "{{BRAVE_API_KEY}}"
 
 (&mise activate pwsh) | Out-String | Invoke-Expression
 

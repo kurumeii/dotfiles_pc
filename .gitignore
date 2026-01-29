@@ -1,3 +1,4 @@
 .dotter/*
 !.dotter/global.toml
 !.dotter/local.example.toml
+gh/host.*

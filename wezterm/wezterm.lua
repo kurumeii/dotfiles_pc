@@ -60,7 +60,7 @@ config = {
 		},
 	},
 	default_prog = items.pwsh.args,
-	kde_window_background_blur = true,
+	-- kde_window_background_blur = true,
 	default_cursor_style = "BlinkingBlock",
 	cursor_blink_rate = 500,
 	tab_bar_at_bottom = false,
