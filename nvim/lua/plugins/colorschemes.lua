@@ -1,4 +1,4 @@
-local colorscheme = "tokyonight"
+local colorscheme = "catppuccin"
 local transparent = false
 local add = require("mini.deps").add
 
@@ -25,15 +25,13 @@ require("kanagawa").setup({
   dimInactive = true,
 })
 require("catppuccin").setup({
-  dim_inactive = {
-    enabled = true,
-  },
-  transparent_background = false,
+  flavour = "macchiato",
+  transparent_background = transparent,
   auto_integrations = true,
   integrations = {
     mini = {
       enabled = true,
-      indentscope_color = "rosewater",
+      indentscope_color = "lavender",
     },
   },
 })
