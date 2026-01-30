@@ -10,6 +10,7 @@ _G.mininvim = {
     mode_prepend = " ",
     check = " ",
     clock = "󰥔",
+    pin = "󰐃",
     git_branch = "󰘬",
     error = "󰅙 ",
     warn = "󰀦 ",
