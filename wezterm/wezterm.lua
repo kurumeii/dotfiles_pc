@@ -40,7 +40,7 @@ local join_mods = function(m)
 end
 
 config = {
-	font = wez.font("JetBrainsMono Nerd Font", { weight = "Medium" }),
+	font = wez.font("CaskaydiaCove Nerd Font"),
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
 	-- front_end = "OpenGL",
@@ -263,7 +263,7 @@ tabbar.apply_to_config(config, {
 	modules = {
 		clock = { enabled = false },
 		zoom = { enabled = true },
-    cwd = {enabled = false}
+		cwd = { enabled = false },
 	},
 })
 
