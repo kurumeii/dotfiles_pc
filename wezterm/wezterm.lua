@@ -66,7 +66,7 @@ config = {
 	cursor_blink_rate = 500,
 	tab_bar_at_bottom = not tab_pos == "top",
 
-	color_scheme = "Catppuccin Macchiato (Gogh)",
+	color_scheme = "Gruvbox dark, hard (base16)",
 	enable_scroll_bar = false,
 	window_decorations = "RESIZE",
 	window_padding = {
