@@ -29,8 +29,6 @@ require("mason-tool-installer").setup({
     "css_variables",
     "cssls",
     "stylelint",
-    "prismals",
-    "powershell_es",
     "yamlfix",
     "jsonls",
     "yamlls",
@@ -39,6 +37,7 @@ require("mason-tool-installer").setup({
     "kdlfmt",
     "fish_lsp",
     "shfmt",
+    "alejandra",
   },
 })
 

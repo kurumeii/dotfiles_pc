@@ -1,4 +1,4 @@
-local colorscheme = "gruvbox"
+local colorscheme = "gruvbox-material"
 local transparent = false
 local add = require("mini.deps").add
 

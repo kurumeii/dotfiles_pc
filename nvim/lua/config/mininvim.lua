@@ -263,6 +263,7 @@ _G.mininvim = {
     "yaml",
     "fish",
     "kdl",
+    "nix",
   },
   tw_colors = {
     slate = {
