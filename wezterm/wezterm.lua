@@ -11,9 +11,9 @@ local items = {
 		label = "󰨊 PowerShell",
 		args = { "pwsh.exe" },
 	},
-	ubuntu = {
-		label = "󰕈 Ubuntu",
-		args = { "wsl.exe", "-d", "Ubuntu", "--cd", "~" },
+	nixos = {
+		label = "nixos",
+		args = { "wsl.exe", "-d", "NixOS", "--cd", "~" },
 	},
 	fedora = {
 		label = "󰣛 fedora",
@@ -50,8 +50,8 @@ config = {
 	window_background_opacity = 1,
 	wsl_domains = {
 		{
-			name = items.ubuntu.label,
-			distribution = items.ubuntu.args[3],
+			name = items.nixos.label,
+			distribution = items.nixos.args[3],
 			default_cwd = "~",
 		},
 		{
@@ -71,8 +71,9 @@ config = {
 	window_decorations = "RESIZE",
 	window_padding = {
 		bottom = 0,
-		right = 3,
-		left = 3,
+		right = 0,
+		left = 0,
+		top = 0,
 	},
 	allow_win32_input_mode = false,
 
