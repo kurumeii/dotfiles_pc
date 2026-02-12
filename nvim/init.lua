@@ -135,6 +135,7 @@ later(function()
   -- require("plugins.import-size")
   require("plugins.chezmoi")
   require("plugins.sidekick")
+  require("plugins.windsurf")
 end)
 later(function()
   if not vim.g.mini.completion then
