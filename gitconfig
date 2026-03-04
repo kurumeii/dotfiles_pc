@@ -16,9 +16,3 @@
 tool = difftastic
 [merge]
 	tool = nvim
-[credential "https://github.com"]
-	helper = 
-	helper = !'C:\\Users\\\{{pc_name}}\\.local\\share\\mise\\installs\\gh\\2.86.0\\bin\\gh.exe' auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !'C:\\Users\\\{{pc_name}}\\.local\\share\\mise\\installs\\gh\\2.86.0\\bin\\gh.exe' auth git-credential
