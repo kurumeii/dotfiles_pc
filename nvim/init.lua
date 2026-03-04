@@ -29,7 +29,7 @@ local now, later = MiniDeps.now, MiniDeps.later
 vim.g.mini = {
   tabline = true,
   animate = true,
-  completion = true,
+  completion = false,
   picks = true,
   show_dotfiles = true,
   notify = true,
@@ -135,7 +135,7 @@ later(function()
   -- require("plugins.import-size")
   require("plugins.chezmoi")
   require("plugins.sidekick")
-  require("plugins.windsurf")
+  -- require("plugins.windsurf")
 end)
 later(function()
   if not vim.g.mini.completion then

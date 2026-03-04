@@ -10,9 +10,9 @@ require("codeium").setup({
   virtual_text = {
     enabled = true,
     key_bindings = {
-      accept = "<M-Tab>",
-      accept_word = false,
-      accept_line = true,
+      accept = "<Tab>",
+      -- accept_word = false,
+      -- accept_line = true,
       clear = false,
       next = "<M-]>",
       prev = "<M-[>",
