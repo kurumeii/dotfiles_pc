@@ -12,6 +12,12 @@
 	"plugin": [
 		"opencode-gemini-auth@latest"
 	],
+	"command": {
+		"messages": {
+			"description": "Auto generate message",
+			"template": "Generate git convention message for changes"
+		}
+	},
 	"mcp": {
 		"serena": {
 			"enabled": true,
@@ -29,7 +35,7 @@
 			],
 			"environment": {
 				"api-key": "{env:CONTEXT_7_API_KEY}"
-			},
+			}
 		},
 		"tavily": {
 			"enabled": true,

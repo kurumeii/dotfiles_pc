@@ -1,11 +1,11 @@
 ---
 gui:
-  nerdFontsVersion: '3'
+  nerdFontsVersion: "3"
   showRandomTip: false
   showBranchCommitHash: false
   showCommandLog: true
   spinner:
-    frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
+    frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
     rate: 120
 git:
   fetchAll: true
@@ -14,7 +14,14 @@ git:
     - main
     - master
   pagers:
-      - externalDiffCommand: difft --color=always --display=inline
+    - externalDiffCommand: difft --color=always --display=inline
+services:
+  "github.com": "gh pr create --fill --web"
+customCommands:
+  - key: o
+    context: localBranches
+    description: "Create PR with gh"
+    command: gh pr create --fill --web
 refresher:
   refreshInterval: 10
   fetchInterval: 30

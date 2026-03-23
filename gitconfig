@@ -5,14 +5,9 @@
 	helper = manager
 [core]
 	autocrlf = true
-[difftool "difftastic"]
-    # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
-		cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
-[difftool]
-    prompt = false
 [pager]
     difftool = true
 [diff]
-tool = difftastic
+  external = difft
 [merge]
 	tool = nvim

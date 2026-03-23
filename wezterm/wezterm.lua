@@ -4,7 +4,7 @@ local mux = wez.mux
 local config = wez.config_builder()
 -- local tabline = wez.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local tabbar = wez.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-local tab_pos = "top"
+local tab_pos = "bottom"
 
 local items = {
 	pwsh = {
