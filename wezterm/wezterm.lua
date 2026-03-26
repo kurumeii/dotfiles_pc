@@ -2,6 +2,7 @@
 local wez = require("wezterm")
 local mux = wez.mux
 local config = wez.config_builder()
+local padding = 3
 -- local tabline = wez.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local tabbar = wez.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local tab_pos = "bottom"
@@ -66,14 +67,14 @@ config = {
 	cursor_blink_rate = 500,
 	tab_bar_at_bottom = not tab_pos == "top",
 
-	color_scheme = "Gruvbox dark, hard (base16)",
+	color_scheme = "Gruvbox Dark (Gogh)",
 	enable_scroll_bar = false,
 	window_decorations = "RESIZE",
 	window_padding = {
-		bottom = 0,
-		right = 0,
-		left = 0,
-		top = 0,
+		bottom = padding,
+		right = padding,
+		left = padding,
+		top = padding,
 	},
 	allow_win32_input_mode = false,
 

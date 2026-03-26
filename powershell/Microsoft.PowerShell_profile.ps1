@@ -39,7 +39,7 @@ Invoke-Expression -Command $(dotter gen-completions --shell powershell | Out-Str
 . "$env:PowerShell_dir/Scripts/omp-completion.ps1"
 . "$env:PowerShell_dir/Scripts/winget-completion.ps1"
 
-fastfetch -c examples/8.jsonc
+fastfetch -c examples/6.jsonc
 
 function which ($command)
 {
