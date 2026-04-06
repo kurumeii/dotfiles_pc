@@ -1,53 +1,52 @@
 {
-	"$schema": "https://opencode.ai/config.json",
-	"permission": {
-		"list": "deny",
-		"grep": "deny",
-		"glob": "deny",
-		"webfetch": "deny",
-		"websearch": "deny"
-	},
-	"username": "😺 Andrew Nguyen",
-	"theme": "system",
-	"plugin": [
-		"opencode-gemini-auth@latest"
-	],
-	"command": {
-		"messages": {
-			"description": "Auto generate message",
-			"template": "Generate git convention message for changes"
-		}
-	},
-	"mcp": {
-		"serena": {
-			"enabled": true,
-			"type": "remote",
-			"url": "http://localhost:12345/mcp",
-			"timeout": 2000
-		},
-		"context7": {
-			"enabled": true,
-			"type": "local",
-			"command": [
-				"pnpm",
-				"dlx",
-				"@upstash/context7-mcp"
-			],
-			"environment": {
-				"api-key": "{env:CONTEXT_7_API_KEY}"
-			}
-		},
-		"tavily": {
-			"enabled": true,
-			"type": "local",
-			"command": [
-				"pnpm",
-				"dlx",
-				"tavily-mcp@latest"
-			],
-			"environment": {
-				"TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
-			}
-		}
-	}
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "list": "deny",
+    "grep": "deny",
+    "glob": "deny",
+    "webfetch": "deny",
+    "websearch": "deny"
+  },
+  "username": "😺 Andrew Nguyen",
+  "plugin": [
+    "opencode-gemini-auth@latest"
+  ],
+  "command": {
+    "messages": {
+      "description": "Auto generate message",
+      "template": "Generate git convention message for changes"
+    }
+  },
+  "mcp": {
+    "serena": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://localhost:12345/mcp",
+      "timeout": 2000
+    },
+    "context7": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "pnpm",
+        "dlx",
+        "@upstash/context7-mcp"
+      ],
+      "environment": {
+        "api-key": "{env:CONTEXT_7_API_KEY}"
+      }
+    },
+    "tavily": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "pnpm",
+        "dlx",
+        "tavily-mcp@latest"
+      ],
+      "environment": {
+        "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
+      }
+    }
+  }
 }

@@ -5,9 +5,5 @@
 	helper = manager
 [core]
 	autocrlf = true
-[pager]
-    difftool = true
-[diff]
-  external = difft
 [merge]
 	tool = nvim
