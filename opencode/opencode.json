@@ -19,7 +19,7 @@
   },
   "mcp": {
     "serena": {
-      "enabled": true,
+      "enabled": false,
       "type": "remote",
       "url": "http://localhost:12345/mcp",
       "timeout": 2000
