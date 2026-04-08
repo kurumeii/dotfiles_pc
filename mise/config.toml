@@ -16,7 +16,6 @@ bat = "latest"
 ripgrep = "latest"
 resvg = "latest"
 python = "latest"
-opencode = "latest"
 gemini-cli = "latest"
 fd = "latest"
 ast-grep = "latest"
@@ -27,6 +26,6 @@ fastfetch = "latest"
 [settings]
 verbose = false
 trusted_config_paths = [
-	"~/.home/mise/config.toml",
-	"~/.pc_dotfiles/mise/config.toml",
+  "~/.home/mise/config.toml",
+  "~/.pc_dotfiles/mise/config.toml",
 ]
