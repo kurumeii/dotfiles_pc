@@ -1,15 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "permission": {
-    "list": "deny",
-    "grep": "deny",
-    "glob": "deny",
+    "list": "allow",
+    "grep": "allow",
+    "glob": "allow",
     "webfetch": "deny",
     "websearch": "deny"
   },
   "username": "😺 Andrew Nguyen",
   "plugin": [
-    "opencode-gemini-auth@latest"
+    "opencode-gemini-auth@latest",
+    "opencode-agent-skills@latest"
   ],
   "command": {
     "messages": {
@@ -47,6 +48,11 @@
       "environment": {
         "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
       }
+    },
+    "deepwiki": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp"
     }
   }
 }
