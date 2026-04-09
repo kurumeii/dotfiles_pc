@@ -1,17 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "permission": {
+    "bash": "ask",
     "list": "allow",
     "grep": "allow",
     "glob": "allow",
+    "external_directory": "allow",
+    "skill": "allow",
     "webfetch": "deny",
     "websearch": "deny"
   },
   "username": "😺 Andrew Nguyen",
   "plugin": [
-    "opencode-gemini-auth@latest",
-    "opencode-agent-skills@latest"
+    "opencode-gemini-auth",
+    "opencode-agent-skills"
   ],
+  "experimental": {
+    "batch_tool": true,
+  },
   "command": {
     "messages": {
       "description": "Auto generate message",
@@ -53,6 +59,20 @@
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "braveSearch": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "pnpm",
+        "dlx",
+        "@brave/brave-search-mcp-server",
+        "--transport",
+        "stdio"
+      ],
+      "environment": {
+        "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
+      }
     }
   }
 }
