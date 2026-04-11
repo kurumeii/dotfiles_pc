@@ -10,6 +10,11 @@ require("sidekick").setup({
     },
   },
   cli = {
+    tools = {
+      opencode = {
+        cmd = { "D:/scoop/root/shims/opencode.exe" },
+      },
+    },
     ---@type sidekick.win.Opts
     win = {
       layout = "right",
@@ -18,12 +23,6 @@ require("sidekick").setup({
       },
       keys = {
         prompt = { "<c-]>", "prompt" },
-      },
-    },
-    ---@type table<string, sidekick.cli.Config|{}>
-    tools = {
-      opencode = {
-        cmd = { "opencode" },
       },
     },
   },
