@@ -7,3 +7,5 @@
 	autocrlf = true
 [merge]
 	tool = nvim
+[diff]
+external = difft
