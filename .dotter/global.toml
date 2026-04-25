@@ -16,22 +16,19 @@ wezterm = "~/.config/wezterm"
 vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
 gitconfig = "~/.gitconfig"
+fish = "~/.config/fish"
 
-[windows]
-depends = []
 [windows.files]
 Powershell = "~/Documents/PowerShell/"
 "Powershell/Scripts" = "~/Documents/PowerShell/Scripts/"
 "scoop-bak.json" = "~/scoop-bak.json"
-"winget-apps.bak" = "~/winget-apps.bak"
+"winget-apps.bak" = "~/scoop-bak.json"
 [windows.variables]
 shell = "pwsh"
 
-[linux]
-depends = []
 [linux.files]
-[liniux.variables]
-shell = "zsh"
+[linux.variables]
+shell = "fish"
 
 [default.variables]
 username = "andrew nguyen"

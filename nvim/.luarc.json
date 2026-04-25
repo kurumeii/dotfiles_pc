@@ -1,6 +1,9 @@
 {
-    "diagnostics.disable": [
-        "undefined-field",
-        "missing-fields"
-    ]
+  "diagnostics.disable": [
+    "undefined-field",
+    "missing-fields"
+  ],
+  "files.ignore": [
+    "**/sidekick.lua"
+  ]
 }

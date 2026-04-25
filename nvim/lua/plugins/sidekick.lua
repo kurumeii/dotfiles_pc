@@ -10,11 +10,13 @@ require("sidekick").setup({
     },
   },
   cli = {
+    {{#if dotter.packages.windows}}
     tools = {
       opencode = {
         cmd = { "D:/scoop/root/shims/opencode.exe" },
       },
     },
+    {{/if}}
     ---@type sidekick.win.Opts
     win = {
       layout = "right",

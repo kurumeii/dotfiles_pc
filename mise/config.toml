@@ -3,7 +3,7 @@ bun = "latest"
 # lazygit = "latest"
 node = ["latest", "lts"]
 pnpm = "latest"
-rust = "nightly"
+# rust = "nightly"
 uv = "latest"
 yq = "latest"
 zoxide = "latest"
@@ -16,12 +16,16 @@ bat = "latest"
 ripgrep = "latest"
 resvg = "latest"
 python = "latest"
-gemini-cli = "latest"
+# gemini-cli = "latest"
 fd = "latest"
 ast-grep = "latest"
 difftastic = "latest"
-oh-my-posh = "latest"
+# oh-my-posh = "latest"
 fastfetch = "latest"
+usage = { version = "latest", os = ["linux"] }
+eza = "latest"
+opencode = "latest"
+yazi = "latest"
 
 [settings]
 verbose = false

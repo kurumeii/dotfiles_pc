@@ -8,7 +8,7 @@ MiniDeps.add({
   depends = {
     "folke/lazydev.nvim",
     "saghen/blink.lib",
-    -- "fang2hou/blink-copilot",
+    "fang2hou/blink-copilot",
   },
 })
 require("blink.cmp").setup({

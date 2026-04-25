@@ -12,7 +12,6 @@
   },
   "username": "😺 Andrew Nguyen",
   "plugin": [
-    "opencode-gemini-auth",
     "opencode-agent-skills"
   ],
   "experimental": {
@@ -22,8 +21,7 @@
     "commit": {
       "description": "You are expert in working with Git and creating meaningful Git commit messages using Conventional Commits v1.0.0.",
       "template": "Here are the instruction: \n1. User input is git diff of changes to be committed \n2. You need to understand the changes and output commit message following conventions \n3.Do not output anything else than commit message\n 4. Output only one commit message. If there are multiple changes, describe them in bullet points, do not use any fancy visuals or ancient characters. Use only dash or asterisk symbols for bullet points\n 5. Follow Git Conventional Commits v1.0.0 specification",
-      "agent": "plan",
-      "subtask": true
+      "agent": "plan"
     }
   },
   "mcp": {

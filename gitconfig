@@ -2,7 +2,11 @@
 	name = "{{username}}"
 	email = "{{email}}"
 [credential]
+{{#if dotter.packages.linux}}
+	helper = store
+{{else}}
 	helper = manager
+{{/if}}
 [core]
 	autocrlf = true
 [merge]
