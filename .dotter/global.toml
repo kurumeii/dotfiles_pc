@@ -22,7 +22,7 @@ fish = "~/.config/fish"
 Powershell = "~/Documents/PowerShell/"
 "Powershell/Scripts" = "~/Documents/PowerShell/Scripts/"
 "scoop-bak.json" = "~/scoop-bak.json"
-"winget-apps.bak" = "~/scoop-bak.json"
+"winget-apps.bak" = "~/winget-apps.bak"
 [windows.variables]
 shell = "pwsh"
 
