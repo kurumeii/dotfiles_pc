@@ -1,5 +1,5 @@
 local colorscheme = "gruvbox"
-local transparent = false
+local transparent = true
 local add = require("mini.deps").add
 
 add("folke/tokyonight.nvim")

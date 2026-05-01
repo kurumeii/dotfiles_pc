@@ -13,7 +13,7 @@ local items = {
 		args = { "pwsh.exe" },
 	},
 	nixos = {
-		label = "nixos",
+		label = "󱄅 nixos",
 		args = { "wsl.exe", "-d", "NixOS", "--cd", "~" },
 	},
 	fedora = {
@@ -41,14 +41,17 @@ local join_mods = function(m)
 end
 
 config = {
-	font = wez.font("CaskaydiaCove Nerd Font"),
+	font = wez.font("FiraCode Nerd Font"),
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
 	-- front_end = "OpenGL",
+	front_end = "Software",
 	freetype_load_target = "Light",
 	line_height = 1,
 	win32_system_backdrop = "Acrylic",
-	window_background_opacity = 1,
+	window_background_opacity = 0.7,
+	macos_window_background_blur = 1,
+
 	wsl_domains = {
 		{
 			name = items.nixos.label,
