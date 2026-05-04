@@ -23,7 +23,7 @@ difftastic = "latest"
 # oh-my-posh = "latest"
 fastfetch = "latest"
 usage = { version = "latest", os = ["linux"] }
-eza = "latest"
+eza = { version = "latest", os = ["linux"] }
 opencode = "latest"
 yazi = "latest"
 
