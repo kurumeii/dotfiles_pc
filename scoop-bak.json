@@ -1,1190 +1,1106 @@
 {
+    "apps": [
+        {
+            "Name": "7zip",
+            "Version": "26.01",
+            "Updated": "2026-05-01T15:06:34.1970885+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "7zip19.00-helper",
+            "Version": "19.00",
+            "Updated": "2025-11-14T21:31:36.5483567+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "aria2",
+            "Version": "1.37.0-1",
+            "Updated": "2025-11-14T21:31:37.727988+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "autohotkey",
+            "Version": "2.0.26",
+            "Updated": "2026-05-13T20:54:11.247316+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "btop-lhm",
+            "Version": "1.0.5",
+            "Updated": "2025-11-14T21:31:46.1063358+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "cacert",
+            "Version": "2026-03-19",
+            "Updated": "2026-03-27T18:22:57.835128+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "caprine",
+            "Version": "2.61.0",
+            "Updated": "2026-03-20T19:47:18.0016352+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "CascadiaCode-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:32:48.1709459+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "charm-gum",
+            "Version": "0.17.0",
+            "Updated": "2025-11-14T21:32:51.3307227+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "cheat-engine",
+            "Version": "7.6",
+            "Updated": "2025-11-14T21:32:58.9590415+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "cloudflared",
+            "Version": "2026.5.0",
+            "Updated": "2026-05-13T20:54:31.9795063+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "curl",
+            "Version": "8.20.0_2",
+            "Updated": "2026-05-13T20:54:35.9954285+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "cursor",
+            "Version": "3.3.30",
+            "Updated": "2026-05-13T20:55:26.052341+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "dark",
+            "Version": "3.14.1",
+            "Updated": "2025-11-14T21:33:12.2078371+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "diff-so-fancy",
+            "Version": "1.4.10",
+            "Updated": "2026-04-10T20:17:56.2658329+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "dockercompletion",
+            "Version": "1.2904.0.260509",
+            "Updated": "2026-05-13T20:56:07.9751011+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "dotter",
+            "Version": "0.13.4",
+            "Updated": "2026-01-27T20:31:24.8693575+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "fd",
+            "Version": "10.4.2",
+            "Updated": "2026-03-27T18:23:25.9740835+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "ffmpeg",
+            "Version": "8.1.1",
+            "Updated": "2026-05-13T20:56:56.3268344+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "FiraCode-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:42:36.7553821+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "FiraCode-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:42:57.1099678+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "gcc",
+            "Version": "15.2.0",
+            "Updated": "2026-01-30T15:20:34.8704896+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "GeistMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:45:45.3809305+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "GeistMono-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:46:06.8406052+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "git",
+            "Version": "2.54.0",
+            "Updated": "2026-04-24T20:18:54.9951258+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "git-aliases",
+            "Version": "0.3.8",
+            "Updated": "2026-01-30T14:59:35.573927+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "git-flow-next",
+            "Version": "1.1.0",
+            "Updated": "2026-04-10T20:17:58.3526217+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "gzip",
+            "Version": "1.3.12",
+            "Updated": "2025-11-14T21:47:40.0000952+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "hwmonitor",
+            "Version": "1.63",
+            "Updated": "2026-04-04T11:56:12.1948395+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "innounp",
+            "Version": "2.67.9",
+            "Updated": "2026-05-01T15:06:40.8029192+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "JetBrainsMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:48:45.0172176+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "JetBrainsMono-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:49:10.8832318+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "keepassxc",
+            "Version": "2.7.12",
+            "Updated": "2026-04-05T10:57:29.9853778+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "less",
+            "Version": "692",
+            "Updated": "2026-03-27T18:24:59.8723268+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "lua",
+            "Version": "5.4.8-1",
+            "Updated": "2025-11-14T21:49:45.406866+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "luarocks",
+            "Version": "3.13.0",
+            "Updated": "2026-01-30T15:21:17.5005768+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "Maple-Mono-NF",
+            "Version": "7.9",
+            "Updated": "2025-12-10T19:46:00.5053238+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "mingw-winlibs",
+            "Version": "16.1.0-14.0.0-r1",
+            "Updated": "2026-05-13T20:59:42.8713105+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "mise",
+            "Version": "2026.5.6",
+            "Updated": "2026-05-13T21:00:02.1018162+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "mockoon",
+            "Version": "9.6.1",
+            "Updated": "2026-04-24T20:46:53.386671+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "Monaspace-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:53:00.3735787+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "mpc-hc-fork",
+            "Version": "2.7.1",
+            "Updated": "2026-04-24T20:19:26.6822932+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "neo-cowsay",
+            "Version": "2.0.4",
+            "Updated": "2025-11-14T21:53:15.6701605+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "neovim",
+            "Version": "0.12.2",
+            "Updated": "2026-04-24T20:19:42.745161+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "notepadplusplus",
+            "Version": "8.9.5",
+            "Updated": "2026-05-13T21:00:06.2085821+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "oh-my-posh",
+            "Version": "29.13.1",
+            "Updated": "2026-05-13T21:00:20.3054113+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "opencode",
+            "Version": "1.14.33",
+            "Updated": "2026-05-03T10:50:08.0675819+07:00",
+            "Info": "",
+            "Source": "<auto-generated>"
+        },
+        {
+            "Name": "openssl",
+            "Version": "4.0.0",
+            "Updated": "2026-04-17T19:25:16.1817039+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "poppler",
+            "Version": "26.02.0-0",
+            "Updated": "2026-05-13T21:00:32.0159017+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "posh-git",
+            "Version": "1.1.0",
+            "Updated": "2026-03-27T18:20:32.3629083+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "psfzf",
+            "Version": "2.7.10",
+            "Updated": "2026-03-27T18:26:14.3060816+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "RobotoMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T22:01:51.5379536+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "scoop-completion",
+            "Version": "0.3.0",
+            "Updated": "2025-11-14T22:03:23.2080068+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "scoop-search",
+            "Version": "2.1.0",
+            "Updated": "2025-11-14T22:03:24.5678456+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "sed",
+            "Version": "4.9",
+            "Updated": "2025-11-14T22:03:25.90996+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "sharex",
+            "Version": "19.0.2",
+            "Updated": "2026-03-27T18:31:56.6665236+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "spotify",
+            "Version": "1.2.89.539.gfb3c63a3",
+            "Updated": "2026-05-13T21:01:25.9351268+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "sudo",
+            "Version": "0.2020.01.26",
+            "Updated": "2025-11-14T22:03:56.1665415+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "tealdeer",
+            "Version": "1.8.1",
+            "Updated": "2026-03-27T18:20:54.6179946+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "terminal-icons",
+            "Version": "0.11.0",
+            "Updated": "2025-11-14T22:04:01.8651811+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "touch",
+            "Version": "0.2018.07.25",
+            "Updated": "2025-11-14T22:04:02.5655612+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "tree-sitter",
+            "Version": "0.26.8",
+            "Updated": "2026-04-04T11:57:19.9822428+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "unzip",
+            "Version": "6.00",
+            "Updated": "2025-11-14T22:04:07.5861553+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "vcredist2022",
+            "Version": "14.51.36231.0",
+            "Updated": "2026-05-13T21:02:44.2171177+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "ventoy",
+            "Version": "1.1.12",
+            "Updated": "2026-04-24T20:20:34.8884258+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "VictorMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T22:04:34.3039022+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "vim",
+            "Version": "9.2.0390",
+            "Updated": "2026-05-01T15:07:20.9448541+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "vscode",
+            "Version": "1.120.0",
+            "Updated": "2026-05-13T21:03:39.3794015+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "wezterm",
+            "Version": "20240203-110809-5046fc22",
+            "Updated": "2025-11-14T22:05:39.5625984+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "wget",
+            "Version": "1.21.4",
+            "Updated": "2025-11-14T22:05:44.8968735+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "win32yank",
+            "Version": "0.1.1",
+            "Updated": "2025-11-14T22:05:46.3375035+07:00",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "xmousebuttoncontrol",
+            "Version": "2.20.5",
+            "Updated": "2025-11-14T22:05:57.4462432+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "youtube-music",
+            "Version": "3.11.0",
+            "Updated": "2026-01-17T13:56:01.502816+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "zed",
+            "Version": "1.1.8",
+            "Updated": "2026-05-13T21:04:32.3756596+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "ZedMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T22:07:00.821504+07:00",
+            "Info": "",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "zen-browser",
+            "Version": "1.19.11b",
+            "Updated": "2026-05-01T15:08:34.509705+07:00",
+            "Info": "",
+            "Source": "extras"
+        },
+        {
+            "Name": "7zip",
+            "Version": "26.01",
+            "Updated": "2026-05-01T15:06:34.1970885+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "7zip19.00-helper",
+            "Version": "19.00",
+            "Updated": "2025-11-14T21:31:36.5483567+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "aria2",
+            "Version": "1.37.0-1",
+            "Updated": "2025-11-14T21:31:37.727988+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "autohotkey",
+            "Version": "2.0.26",
+            "Updated": "2026-05-13T20:54:11.247316+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "btop-lhm",
+            "Version": "1.0.5",
+            "Updated": "2025-11-14T21:31:46.1063358+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "cacert",
+            "Version": "2026-03-19",
+            "Updated": "2026-03-27T18:22:57.835128+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "caprine",
+            "Version": "2.61.0",
+            "Updated": "2026-03-20T19:47:18.0016352+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "CascadiaCode-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:32:48.1709459+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "charm-gum",
+            "Version": "0.17.0",
+            "Updated": "2025-11-14T21:32:51.3307227+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "cheat-engine",
+            "Version": "7.6",
+            "Updated": "2025-11-14T21:32:58.9590415+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "cloudflared",
+            "Version": "2026.5.0",
+            "Updated": "2026-05-13T20:54:31.9795063+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "curl",
+            "Version": "8.20.0_2",
+            "Updated": "2026-05-13T20:54:35.9954285+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "cursor",
+            "Version": "3.3.30",
+            "Updated": "2026-05-13T20:55:26.052341+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "dark",
+            "Version": "3.14.1",
+            "Updated": "2025-11-14T21:33:12.2078371+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "diff-so-fancy",
+            "Version": "1.4.10",
+            "Updated": "2026-04-10T20:17:56.2658329+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "dockercompletion",
+            "Version": "1.2904.0.260509",
+            "Updated": "2026-05-13T20:56:07.9751011+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "dotter",
+            "Version": "0.13.4",
+            "Updated": "2026-01-27T20:31:24.8693575+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "fd",
+            "Version": "10.4.2",
+            "Updated": "2026-03-27T18:23:25.9740835+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "ffmpeg",
+            "Version": "8.1.1",
+            "Updated": "2026-05-13T20:56:56.3268344+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "FiraCode-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:42:36.7553821+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "FiraCode-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:42:57.1099678+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "gcc",
+            "Version": "15.2.0",
+            "Updated": "2026-01-30T15:20:34.8704896+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "GeistMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:45:45.3809305+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "GeistMono-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:46:06.8406052+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "git",
+            "Version": "2.54.0",
+            "Updated": "2026-04-24T20:18:54.9951258+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "git-aliases",
+            "Version": "0.3.8",
+            "Updated": "2026-01-30T14:59:35.573927+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "git-flow-next",
+            "Version": "1.1.0",
+            "Updated": "2026-04-10T20:17:58.3526217+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "gzip",
+            "Version": "1.3.12",
+            "Updated": "2025-11-14T21:47:40.0000952+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "hwmonitor",
+            "Version": "1.63",
+            "Updated": "2026-04-04T11:56:12.1948395+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "innounp",
+            "Version": "2.67.9",
+            "Updated": "2026-05-01T15:06:40.8029192+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "JetBrainsMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:48:45.0172176+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "JetBrainsMono-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:49:10.8832318+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "keepassxc",
+            "Version": "2.7.12",
+            "Updated": "2026-04-05T10:57:29.9853778+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "less",
+            "Version": "692",
+            "Updated": "2026-03-27T18:24:59.8723268+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "lua",
+            "Version": "5.4.8-1",
+            "Updated": "2025-11-14T21:49:45.406866+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "luarocks",
+            "Version": "3.13.0",
+            "Updated": "2026-01-30T15:21:17.5005768+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "Maple-Mono-NF",
+            "Version": "7.9",
+            "Updated": "2025-12-10T19:46:00.5053238+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "mingw-winlibs",
+            "Version": "16.1.0-14.0.0-r1",
+            "Updated": "2026-05-13T20:59:42.8713105+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "mise",
+            "Version": "2026.5.6",
+            "Updated": "2026-05-13T21:00:02.1018162+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "mockoon",
+            "Version": "9.6.1",
+            "Updated": "2026-04-24T20:46:53.386671+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "Monaspace-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T21:53:00.3735787+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "mpc-hc-fork",
+            "Version": "2.7.1",
+            "Updated": "2026-04-24T20:19:26.6822932+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "neo-cowsay",
+            "Version": "2.0.4",
+            "Updated": "2025-11-14T21:53:15.6701605+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "neovim",
+            "Version": "0.12.2",
+            "Updated": "2026-04-24T20:19:42.745161+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "notepadplusplus",
+            "Version": "8.9.5",
+            "Updated": "2026-05-13T21:00:06.2085821+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "oh-my-posh",
+            "Version": "29.13.1",
+            "Updated": "2026-05-13T21:00:20.3054113+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "opencode",
+            "Version": "1.14.33",
+            "Updated": "2026-05-03T10:50:08.0675819+07:00",
+            "Info": "Global install",
+            "Source": "<auto-generated>"
+        },
+        {
+            "Name": "openssl",
+            "Version": "4.0.0",
+            "Updated": "2026-04-17T19:25:16.1817039+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "poppler",
+            "Version": "26.02.0-0",
+            "Updated": "2026-05-13T21:00:32.0159017+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "posh-git",
+            "Version": "1.1.0",
+            "Updated": "2026-03-27T18:20:32.3629083+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "psfzf",
+            "Version": "2.7.10",
+            "Updated": "2026-03-27T18:26:14.3060816+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "RobotoMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T22:01:51.5379536+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "scoop-completion",
+            "Version": "0.3.0",
+            "Updated": "2025-11-14T22:03:23.2080068+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "scoop-search",
+            "Version": "2.1.0",
+            "Updated": "2025-11-14T22:03:24.5678456+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "sed",
+            "Version": "4.9",
+            "Updated": "2025-11-14T22:03:25.90996+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "sharex",
+            "Version": "19.0.2",
+            "Updated": "2026-03-27T18:31:56.6665236+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "spotify",
+            "Version": "1.2.89.539.gfb3c63a3",
+            "Updated": "2026-05-13T21:01:25.9351268+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "sudo",
+            "Version": "0.2020.01.26",
+            "Updated": "2025-11-14T22:03:56.1665415+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "tealdeer",
+            "Version": "1.8.1",
+            "Updated": "2026-03-27T18:20:54.6179946+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "terminal-icons",
+            "Version": "0.11.0",
+            "Updated": "2025-11-14T22:04:01.8651811+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "touch",
+            "Version": "0.2018.07.25",
+            "Updated": "2025-11-14T22:04:02.5655612+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "tree-sitter",
+            "Version": "0.26.8",
+            "Updated": "2026-04-04T11:57:19.9822428+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "unzip",
+            "Version": "6.00",
+            "Updated": "2025-11-14T22:04:07.5861553+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "vcredist2022",
+            "Version": "14.51.36231.0",
+            "Updated": "2026-05-13T21:02:44.2171177+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "ventoy",
+            "Version": "1.1.12",
+            "Updated": "2026-04-24T20:20:34.8884258+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "VictorMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T22:04:34.3039022+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "vim",
+            "Version": "9.2.0390",
+            "Updated": "2026-05-01T15:07:20.9448541+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "vscode",
+            "Version": "1.120.0",
+            "Updated": "2026-05-13T21:03:39.3794015+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "wezterm",
+            "Version": "20240203-110809-5046fc22",
+            "Updated": "2025-11-14T22:05:39.5625984+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "wget",
+            "Version": "1.21.4",
+            "Updated": "2025-11-14T22:05:44.8968735+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "win32yank",
+            "Version": "0.1.1",
+            "Updated": "2025-11-14T22:05:46.3375035+07:00",
+            "Info": "Global install",
+            "Source": "main"
+        },
+        {
+            "Name": "xmousebuttoncontrol",
+            "Version": "2.20.5",
+            "Updated": "2025-11-14T22:05:57.4462432+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "youtube-music",
+            "Version": "3.11.0",
+            "Updated": "2026-01-17T13:56:01.502816+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "zed",
+            "Version": "1.1.8",
+            "Updated": "2026-05-13T21:04:32.3756596+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        },
+        {
+            "Name": "ZedMono-NF",
+            "Version": "3.4.0",
+            "Updated": "2025-11-14T22:07:00.821504+07:00",
+            "Info": "Global install",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "zen-browser",
+            "Version": "1.19.11b",
+            "Updated": "2026-05-01T15:08:34.509705+07:00",
+            "Info": "Global install",
+            "Source": "extras"
+        }
+    ],
     "buckets": [
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2026-04-25T08:02:07+07:00",
-            "Manifests": 1506
+            "Updated": "2026-05-13T20:05:14+07:00",
+            "Manifests": 1533
         },
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2026-04-25T08:04:32+07:00",
-            "Manifests": 2301
+            "Updated": "2026-05-13T20:05:06+07:00",
+            "Manifests": 2306
         },
         {
             "Name": "versions",
             "Source": "https://github.com/ScoopInstaller/Versions",
-            "Updated": "2026-04-25T04:11:17+07:00",
-            "Manifests": 571
+            "Updated": "2026-05-13T17:47:23+07:00",
+            "Manifests": 580
         },
         {
             "Name": "nerd-fonts",
             "Source": "https://github.com/matthewjberger/scoop-nerd-fonts",
-            "Updated": "2026-04-18T22:36:56+07:00",
+            "Updated": "2026-05-05T01:19:14+07:00",
             "Manifests": 367
         },
         {
             "Name": "nonportable",
             "Source": "https://github.com/ScoopInstaller/Nonportable",
-            "Updated": "2026-04-24T22:04:15+07:00",
-            "Manifests": 131
+            "Updated": "2026-05-13T01:20:43+07:00",
+            "Manifests": 132
         },
         {
             "Name": "games",
             "Source": "https://github.com/Calinou/scoop-games",
-            "Updated": "2026-04-25T08:01:08+07:00",
-            "Manifests": 398
-        }
-    ],
-    "apps": [
-        {
-            "Name": "7zip",
-            "Updated": "2026-03-27T18:21:57.6177813+07:00",
-            "Source": "main",
-            "Version": "26.00",
-            "Info": ""
-        },
-        {
-            "Name": "7zip19.00-helper",
-            "Updated": "2025-11-14T21:31:36.5483567+07:00",
-            "Source": "main",
-            "Version": "19.00",
-            "Info": ""
-        },
-        {
-            "Name": "aria2",
-            "Updated": "2025-11-14T21:31:37.727988+07:00",
-            "Source": "main",
-            "Version": "1.37.0-1",
-            "Info": ""
-        },
-        {
-            "Name": "autohotkey",
-            "Updated": "2026-04-24T20:18:23.5168927+07:00",
-            "Source": "extras",
-            "Version": "2.0.24",
-            "Info": ""
-        },
-        {
-            "Name": "btop-lhm",
-            "Updated": "2025-11-14T21:31:46.1063358+07:00",
-            "Source": "main",
-            "Version": "1.0.5",
-            "Info": ""
-        },
-        {
-            "Name": "cacert",
-            "Updated": "2026-03-27T18:22:57.835128+07:00",
-            "Source": "main",
-            "Version": "2026-03-19",
-            "Info": ""
-        },
-        {
-            "Name": "caprine",
-            "Updated": "2026-03-20T19:47:18.0016352+07:00",
-            "Source": "extras",
-            "Version": "2.61.0",
-            "Info": ""
-        },
-        {
-            "Name": "CascadiaCode-NF",
-            "Updated": "2025-11-14T21:32:48.1709459+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "charm-gum",
-            "Updated": "2025-11-14T21:32:51.3307227+07:00",
-            "Source": "main",
-            "Version": "0.17.0",
-            "Info": ""
-        },
-        {
-            "Name": "cheat-engine",
-            "Updated": "2025-11-14T21:32:58.9590415+07:00",
-            "Source": "extras",
-            "Version": "7.6",
-            "Info": ""
-        },
-        {
-            "Name": "cloudflared",
-            "Updated": "2026-04-05T10:59:30.2294531+07:00",
-            "Source": "main",
-            "Version": "2026.3.0",
-            "Info": ""
-        },
-        {
-            "Name": "curl",
-            "Updated": "2026-04-20T16:44:50.8301115+07:00",
-            "Source": "main",
-            "Version": "8.19.0_8",
-            "Info": ""
-        },
-        {
-            "Name": "dark",
-            "Updated": "2025-11-14T21:33:12.2078371+07:00",
-            "Source": "main",
-            "Version": "3.14.1",
-            "Info": ""
-        },
-        {
-            "Name": "dbeaver",
-            "Updated": "2026-04-20T16:45:05.885371+07:00",
-            "Source": "extras",
-            "Version": "26.0.3",
-            "Info": ""
-        },
-        {
-            "Name": "diff-so-fancy",
-            "Updated": "2026-04-10T20:17:56.2658329+07:00",
-            "Source": "main",
-            "Version": "1.4.10",
-            "Info": ""
-        },
-        {
-            "Name": "dockercompletion",
-            "Updated": "2026-03-27T18:20:29.4528671+07:00",
-            "Source": "extras",
-            "Version": "1.2901.0.260125",
-            "Info": ""
-        },
-        {
-            "Name": "dotter",
-            "Updated": "2026-01-27T20:31:24.8693575+07:00",
-            "Source": "main",
-            "Version": "0.13.4",
-            "Info": ""
-        },
-        {
-            "Name": "fd",
-            "Updated": "2026-03-27T18:23:25.9740835+07:00",
-            "Source": "main",
-            "Version": "10.4.2",
-            "Info": ""
-        },
-        {
-            "Name": "ffmpeg",
-            "Updated": "2026-03-27T18:23:49.9962522+07:00",
-            "Source": "main",
-            "Version": "8.1",
-            "Info": ""
-        },
-        {
-            "Name": "file",
-            "Updated": "2025-11-14T21:42:26.4210883+07:00",
-            "Source": "main",
-            "Version": "5.45",
-            "Info": ""
-        },
-        {
-            "Name": "FiraCode-NF",
-            "Updated": "2025-11-14T21:42:36.7553821+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "FiraCode-NF-Mono",
-            "Updated": "2025-11-14T21:42:57.1099678+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "gcc",
-            "Updated": "2026-01-30T15:20:34.8704896+07:00",
-            "Source": "main",
-            "Version": "15.2.0",
-            "Info": ""
-        },
-        {
-            "Name": "GeistMono-NF",
-            "Updated": "2025-11-14T21:45:45.3809305+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "GeistMono-NF-Mono",
-            "Updated": "2025-11-14T21:46:06.8406052+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "ghostscript",
-            "Updated": "2026-03-27T18:24:05.2419925+07:00",
-            "Source": "main",
-            "Version": "10.07.0",
-            "Info": ""
-        },
-        {
-            "Name": "git",
-            "Updated": "2026-04-24T20:18:54.9951258+07:00",
-            "Source": "main",
-            "Version": "2.54.0",
-            "Info": ""
-        },
-        {
-            "Name": "git-aliases",
-            "Updated": "2026-01-30T14:59:35.573927+07:00",
-            "Source": "extras",
-            "Version": "0.3.8",
-            "Info": ""
-        },
-        {
-            "Name": "git-flow-next",
-            "Updated": "2026-04-10T20:17:58.3526217+07:00",
-            "Source": "main",
-            "Version": "1.1.0",
-            "Info": ""
-        },
-        {
-            "Name": "gzip",
-            "Updated": "2025-11-14T21:47:40.0000952+07:00",
-            "Source": "main",
-            "Version": "1.3.12",
-            "Info": ""
-        },
-        {
-            "Name": "hwmonitor",
-            "Updated": "2026-04-04T11:56:12.1948395+07:00",
-            "Source": "extras",
-            "Version": "1.63",
-            "Info": ""
-        },
-        {
-            "Name": "imagemagick",
-            "Updated": "2026-04-24T20:19:03.995138+07:00",
-            "Source": "main",
-            "Version": "7.1.2-21",
-            "Info": ""
-        },
-        {
-            "Name": "innounp",
-            "Updated": "2026-04-24T20:19:05.0650515+07:00",
-            "Source": "main",
-            "Version": "2.67.8",
-            "Info": ""
-        },
-        {
-            "Name": "JetBrainsMono-NF",
-            "Updated": "2025-11-14T21:48:45.0172176+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "JetBrainsMono-NF-Mono",
-            "Updated": "2025-11-14T21:49:10.8832318+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "keepassxc",
-            "Updated": "2026-04-05T10:57:29.9853778+07:00",
-            "Source": "extras",
-            "Version": "2.7.12",
-            "Info": ""
-        },
-        {
-            "Name": "less",
-            "Updated": "2026-03-27T18:24:59.8723268+07:00",
-            "Source": "main",
-            "Version": "692",
-            "Info": ""
-        },
-        {
-            "Name": "lua",
-            "Updated": "2025-11-14T21:49:45.406866+07:00",
-            "Source": "main",
-            "Version": "5.4.8-1",
-            "Info": ""
-        },
-        {
-            "Name": "luarocks",
-            "Updated": "2026-01-30T15:21:17.5005768+07:00",
-            "Source": "main",
-            "Version": "3.13.0",
-            "Info": ""
-        },
-        {
-            "Name": "make",
-            "Updated": "2025-11-14T21:50:46.9625166+07:00",
-            "Source": "main",
-            "Version": "4.4.1",
-            "Info": ""
-        },
-        {
-            "Name": "Maple-Mono-NF",
-            "Updated": "2025-12-10T19:46:00.5053238+07:00",
-            "Source": "nerd-fonts",
-            "Version": "7.9",
-            "Info": ""
-        },
-        {
-            "Name": "mingw-winlibs",
-            "Updated": "2026-04-04T11:56:47.5156192+07:00",
-            "Source": "main",
-            "Version": "15.2.0-14.0.0-r7",
-            "Info": ""
-        },
-        {
-            "Name": "mise",
-            "Updated": "2026-04-24T20:19:16.994957+07:00",
-            "Source": "main",
-            "Version": "2026.4.20",
-            "Info": ""
-        },
-        {
-            "Name": "mockoon",
-            "Updated": "2026-04-24T20:46:53.386671+07:00",
-            "Source": "extras",
-            "Version": "9.6.1",
-            "Info": ""
-        },
-        {
-            "Name": "Monaspace-NF",
-            "Updated": "2025-11-14T21:53:00.3735787+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "mpc-hc-fork",
-            "Updated": "2026-04-24T20:19:26.6822932+07:00",
-            "Source": "extras",
-            "Version": "2.7.1",
-            "Info": ""
-        },
-        {
-            "Name": "neo-cowsay",
-            "Updated": "2025-11-14T21:53:15.6701605+07:00",
-            "Source": "main",
-            "Version": "2.0.4",
-            "Info": ""
-        },
-        {
-            "Name": "neovim",
-            "Updated": "2026-04-24T20:19:42.745161+07:00",
-            "Source": "main",
-            "Version": "0.12.2",
-            "Info": ""
-        },
-        {
-            "Name": "notepadplusplus",
-            "Updated": "2026-03-27T18:25:57.7779138+07:00",
-            "Source": "extras",
-            "Version": "8.9.3",
-            "Info": ""
-        },
-        {
-            "Name": "opencode",
-            "Updated": "2026-04-24T21:17:09.7566038+07:00",
-            "Source": "<auto-generated>",
-            "Version": "1.14.22",
-            "Info": ""
-        },
-        {
-            "Name": "openssl",
-            "Updated": "2026-04-17T19:25:16.1817039+07:00",
-            "Source": "main",
-            "Version": "4.0.0",
-            "Info": ""
-        },
-        {
-            "Name": "poppler",
-            "Updated": "2026-01-30T15:23:24.8826141+07:00",
-            "Source": "main",
-            "Version": "25.12.0-0",
-            "Info": ""
-        },
-        {
-            "Name": "posh-git",
-            "Updated": "2026-03-27T18:20:32.3629083+07:00",
-            "Source": "extras",
-            "Version": "1.1.0",
-            "Info": ""
-        },
-        {
-            "Name": "postman",
-            "Updated": "2026-04-24T20:20:13.1450542+07:00",
-            "Source": "extras",
-            "Version": "12.7.6",
-            "Info": ""
-        },
-        {
-            "Name": "psfzf",
-            "Updated": "2026-03-27T18:26:14.3060816+07:00",
-            "Source": "extras",
-            "Version": "2.7.10",
-            "Info": ""
-        },
-        {
-            "Name": "RobotoMono-NF",
-            "Updated": "2025-11-14T22:01:51.5379536+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "scoop-completion",
-            "Updated": "2025-11-14T22:03:23.2080068+07:00",
-            "Source": "extras",
-            "Version": "0.3.0",
-            "Info": ""
-        },
-        {
-            "Name": "scoop-search",
-            "Updated": "2025-11-14T22:03:24.5678456+07:00",
-            "Source": "main",
-            "Version": "2.1.0",
-            "Info": ""
-        },
-        {
-            "Name": "sed",
-            "Updated": "2025-11-14T22:03:25.90996+07:00",
-            "Source": "main",
-            "Version": "4.9",
-            "Info": ""
-        },
-        {
-            "Name": "sharex",
-            "Updated": "2026-03-27T18:31:56.6665236+07:00",
-            "Source": "extras",
-            "Version": "19.0.2",
-            "Info": ""
-        },
-        {
-            "Name": "spotify",
-            "Updated": "2026-04-24T20:20:31.9672083+07:00",
-            "Source": "extras",
-            "Version": "1.2.88.483.g8aa8628e",
-            "Info": ""
-        },
-        {
-            "Name": "sudo",
-            "Updated": "2025-11-14T22:03:56.1665415+07:00",
-            "Source": "main",
-            "Version": "0.2020.01.26",
-            "Info": ""
-        },
-        {
-            "Name": "tealdeer",
-            "Updated": "2026-03-27T18:20:54.6179946+07:00",
-            "Source": "main",
-            "Version": "1.8.1",
-            "Info": ""
-        },
-        {
-            "Name": "tectonic",
-            "Updated": "2026-04-17T19:25:36.9465007+07:00",
-            "Source": "main",
-            "Version": "0.16.9",
-            "Info": ""
-        },
-        {
-            "Name": "terminal-icons",
-            "Updated": "2025-11-14T22:04:01.8651811+07:00",
-            "Source": "extras",
-            "Version": "0.11.0",
-            "Info": ""
-        },
-        {
-            "Name": "touch",
-            "Updated": "2025-11-14T22:04:02.5655612+07:00",
-            "Source": "main",
-            "Version": "0.2018.07.25",
-            "Info": ""
-        },
-        {
-            "Name": "tree-sitter",
-            "Updated": "2026-04-04T11:57:19.9822428+07:00",
-            "Source": "main",
-            "Version": "0.26.8",
-            "Info": ""
-        },
-        {
-            "Name": "unzip",
-            "Updated": "2025-11-14T22:04:07.5861553+07:00",
-            "Source": "main",
-            "Version": "6.00",
-            "Info": ""
-        },
-        {
-            "Name": "vcredist2022",
-            "Updated": "2026-01-17T13:55:32.4091916+07:00",
-            "Source": "extras",
-            "Version": "14.50.35719.0",
-            "Info": ""
-        },
-        {
-            "Name": "ventoy",
-            "Updated": "2026-04-24T20:20:34.8884258+07:00",
-            "Source": "extras",
-            "Version": "1.1.12",
-            "Info": ""
-        },
-        {
-            "Name": "VictorMono-NF",
-            "Updated": "2025-11-14T22:04:34.3039022+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "vim",
-            "Updated": "2026-04-10T20:23:18.8391979+07:00",
-            "Source": "main",
-            "Version": "9.2.0323",
-            "Info": ""
-        },
-        {
-            "Name": "vscode",
-            "Updated": "2026-04-24T20:21:26.745917+07:00",
-            "Source": "extras",
-            "Version": "1.117.0",
-            "Info": ""
-        },
-        {
-            "Name": "wezterm",
-            "Updated": "2025-11-14T22:05:39.5625984+07:00",
-            "Source": "extras",
-            "Version": "20240203-110809-5046fc22",
-            "Info": ""
-        },
-        {
-            "Name": "wget",
-            "Updated": "2025-11-14T22:05:44.8968735+07:00",
-            "Source": "main",
-            "Version": "1.21.4",
-            "Info": ""
-        },
-        {
-            "Name": "win32yank",
-            "Updated": "2025-11-14T22:05:46.3375035+07:00",
-            "Source": "main",
-            "Version": "0.1.1",
-            "Info": ""
-        },
-        {
-            "Name": "xmousebuttoncontrol",
-            "Updated": "2025-11-14T22:05:57.4462432+07:00",
-            "Source": "extras",
-            "Version": "2.20.5",
-            "Info": ""
-        },
-        {
-            "Name": "yazi",
-            "Updated": "2026-01-30T15:23:44.1152286+07:00",
-            "Source": "main",
-            "Version": "26.1.22",
-            "Info": ""
-        },
-        {
-            "Name": "youtube-music",
-            "Updated": "2026-01-17T13:56:01.502816+07:00",
-            "Source": "extras",
-            "Version": "3.11.0",
-            "Info": ""
-        },
-        {
-            "Name": "zed",
-            "Updated": "2026-04-25T10:12:12.2874274+07:00",
-            "Source": "extras",
-            "Version": "0.233.10",
-            "Info": ""
-        },
-        {
-            "Name": "ZedMono-NF",
-            "Updated": "2025-11-14T22:07:00.821504+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": ""
-        },
-        {
-            "Name": "zen-browser",
-            "Updated": "2026-04-25T10:12:29.8712446+07:00",
-            "Source": "extras",
-            "Version": "1.19.9b",
-            "Info": ""
-        },
-        {
-            "Name": "7zip",
-            "Updated": "2026-03-27T18:21:57.6177813+07:00",
-            "Source": "main",
-            "Version": "26.00",
-            "Info": "Global install"
-        },
-        {
-            "Name": "7zip19.00-helper",
-            "Updated": "2025-11-14T21:31:36.5483567+07:00",
-            "Source": "main",
-            "Version": "19.00",
-            "Info": "Global install"
-        },
-        {
-            "Name": "aria2",
-            "Updated": "2025-11-14T21:31:37.727988+07:00",
-            "Source": "main",
-            "Version": "1.37.0-1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "autohotkey",
-            "Updated": "2026-04-24T20:18:23.5168927+07:00",
-            "Source": "extras",
-            "Version": "2.0.24",
-            "Info": "Global install"
-        },
-        {
-            "Name": "btop-lhm",
-            "Updated": "2025-11-14T21:31:46.1063358+07:00",
-            "Source": "main",
-            "Version": "1.0.5",
-            "Info": "Global install"
-        },
-        {
-            "Name": "cacert",
-            "Updated": "2026-03-27T18:22:57.835128+07:00",
-            "Source": "main",
-            "Version": "2026-03-19",
-            "Info": "Global install"
-        },
-        {
-            "Name": "caprine",
-            "Updated": "2026-03-20T19:47:18.0016352+07:00",
-            "Source": "extras",
-            "Version": "2.61.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "CascadiaCode-NF",
-            "Updated": "2025-11-14T21:32:48.1709459+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "charm-gum",
-            "Updated": "2025-11-14T21:32:51.3307227+07:00",
-            "Source": "main",
-            "Version": "0.17.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "cheat-engine",
-            "Updated": "2025-11-14T21:32:58.9590415+07:00",
-            "Source": "extras",
-            "Version": "7.6",
-            "Info": "Global install"
-        },
-        {
-            "Name": "cloudflared",
-            "Updated": "2026-04-05T10:59:30.2294531+07:00",
-            "Source": "main",
-            "Version": "2026.3.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "curl",
-            "Updated": "2026-04-20T16:44:50.8301115+07:00",
-            "Source": "main",
-            "Version": "8.19.0_8",
-            "Info": "Global install"
-        },
-        {
-            "Name": "dark",
-            "Updated": "2025-11-14T21:33:12.2078371+07:00",
-            "Source": "main",
-            "Version": "3.14.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "dbeaver",
-            "Updated": "2026-04-20T16:45:05.885371+07:00",
-            "Source": "extras",
-            "Version": "26.0.3",
-            "Info": "Global install"
-        },
-        {
-            "Name": "diff-so-fancy",
-            "Updated": "2026-04-10T20:17:56.2658329+07:00",
-            "Source": "main",
-            "Version": "1.4.10",
-            "Info": "Global install"
-        },
-        {
-            "Name": "dockercompletion",
-            "Updated": "2026-03-27T18:20:29.4528671+07:00",
-            "Source": "extras",
-            "Version": "1.2901.0.260125",
-            "Info": "Global install"
-        },
-        {
-            "Name": "dotter",
-            "Updated": "2026-01-27T20:31:24.8693575+07:00",
-            "Source": "main",
-            "Version": "0.13.4",
-            "Info": "Global install"
-        },
-        {
-            "Name": "fd",
-            "Updated": "2026-03-27T18:23:25.9740835+07:00",
-            "Source": "main",
-            "Version": "10.4.2",
-            "Info": "Global install"
-        },
-        {
-            "Name": "ffmpeg",
-            "Updated": "2026-03-27T18:23:49.9962522+07:00",
-            "Source": "main",
-            "Version": "8.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "file",
-            "Updated": "2025-11-14T21:42:26.4210883+07:00",
-            "Source": "main",
-            "Version": "5.45",
-            "Info": "Global install"
-        },
-        {
-            "Name": "FiraCode-NF",
-            "Updated": "2025-11-14T21:42:36.7553821+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "FiraCode-NF-Mono",
-            "Updated": "2025-11-14T21:42:57.1099678+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "gcc",
-            "Updated": "2026-01-30T15:20:34.8704896+07:00",
-            "Source": "main",
-            "Version": "15.2.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "GeistMono-NF",
-            "Updated": "2025-11-14T21:45:45.3809305+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "GeistMono-NF-Mono",
-            "Updated": "2025-11-14T21:46:06.8406052+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "ghostscript",
-            "Updated": "2026-03-27T18:24:05.2419925+07:00",
-            "Source": "main",
-            "Version": "10.07.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "git",
-            "Updated": "2026-04-24T20:18:54.9951258+07:00",
-            "Source": "main",
-            "Version": "2.54.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "git-aliases",
-            "Updated": "2026-01-30T14:59:35.573927+07:00",
-            "Source": "extras",
-            "Version": "0.3.8",
-            "Info": "Global install"
-        },
-        {
-            "Name": "git-flow-next",
-            "Updated": "2026-04-10T20:17:58.3526217+07:00",
-            "Source": "main",
-            "Version": "1.1.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "gzip",
-            "Updated": "2025-11-14T21:47:40.0000952+07:00",
-            "Source": "main",
-            "Version": "1.3.12",
-            "Info": "Global install"
-        },
-        {
-            "Name": "hwmonitor",
-            "Updated": "2026-04-04T11:56:12.1948395+07:00",
-            "Source": "extras",
-            "Version": "1.63",
-            "Info": "Global install"
-        },
-        {
-            "Name": "imagemagick",
-            "Updated": "2026-04-24T20:19:03.995138+07:00",
-            "Source": "main",
-            "Version": "7.1.2-21",
-            "Info": "Global install"
-        },
-        {
-            "Name": "innounp",
-            "Updated": "2026-04-24T20:19:05.0650515+07:00",
-            "Source": "main",
-            "Version": "2.67.8",
-            "Info": "Global install"
-        },
-        {
-            "Name": "JetBrainsMono-NF",
-            "Updated": "2025-11-14T21:48:45.0172176+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "JetBrainsMono-NF-Mono",
-            "Updated": "2025-11-14T21:49:10.8832318+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "keepassxc",
-            "Updated": "2026-04-05T10:57:29.9853778+07:00",
-            "Source": "extras",
-            "Version": "2.7.12",
-            "Info": "Global install"
-        },
-        {
-            "Name": "less",
-            "Updated": "2026-03-27T18:24:59.8723268+07:00",
-            "Source": "main",
-            "Version": "692",
-            "Info": "Global install"
-        },
-        {
-            "Name": "lua",
-            "Updated": "2025-11-14T21:49:45.406866+07:00",
-            "Source": "main",
-            "Version": "5.4.8-1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "luarocks",
-            "Updated": "2026-01-30T15:21:17.5005768+07:00",
-            "Source": "main",
-            "Version": "3.13.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "make",
-            "Updated": "2025-11-14T21:50:46.9625166+07:00",
-            "Source": "main",
-            "Version": "4.4.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "Maple-Mono-NF",
-            "Updated": "2025-12-10T19:46:00.5053238+07:00",
-            "Source": "nerd-fonts",
-            "Version": "7.9",
-            "Info": "Global install"
-        },
-        {
-            "Name": "mingw-winlibs",
-            "Updated": "2026-04-04T11:56:47.5156192+07:00",
-            "Source": "main",
-            "Version": "15.2.0-14.0.0-r7",
-            "Info": "Global install"
-        },
-        {
-            "Name": "mise",
-            "Updated": "2026-04-24T20:19:16.994957+07:00",
-            "Source": "main",
-            "Version": "2026.4.20",
-            "Info": "Global install"
-        },
-        {
-            "Name": "mockoon",
-            "Updated": "2026-04-24T20:46:53.386671+07:00",
-            "Source": "extras",
-            "Version": "9.6.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "Monaspace-NF",
-            "Updated": "2025-11-14T21:53:00.3735787+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "mpc-hc-fork",
-            "Updated": "2026-04-24T20:19:26.6822932+07:00",
-            "Source": "extras",
-            "Version": "2.7.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "neo-cowsay",
-            "Updated": "2025-11-14T21:53:15.6701605+07:00",
-            "Source": "main",
-            "Version": "2.0.4",
-            "Info": "Global install"
-        },
-        {
-            "Name": "neovim",
-            "Updated": "2026-04-24T20:19:42.745161+07:00",
-            "Source": "main",
-            "Version": "0.12.2",
-            "Info": "Global install"
-        },
-        {
-            "Name": "notepadplusplus",
-            "Updated": "2026-03-27T18:25:57.7779138+07:00",
-            "Source": "extras",
-            "Version": "8.9.3",
-            "Info": "Global install"
-        },
-        {
-            "Name": "opencode",
-            "Updated": "2026-04-24T21:17:09.7566038+07:00",
-            "Source": "<auto-generated>",
-            "Version": "1.14.22",
-            "Info": "Global install"
-        },
-        {
-            "Name": "openssl",
-            "Updated": "2026-04-17T19:25:16.1817039+07:00",
-            "Source": "main",
-            "Version": "4.0.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "poppler",
-            "Updated": "2026-01-30T15:23:24.8826141+07:00",
-            "Source": "main",
-            "Version": "25.12.0-0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "posh-git",
-            "Updated": "2026-03-27T18:20:32.3629083+07:00",
-            "Source": "extras",
-            "Version": "1.1.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "postman",
-            "Updated": "2026-04-24T20:20:13.1450542+07:00",
-            "Source": "extras",
-            "Version": "12.7.6",
-            "Info": "Global install"
-        },
-        {
-            "Name": "psfzf",
-            "Updated": "2026-03-27T18:26:14.3060816+07:00",
-            "Source": "extras",
-            "Version": "2.7.10",
-            "Info": "Global install"
-        },
-        {
-            "Name": "RobotoMono-NF",
-            "Updated": "2025-11-14T22:01:51.5379536+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "scoop-completion",
-            "Updated": "2025-11-14T22:03:23.2080068+07:00",
-            "Source": "extras",
-            "Version": "0.3.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "scoop-search",
-            "Updated": "2025-11-14T22:03:24.5678456+07:00",
-            "Source": "main",
-            "Version": "2.1.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "sed",
-            "Updated": "2025-11-14T22:03:25.90996+07:00",
-            "Source": "main",
-            "Version": "4.9",
-            "Info": "Global install"
-        },
-        {
-            "Name": "sharex",
-            "Updated": "2026-03-27T18:31:56.6665236+07:00",
-            "Source": "extras",
-            "Version": "19.0.2",
-            "Info": "Global install"
-        },
-        {
-            "Name": "spotify",
-            "Updated": "2026-04-24T20:20:31.9672083+07:00",
-            "Source": "extras",
-            "Version": "1.2.88.483.g8aa8628e",
-            "Info": "Global install"
-        },
-        {
-            "Name": "sudo",
-            "Updated": "2025-11-14T22:03:56.1665415+07:00",
-            "Source": "main",
-            "Version": "0.2020.01.26",
-            "Info": "Global install"
-        },
-        {
-            "Name": "tealdeer",
-            "Updated": "2026-03-27T18:20:54.6179946+07:00",
-            "Source": "main",
-            "Version": "1.8.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "tectonic",
-            "Updated": "2026-04-17T19:25:36.9465007+07:00",
-            "Source": "main",
-            "Version": "0.16.9",
-            "Info": "Global install"
-        },
-        {
-            "Name": "terminal-icons",
-            "Updated": "2025-11-14T22:04:01.8651811+07:00",
-            "Source": "extras",
-            "Version": "0.11.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "touch",
-            "Updated": "2025-11-14T22:04:02.5655612+07:00",
-            "Source": "main",
-            "Version": "0.2018.07.25",
-            "Info": "Global install"
-        },
-        {
-            "Name": "tree-sitter",
-            "Updated": "2026-04-04T11:57:19.9822428+07:00",
-            "Source": "main",
-            "Version": "0.26.8",
-            "Info": "Global install"
-        },
-        {
-            "Name": "unzip",
-            "Updated": "2025-11-14T22:04:07.5861553+07:00",
-            "Source": "main",
-            "Version": "6.00",
-            "Info": "Global install"
-        },
-        {
-            "Name": "vcredist2022",
-            "Updated": "2026-01-17T13:55:32.4091916+07:00",
-            "Source": "extras",
-            "Version": "14.50.35719.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "ventoy",
-            "Updated": "2026-04-24T20:20:34.8884258+07:00",
-            "Source": "extras",
-            "Version": "1.1.12",
-            "Info": "Global install"
-        },
-        {
-            "Name": "VictorMono-NF",
-            "Updated": "2025-11-14T22:04:34.3039022+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "vim",
-            "Updated": "2026-04-10T20:23:18.8391979+07:00",
-            "Source": "main",
-            "Version": "9.2.0323",
-            "Info": "Global install"
-        },
-        {
-            "Name": "vscode",
-            "Updated": "2026-04-24T20:21:26.745917+07:00",
-            "Source": "extras",
-            "Version": "1.117.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "wezterm",
-            "Updated": "2025-11-14T22:05:39.5625984+07:00",
-            "Source": "extras",
-            "Version": "20240203-110809-5046fc22",
-            "Info": "Global install"
-        },
-        {
-            "Name": "wget",
-            "Updated": "2025-11-14T22:05:44.8968735+07:00",
-            "Source": "main",
-            "Version": "1.21.4",
-            "Info": "Global install"
-        },
-        {
-            "Name": "win32yank",
-            "Updated": "2025-11-14T22:05:46.3375035+07:00",
-            "Source": "main",
-            "Version": "0.1.1",
-            "Info": "Global install"
-        },
-        {
-            "Name": "xmousebuttoncontrol",
-            "Updated": "2025-11-14T22:05:57.4462432+07:00",
-            "Source": "extras",
-            "Version": "2.20.5",
-            "Info": "Global install"
-        },
-        {
-            "Name": "yazi",
-            "Updated": "2026-01-30T15:23:44.1152286+07:00",
-            "Source": "main",
-            "Version": "26.1.22",
-            "Info": "Global install"
-        },
-        {
-            "Name": "youtube-music",
-            "Updated": "2026-01-17T13:56:01.502816+07:00",
-            "Source": "extras",
-            "Version": "3.11.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "zed",
-            "Updated": "2026-04-25T10:12:12.2874274+07:00",
-            "Source": "extras",
-            "Version": "0.233.10",
-            "Info": "Global install"
-        },
-        {
-            "Name": "ZedMono-NF",
-            "Updated": "2025-11-14T22:07:00.821504+07:00",
-            "Source": "nerd-fonts",
-            "Version": "3.4.0",
-            "Info": "Global install"
-        },
-        {
-            "Name": "zen-browser",
-            "Updated": "2026-04-25T10:12:29.8712446+07:00",
-            "Source": "extras",
-            "Version": "1.19.9b",
-            "Info": "Global install"
+            "Updated": "2026-05-13T20:04:45+07:00",
+            "Manifests": 404
         }
     ]
 }

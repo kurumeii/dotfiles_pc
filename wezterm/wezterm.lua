@@ -41,7 +41,7 @@ local join_mods = function(m)
 end
 
 config = {
-	font = wez.font("FiraCode Nerd Font"),
+	font = wez.font("ZedMono Nerd Font", { weight = "Medium" }),
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
 	-- front_end = "OpenGL",
