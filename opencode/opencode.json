@@ -55,7 +55,7 @@
       "url": "https://mcp.deepwiki.com/mcp"
     },
     "braveSearch": {
-      "enabled": false,
+      "enabled": true,
       "type": "local",
       "command": [
         "pnpm",
