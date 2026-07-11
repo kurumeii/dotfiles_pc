@@ -12,7 +12,6 @@ nvim = "~/.config/nvim"
 "opencode/opencode.json" = "~/.config/opencode/opencode.json"
 rg = "~/.config/rg"
 wezterm = "~/.config/wezterm"
-"zed/config" = "~/.config/zed/config"
 vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
 gitconfig = "~/.gitconfig"
