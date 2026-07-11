@@ -15,7 +15,7 @@
     "opencode-agent-skills"
   ],
   "experimental": {
-    "batch_tool": true,
+    "batch_tool": true
   },
   "command": {
     "commit": {
@@ -25,12 +25,6 @@
     }
   },
   "mcp": {
-    "serena": {
-      "enabled": false,
-      "type": "remote",
-      "url": "http://localhost:12345/mcp",
-      "timeout": 2000
-    },
     "context7": {
       "enabled": true,
       "type": "local",

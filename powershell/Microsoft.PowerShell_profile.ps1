@@ -33,14 +33,14 @@ Invoke-Expression -Command $(zoxide init powershell | Out-String)
 Invoke-Expression -Command $(scoop-search --hook)
 Invoke-Expression -Command $(ast-grep completions powershell | Out-String)
 Invoke-Expression -Command $(bat --completion ps1 | Out-String)
-Invoke-Expression -Command $(chezmoi completion powershell | Out-String)
+# Invoke-Expression -Command $(chezmoi completion powershell | Out-String)
 Invoke-Expression -Command $(dotter gen-completions --shell powershell | Out-String)
 Invoke-Expression -Command $(git flow completion powershell | Out-String)
 
 . "$env:PowerShell_dir/Scripts/omp-completion.ps1"
 . "$env:PowerShell_dir/Scripts/winget-completion.ps1"
 
-fastfetch -c examples/2.jsonc
+fastfetch -c examples/8.jsonc
 
 function which ($command)
 {

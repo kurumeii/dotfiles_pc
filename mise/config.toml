@@ -1,31 +1,5 @@
 [tools]
-bun = "latest"
-# lazygit = "latest"
 node = ["latest", "lts"]
-pnpm = "latest"
-# rust = "nightly"
-uv = "latest"
-yq = "latest"
-zoxide = "latest"
-gh = "latest"
-fzf = "latest"
-jq = "latest"
-lazygit = "latest"
-lazydocker = "latest"
-bat = "latest"
-ripgrep = "latest"
-resvg = "latest"
-python = "latest"
-# gemini-cli = "latest"
-fd = "latest"
-ast-grep = "latest"
-difftastic = "latest"
-# oh-my-posh = "latest"
-fastfetch = "latest"
-usage = { version = "latest", os = ["linux"] }
-eza = { version = "latest", os = ["linux"] }
-opencode = "latest"
-yazi = "latest"
 
 [settings]
 verbose = false
