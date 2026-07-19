@@ -4,7 +4,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "pwsh -NoLogo -NoProfile -File \"%USERPROFILE%/.claude/statusline-command.ps1\""
+    "command": "pwsh -NoLogo -NoProfile -File \"$HOME/.claude/statusline-command.ps1\""
   },
   "extraKnownMarketplaces": {
     "ponytail": {
