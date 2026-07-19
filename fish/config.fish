@@ -1,6 +1,7 @@
 if status is-interactive
     set -g fish_greeting
     set -u EDITOR neovim
+    fish_vi_key_bindings
 
     mise activate fish | source
     oh-my-posh init fish --config "~/andrew.omp.json" | source
