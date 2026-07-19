@@ -1,8 +1,9 @@
 # ============================================================================
 # Claude Code statusLine
 #
-# Mirrors the oh-my-posh theme at C:\Users\hoanganh\andrew.omp.json, but with
-# every icon/glyph stripped out in favor of plain text labels/separators.
+# Mirrors the oh-my-posh theme at C:\Users\hoanganh\andrew.omp.json: plain
+# text labels/separators throughout, except the git changed/staged counts,
+# which reuse that theme's nerd-font icons ( / ).
 #
 # Segments (left to right):
 #   username        (#E36464)
@@ -85,8 +86,8 @@ if ($LASTEXITCODE -eq 0) {
   $gitStr = "$branch"
   if ($ahead -and [int]$ahead -gt 0) { $gitStr += " +$ahead" }
   if ($behind -and [int]$behind -gt 0) { $gitStr += " -$behind" }
-  if ($unstaged -gt 0) { $gitStr += " changed:$unstaged" }
-  if ($staged -gt 0) { $gitStr += " staged:$staged" }
+  if ($unstaged -gt 0) { $gitStr += " `u{f044} $unstaged" }
+  if ($staged -gt 0) { $gitStr += " `u{f046} $staged" }
 
   $segments.Add("${white}on $reset$cGit$gitStr$reset")
 }
