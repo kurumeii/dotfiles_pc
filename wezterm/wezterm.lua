@@ -40,7 +40,7 @@ config = {
 	freetype_load_target = "Light",
 	line_height = 1,
 	win32_system_backdrop = "Acrylic",
-	window_background_opacity = 0.7,
+	window_background_opacity = 0.6,
 	macos_window_background_blur = 1,
 
 	wsl_domains = {
