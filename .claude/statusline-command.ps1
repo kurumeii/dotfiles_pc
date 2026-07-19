@@ -108,4 +108,13 @@ if ($data -and $data.model -and $data.model.display_name) {
   $segments.Add("${white}via $reset${cModel}$($data.model.display_name)$reset")
 }
 
-Write-Output ($segments -join " $e[2m|$reset ")
+# --- ponytail mode (flag file written by the ponytail plugin's hooks) -----
+$ponytailFlag = Join-Path $(if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $HOME ".claude" }) ".ponytail-active"
+if (Test-Path $ponytailFlag) {
+  $ponytailMode = (Get-Content $ponytailFlag -ErrorAction SilentlyContinue | Select-Object -First 1)
+  $ponytailColor = if ($ponytailMode -eq 'ultra') { "$e[38;5;173m" } else { "$e[38;5;108m" }
+  $ponytailLabel = if ([string]::IsNullOrEmpty($ponytailMode) -or $ponytailMode -eq 'full') { 'PONYTAIL' } else { "PONYTAIL:$($ponytailMode.ToUpperInvariant())" }
+  $segments.Add("$ponytailColor[$ponytailLabel]$reset")
+}
+
+Write-Output ($segments -join " ")
