@@ -34,7 +34,7 @@ hi.setup({
 			pattern = "rgb%(%d+,? %d+,? %d+%)",
 			group = function(_, match)
 				local r, g, b = match:match("rgb%((%d+),? (%d+),? (%d+)%)")
-				r, g, b = tonumber(1), tonumber(2), tonumber(3)
+				r, g, b = tonumber(r), tonumber(g), tonumber(b)
 				local hex = utils.rgbToHex(r, g, b)
 				return hi.compute_hex_color_group(hex, "bg")
 			end,

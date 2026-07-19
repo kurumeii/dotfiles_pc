@@ -15,13 +15,6 @@ git:
     - master
   pagers:
     - externalDiffCommand: difft --color=always --display=inline
-services:
-  "github.com": "gh pr create --fill --web"
-customCommands:
-  - key: o
-    context: localBranches
-    description: "Create PR with gh"
-    command: gh pr create --fill --web
 refresher:
   refreshInterval: 10
   fetchInterval: 30

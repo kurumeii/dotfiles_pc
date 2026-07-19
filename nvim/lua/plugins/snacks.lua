@@ -89,10 +89,10 @@ end
 local function get_terms()
   ---@type { id : integer, term: snacks.win }[]
   local terms = {}
-  for i = 1, 20 do
-    local term = Snacks.terminal.get(nil, { count = i, create = false })
-    if term and term.buf and vim.api.nvim_buf_is_valid(term.buf) then
-      table.insert(terms, { id = i, term = term })
+  for _, term in ipairs(Snacks.terminal.list()) do
+    local info = vim.b[term.buf].snacks_terminal
+    if info.cmd == nil then
+      table.insert(terms, { id = info.id, term = term })
     end
   end
   return terms

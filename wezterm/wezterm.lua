@@ -3,13 +3,11 @@ local wez = require("wezterm")
 local mux = wez.mux
 local config = wez.config_builder()
 local padding = 3
--- local tabline = wez.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local tabbar = wez.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local tab_pos = "bottom"
 
 local items = {
 	pwsh = {
-		label = "󰨊 PowerShell",
 		args = { "pwsh.exe" },
 	},
 	nixos = {
@@ -30,18 +28,11 @@ local mods = {
 }
 
 local join_mods = function(m)
-	local result = ""
-	for i, v in ipairs(m) do
-		result = result .. v
-		if i < #m then
-			result = result .. "|"
-		end
-	end
-	return result
+	return table.concat(m, "|")
 end
 
 config = {
-	font = wez.font("ZedMono Nerd Font", { weight = "Medium" }),
+	font = wez.font("CaskaydiaCove Nerd Font", { weight = "Regular" }),
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
 	-- front_end = "OpenGL",
@@ -245,23 +236,6 @@ config = {
 -- 	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
 -- 	format = "https://www.github.com/$1/$3",
 -- })
-
--- tabline.setup({
--- 	options = {
--- 		theme = config.color_scheme,
--- 	},
--- 	sections = {
--- 		tabline_a = {
--- 			"hostname",
--- 		},
--- 		tab_active = {
--- 			"index",
--- 			{ "process", padding = { right = 1, left = 0 } },
--- 		},
--- 	},
--- })
-
--- tabline.apply_to_config(config)
 
 tabbar.apply_to_config(config, {
 	position = tab_pos,
