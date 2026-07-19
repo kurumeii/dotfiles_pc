@@ -22,6 +22,8 @@ Powershell = "~/Documents/PowerShell/"
 "Powershell/Scripts" = "~/Documents/PowerShell/Scripts/"
 "scoop-bak.json" = "~/scoop-bak.json"
 "winget-apps.bak" = "~/winget-apps.bak"
+".claude/settings.json" = "~/.claude/settings.json"
+".claude/statusline-command.ps1" = "~/.claude/statusline-command.ps1"
 [windows.variables]
 shell = "pwsh"
 
