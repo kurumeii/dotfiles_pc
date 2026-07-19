@@ -68,5 +68,6 @@
         "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
       }
     }
-  }
+  },
+  "shell": "powershell"
 }
