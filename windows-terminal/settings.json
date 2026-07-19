@@ -78,7 +78,8 @@
                 "weight": "normal"
             },
             "intenseTextStyle": "all",
-            "opacity": 60,
+            "opacity": 79,
+            "padding": "2",
             "useAcrylic": true
         },
         "list": 
@@ -108,12 +109,6 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "guid": "{d6e122f2-b67e-5f34-a1f2-493d122474c9}",
-                "hidden": false,
-                "name": "FedoraLinux-43",
-                "source": "Microsoft.WSL"
-            },
-            {
                 "guid": "{cd183eb8-f72e-5747-842d-c4f7a9b0fc91}",
                 "hidden": false,
                 "name": "NixOS",
@@ -121,7 +116,7 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#282828",
