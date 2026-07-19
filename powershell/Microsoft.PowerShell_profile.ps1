@@ -68,7 +68,7 @@ if (-not (Test-Path $profileCacheFile)) {
   Update-ProfileCompletionCache
 }
 elseif (((Get-Date) - (Get-Item $profileCacheFile).LastWriteTime).TotalDays -gt $script:CompletionCacheMaxAgeDays) {
-  Start-Job -ScriptBlock ${function:Update-ProfileCompletionCache} | Out-Null
+  Start-ThreadJob -ScriptBlock ${function:Update-ProfileCompletionCache} | Out-Null
 }
 . $profileCacheFile
 
