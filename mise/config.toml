@@ -1,8 +1,10 @@
 [tools]
 node = ["latest", "lts"]
+bun = "latest"
+uv = "latest"
+rust = "latest"
 
 [settings]
-verbose = false
 trusted_config_paths = [
   "~/.home/mise/config.toml",
   "~/.pc_dotfiles/mise/config.toml",
