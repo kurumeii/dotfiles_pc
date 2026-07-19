@@ -1,0 +1,39 @@
+[[plugin.deps]]
+use = "h-hg/yamb"
+rev = "5576bd7"
+hash = "2cf0dcda0e16e77342ae50c50134d238"
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "e73fd74"
+hash = "e467330cba1935c99c89c3cfb078389c"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "e60e122"
+hash = "619ce2db450b20078501ae037f8697ad"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "bb758e2"
+hash = "1e3b6c8b03dae81c3672ec9e9700b666"
+
+[[plugin.deps]]
+use = "saumyajyoti/omp"
+rev = "32ae96c"
+hash = "887fadd3067641451e99198df45dd3ea"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "04985d1"
+hash = "7186c991e65b986b96a245e517a952bd"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "4770a34"
+hash = "5ebc8659108fcb68fe853e523115ed3c"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "619fdc5"
+hash = "a2640557497f7bf5ccf0c5349fa9c615"

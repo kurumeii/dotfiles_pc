@@ -1,0 +1,20 @@
+[mgr]
+prepend_keymap = [
+	{ on = "<C-f>", run = "seek 5",  desc = "Scroll preview down" },
+	{ on = "<C-b>", run = "seek -5", desc = "Scroll preview up" },
+
+	{ on = [ "m", "a" ], run = "plugin yamb -- save",          desc = "Add bookmark" },
+	{ on = [ "m", "g" ], run = "plugin yamb -- jump_by_key",   desc = "Jump bookmark by key" },
+	{ on = [ "m", "G" ], run = "plugin yamb -- jump_by_fzf",   desc = "Jump bookmark by fzf" },
+	{ on = [ "m", "d" ], run = "plugin yamb -- delete_by_key", desc = "Delete bookmark by key" },
+	{ on = [ "m", "A" ], run = "plugin yamb -- delete_all",    desc = "Delete all bookmarks" },
+	{ on = [ "m", "r" ], run = "plugin yamb -- rename_by_key", desc = "Rename bookmark by key" },
+
+	{ on = [ "g", "i" ], run = "plugin lazygit", desc = "Run lazygit" },
+
+	{ on = [ "g", "h" ], run = "noop" },
+	{ on = [ "g", "c" ], run = "noop" },
+	{ on = [ "g", "d" ], run = "noop" },
+
+	{ on = [ "c", "a", "a" ], run = "plugin compress", desc = "Archive selected files" },
+]
