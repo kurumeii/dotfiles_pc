@@ -1,5 +1,20 @@
 MiniDeps.add("folke/sidekick.nvim")
 local utils = require("config.utils")
+
+-- ponytail: sidekick passes exepath() straight to CreateProcess unresolved; dereference symlinks ourselves.
+local function resolve_cmd(name)
+  local path = vim.fn.exepath(name)
+  if path == "" then
+    return { name }
+  end
+  return { vim.uv.fs_realpath(path) or path }
+end
+
+local agent_tools = {}
+for name in pairs(require("sidekick.config").cli.tools) do
+  agent_tools[name] = { cmd = resolve_cmd(name) }
+end
+
 -- AGENT
 require("sidekick").setup({
   nes = {
@@ -10,11 +25,12 @@ require("sidekick").setup({
     },
   },
   cli = {
+    tools = agent_tools,
     ---@type sidekick.win.Opts
     win = {
       layout = "right",
       split = {
-        width = 75,
+        width = 80,
       },
       keys = {
         prompt = { "<c-]>", "prompt" },
