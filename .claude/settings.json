@@ -6,6 +6,10 @@
     "type": "command",
     "command": "pwsh -NoLogo -NoProfile -File \"$HOME/.claude/statusline-command.ps1\""
   },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
+  },
   "extraKnownMarketplaces": {
     "ponytail": {
       "source": {
@@ -15,8 +19,5 @@
     }
   },
   "theme": "auto",
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true,
-    "context7@claude-plugins-official": true
-  }
+  "model": "opus"
 }
