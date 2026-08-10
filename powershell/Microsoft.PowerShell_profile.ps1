@@ -60,14 +60,19 @@ function Update-ProfileCompletionCache
   if (-not (Test-Path $cacheDir)) {
     New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
   }
-  $final | Set-Content -Path $cacheFile -Encoding utf8
+  # Never cache a partial result: a tool that's mid-upgrade (scoop replacing its
+  # dir) fails here, and without this guard the broken cache is pinned for days.
+  if ($chunks.Count -eq $sources.Count) {
+    $final | Set-Content -Path $cacheFile -Encoding utf8
+  }
 }
 
 $profileCacheFile = Get-ProfileCompletionCacheFile
 if (-not (Test-Path $profileCacheFile)) {
   Update-ProfileCompletionCache
 }
-elseif (((Get-Date) - (Get-Item $profileCacheFile).LastWriteTime).TotalDays -gt $script:CompletionCacheMaxAgeDays) {
+elseif ((Get-Item $profileCacheFile).LastWriteTime -lt (Get-Item $PSCommandPath).LastWriteTime -or
+        ((Get-Date) - (Get-Item $profileCacheFile).LastWriteTime).TotalDays -gt $script:CompletionCacheMaxAgeDays) {
   Start-ThreadJob -ScriptBlock ${function:Update-ProfileCompletionCache} | Out-Null
 }
 . $profileCacheFile

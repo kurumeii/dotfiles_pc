@@ -2,13 +2,15 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "pwsh -NoLogo -NoProfile -File \"$HOME/.claude/statusline-command.ps1\""
   },
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true,
-    "context7@claude-plugins-official": true
+    "context7@claude-plugins-official": true,
+    "ponytail@ponytail": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -18,6 +20,8 @@
       }
     }
   },
+  "effortLevel": "high",
+  "tui": "fullscreen",
   "theme": "auto",
-  "model": "opus"
+  "skipAutoPermissionPrompt": true
 }
