@@ -105,7 +105,7 @@ Register-EngineEvent -SourceIdentifier PowerShell.OnIdle -MaxTriggerCount 1 -Act
   . "$env:PowerShell_dir/Scripts/winget-completion.ps1"
 } | Out-Null
 
-fastfetch -c examples/8.jsonc
+fastfetch
 
 # --- Helper functions ---
 function which ($command)

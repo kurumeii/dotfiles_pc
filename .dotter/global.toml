@@ -4,6 +4,7 @@
 depends = []
 [default.files]
 bat = "~/.config/bat"
+fastfetch = "~/.config/fastfetch"
 btop = "~/.config/btop"
 gh = "~/.config/gh"
 lazygit = "~/.config/lazygit"

@@ -5,7 +5,7 @@ if status is-interactive
 
     mise activate fish | source
     oh-my-posh init fish --config "~/andrew.omp.json" | source
-    fastfetch -c examples/13.jsonc
+    fastfetch
     zoxide init fish | source
 
     set -gx TAVILY_API_KEY "{{TAVILY_API_KEY}}"
