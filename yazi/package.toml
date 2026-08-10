@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "h-hg/yamb"
-rev = "5576bd7"
-hash = "2cf0dcda0e16e77342ae50c50134d238"
+rev = "971b858"
+hash = "da4534745930e827a44d4585bbd965eb"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
@@ -15,7 +15,7 @@ hash = "619ce2db450b20078501ae037f8697ad"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "bb758e2"
+rev = "0be29a9"
 hash = "1e3b6c8b03dae81c3672ec9e9700b666"
 
 [[plugin.deps]]
@@ -30,8 +30,8 @@ hash = "7186c991e65b986b96a245e517a952bd"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "4770a34"
-hash = "5ebc8659108fcb68fe853e523115ed3c"
+rev = "be0b21d"
+hash = "2ec4fc683a76760d62cd8268530926c1"
 
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"

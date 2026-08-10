@@ -4,7 +4,8 @@
 $env:XDG_DATA_HOME       = "$env:USERPROFILE\.local\share"
 $env:XDG_CONFIG_HOME     = "$env:USERPROFILE\.config"
 $env:YAZI_CONFIG_HOME    = "$env:USERPROFILE\.config\yazi"
-$env:YAZI_FILE_ONE       = Join-Path (Get-Item (Get-Command git.exe).Path).Directory.Parent.FullName "apps\git\current\usr\bin\file.exe"
+# Relative to git's install root; git.exe resolves to <root>\cmd\git.exe, not the scoop shim.
+$env:YAZI_FILE_ONE       = Join-Path (Get-Item (Get-Command git.exe).Path).Directory.Parent.FullName "usr\bin\file.exe"
 $env:BAT_CONFIG_PATH     = "$env:USERPROFILE\.config\bat\bat.conf"
 $env:BAT_CONFIG_DIR      = "$env:USERPROFILE\.config\bat"
 $env:EDITOR              = "nvim"
