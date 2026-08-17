@@ -40,6 +40,7 @@ function Update-ProfileCompletionCache
     bat            = { bat --completion ps1 }
     dotter         = { dotter gen-completions --shell powershell }
     'git-flow'     = { git flow completion powershell }
+    'podman' = {podman completion powershell}
   }
 
   $chunks = foreach ($name in $sources.Keys) {
