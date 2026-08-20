@@ -7,16 +7,12 @@
     "glob": "allow",
     "external_directory": "allow",
     "skill": "allow",
-    "webfetch": "deny",
-    "websearch": "deny"
+    "edit": "ask",
+    "read": "allow"
   },
+  "logLevel": "WARN",
   "username": "😺 Andrew Nguyen",
-  "plugin": [
-    "opencode-agent-skills"
-  ],
-  "experimental": {
-    "batch_tool": true
-  },
+  "plugin": ["opencode-agent-skills", "@dietrichgebert/ponytail"],
   "command": {
     "commit": {
       "description": "You are expert in working with Git and creating meaningful Git commit messages using Conventional Commits v1.0.0.",
@@ -28,23 +24,15 @@
     "context7": {
       "enabled": true,
       "type": "local",
-      "command": [
-        "pnpm",
-        "dlx",
-        "@upstash/context7-mcp"
-      ],
+      "command": ["bun", "x", "@upstash/context7-mcp"],
       "environment": {
         "api-key": "{env:CONTEXT_7_API_KEY}"
       }
     },
     "tavily": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
-      "command": [
-        "pnpm",
-        "dlx",
-        "tavily-mcp@latest"
-      ],
+      "command": ["bun", "x", "tavily-mcp@latest"],
       "environment": {
         "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
       }
@@ -54,16 +42,10 @@
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
     },
-    "braveSearch": {
+    "brave": {
       "enabled": true,
       "type": "local",
-      "command": [
-        "pnpm",
-        "dlx",
-        "@brave/brave-search-mcp-server",
-        "--transport",
-        "stdio"
-      ],
+      "command": ["bun", "x", "@brave/brave-search-mcp-server"],
       "environment": {
         "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
       }
