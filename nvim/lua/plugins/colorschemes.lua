@@ -28,12 +28,6 @@ require("catppuccin").setup({
   flavour = "mocha",
   transparent_background = transparent,
   auto_integrations = true,
-  integrations = {
-    mini = {
-      enabled = true,
-      indentscope_color = "lavender",
-    },
-  },
 })
 require("tokyonight").setup({
   style = "night",

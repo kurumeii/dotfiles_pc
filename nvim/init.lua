@@ -139,3 +139,6 @@ later(function()
     require("plugins.blink")
   end
 end)
+later(function()
+  require("plugins.md-render")
+end)
