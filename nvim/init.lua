@@ -30,11 +30,11 @@ vim.g.mini = {
   tabline = true,
   animate = true,
   completion = false,
-  picks = true,
+  picks = false,
   show_dotfiles = true,
-  notify = true,
-  indent = true,
-  explorer = true,
+  notify = false,
+  indent = false,
+  explorer = false,
 }
 
 now(function()
