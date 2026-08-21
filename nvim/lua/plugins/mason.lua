@@ -25,6 +25,8 @@ require("mason-tool-installer").setup({
     "cspell",
     "biome",
     "prettierd",
+    "oxfmt",
+    "oxlint",
     "eslint-lsp",
     "css_variables",
     "cssls",
