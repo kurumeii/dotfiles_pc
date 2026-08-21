@@ -5,7 +5,7 @@
   "model": "opus",
   "statusLine": {
     "type": "command",
-    "command": "pwsh -NoLogo -NoProfile -File \"$HOME/.claude/statusline-command.ps1\""
+    "command": "oh-my-posh claude --config \"$HOME/andrew.omp.json\""
   },
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true,
