@@ -25,8 +25,8 @@ require("mason-tool-installer").setup({
     "cspell",
     "biome",
     "prettierd",
-    "oxfmt",
-    "oxlint",
+    -- "oxfmt",
+    -- "oxlint",
     "eslint-lsp",
     "css_variables",
     "cssls",
@@ -43,6 +43,4 @@ require("mason-tool-installer").setup({
   },
 })
 
-require("mason-lspconfig").setup({
-  ensure_installed = {},
-})
+require("mason-lspconfig").setup()

@@ -7,10 +7,10 @@ local opts = {
     markdown = { "markdownlint-cli1" },
     css = { "stylelint", "biome" },
     scss = { "stylelint", "biome" },
-    javascriptreact = { "oxlint", "biome" },
-    typescriptreact = { "oxlint", "biome" },
-    typescript = { "oxlint", "biome" },
-    javascript = { "oxlint", "biome" },
+    javascriptreact = { "biome" },
+    typescriptreact = { "biome" },
+    typescript = { "biome" },
+    javascript = { "biome" },
   },
   ---@type table<string,table>
   linters = {
