@@ -1,0 +1,61 @@
+{
+  "$schema": "https://mimo.xiaomi.com/mimocode/config.json",
+
+  // Display name in conversations
+  "username": "Andrew Nguyen",
+
+  // Log verbosity
+  "logLevel": "WARN",
+
+  // Tool permissions — mapped from opencode.json
+  // last matching rule wins; bare string = all-tool default
+  "permission": {
+    "bash": "allow",
+    "list": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "external_directory": "allow",
+    "skill": "allow",
+    "read": "allow",
+    "edit": "ask"
+  },
+
+  // MCP servers — mapped from opencode.json
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["bun", "x", "@upstash/context7-mcp"],
+      "env": {
+        "api-key": "{env:CONTEXT_7_API_KEY}"
+      }
+    },
+    "tavily": {
+      "enabled": false,
+      "type": "local",
+      "command": ["bun", "x", "tavily-mcp@latest"],
+      "env": {
+        "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
+      }
+    },
+    "deepwiki": {
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "brave": {
+      "type": "local",
+      "command": ["bun", "x", "@brave/brave-search-mcp-server"],
+      "env": {
+        "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
+      }
+    }
+  },
+
+  // Custom slash commands — mapped from opencode.json
+  "command": {
+    "commit": {
+      "description": "You are expert in working with Git and creating meaningful Git commit messages using Conventional Commits v1.0.0.",
+      "template": "Here are the instruction: \n1. User input is git diff of changes to be committed \n2. You need to understand the changes and output commit message following conventions \n3.Do not output anything else than commit message\n 4. Output only one commit message. If there are multiple changes, describe them in bullet points, do not use any fancy visuals or ancient characters. Use only dash or asterisk symbols for bullet points\n 5. Follow Git Conventional Commits v1.0.0 specification",
+      "agent": "plan"
+    }
+  }
+}
