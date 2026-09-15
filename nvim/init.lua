@@ -35,6 +35,7 @@ vim.g.mini = {
   notify = false,
   indent = false,
   explorer = false,
+  statusline = false,
 }
 
 now(function()
@@ -126,8 +127,14 @@ later(function()
   else
     require("plugins.bufferline")
   end
-  require("plugins.mini.statusline")
+  if vim.g.mini.statusline then
+    require("plugins.mini.statusline")
+  else
+    require("plugins.lualine")
+  end
+
   require("plugins.nvim-navic")
+  require("plugins.noice")
 end)
 later(function()
   -- Misc
