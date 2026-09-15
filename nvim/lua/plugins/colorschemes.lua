@@ -1,5 +1,5 @@
 local colorscheme = "catppuccin"
-local transparent = true
+local transparent = false
 local add = require("mini.deps").add
 
 add("folke/tokyonight.nvim")

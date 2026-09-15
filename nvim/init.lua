@@ -27,10 +27,10 @@ require("mini.deps").setup({
 local now, later = MiniDeps.now, MiniDeps.later
 
 vim.g.mini = {
-  tabline = true,
-  animate = true,
+  tabline = false,
+  animate = false,
   completion = false,
-  picks = false,
+  picks = true,
   show_dotfiles = true,
   notify = false,
   indent = false,
@@ -124,7 +124,7 @@ later(function()
   if vim.g.mini.tabline then
     require("plugins.mini.tabline")
   else
-    require("plugins.lualine")
+    require("plugins.bufferline")
   end
   require("plugins.mini.statusline")
   require("plugins.nvim-navic")
