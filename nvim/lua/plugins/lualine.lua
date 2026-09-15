@@ -51,7 +51,6 @@ require("lualine").setup({
       { "fileformat", symbols = { unix = icons.os.linux, dos = icons.os.win } },
       { "lsp_status", icon = icons.lsp },
       "filetype",
-      "filesize",
     },
     lualine_y = { "filesize", "searchcount" },
     lualine_z = { "progress" },

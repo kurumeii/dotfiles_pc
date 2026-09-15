@@ -43,4 +43,8 @@ require("mason-tool-installer").setup({
   },
 })
 
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  automatic_enable = {
+    exclude = { "oxfmt" },
+  },
+})
