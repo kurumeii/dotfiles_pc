@@ -1,14 +1,7 @@
 {
   "$schema": "https://mimo.xiaomi.com/mimocode/config.json",
-
-  // Display name in conversations
   "username": "Andrew Nguyen",
-
-  // Log verbosity
   "logLevel": "WARN",
-
-  // Tool permissions — mapped from opencode.json
-  // last matching rule wins; bare string = all-tool default
   "permission": {
     "bash": "allow",
     "list": "allow",
@@ -19,8 +12,6 @@
     "read": "allow",
     "edit": "ask"
   },
-
-  // MCP servers — mapped from opencode.json
   "mcp": {
     "context7": {
       "type": "local",
@@ -49,8 +40,11 @@
       }
     }
   },
-
-  // Custom slash commands — mapped from opencode.json
+  "agent": {
+    "compose": {
+      "disable": true
+    }
+  },
   "command": {
     "commit": {
       "description": "You are expert in working with Git and creating meaningful Git commit messages using Conventional Commits v1.0.0.",
