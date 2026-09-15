@@ -27,7 +27,7 @@ require("mini.deps").setup({
 local now, later = MiniDeps.now, MiniDeps.later
 
 vim.g.mini = {
-  tabline = false,
+  tabline = true,
   animate = false,
   completion = false,
   picks = true,
@@ -36,6 +36,7 @@ vim.g.mini = {
   indent = false,
   explorer = false,
   statusline = false,
+  clues = false,
 }
 
 now(function()
@@ -47,7 +48,11 @@ now(function()
   require("plugins.mini.keymap")
   require("plugins.mini.icons")
   require("plugins.mini.sessions")
-  require("plugins.mini.clues")
+  if vim.g.mini.clues then
+    require("plugins.mini.clues")
+  else
+    require("plugins.whichkey")
+  end
   require("plugins.mini.starter")
   require("plugins.colorschemes")
   if vim.g.mini.notify then
@@ -67,7 +72,7 @@ now(function()
   require("plugins.treesitter")
 end)
 later(function()
-  -- Mini.plugins that doesnt need config
+  -- Base minis: no config, no deps
   require("mini.bufremove").setup()
   require("mini.trailspace").setup()
   require("mini.move").setup()
@@ -78,11 +83,13 @@ later(function()
   require("mini.extra").setup()
 end)
 later(function()
+  -- Dev tooling
   require("plugins.lazydev")
   -- Typescript
   require("plugins.ts-autotag")
 end)
 later(function()
+  -- LSP: mason first, then lspconfig
   require("plugins.mason")
   require("plugins.lspconfig")
 end)
@@ -95,11 +102,11 @@ later(function()
   require("plugins.dap")
 end)
 later(function()
+  -- Mini editing + display plugins
   require("plugins.mini.operators")
   require("plugins.mini.git")
   require("plugins.mini.ai")
   require("plugins.mini.jump")
-  require("plugins.mini.sessions")
   require("plugins.mini.surround")
   require("plugins.mini.comment")
   require("plugins.mini.snippets")
@@ -114,8 +121,6 @@ later(function()
     require("plugins.mini.picks")
   end
   require("plugins.mini.visits")
-end)
-later(function()
   if vim.g.mini.indent then
     require("plugins.mini.indentscope")
   end
@@ -141,12 +146,8 @@ later(function()
   require("plugins.nvim-ufo")
   require("plugins.sidekick")
   require("plugins.yazi")
-end)
-later(function()
+  require("plugins.md-render")
   if not vim.g.mini.completion then
     require("plugins.blink")
   end
-end)
-later(function()
-  require("plugins.md-render")
 end)

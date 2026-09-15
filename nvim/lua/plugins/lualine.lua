@@ -3,12 +3,12 @@ MiniDeps.add("nvim-lualine/lualine.nvim")
 
 local icons = mininvim.icons
 
-local function get_copilot_status()
-  if vim.fn.exists("*copilot#Enabled") == 1 and vim.fn["copilot#Enabled"]() == 1 then
-    return icons.groups.copilot.glyph .. " "
-  end
-  return ""
-end
+-- local function get_copilot_status()
+--   if vim.fn.exists("*copilot#Enabled") == 1 and vim.fn["copilot#Enabled"]() == 1 then
+--     return icons.groups.copilot.glyph .. " "
+--   end
+--   return ""
+-- end
 
 require("lualine").setup({
   options = {
