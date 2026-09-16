@@ -14,6 +14,7 @@ local agent_tools = {}
 for name in pairs(require("sidekick.config").cli.tools) do
   agent_tools[name] = { cmd = resolve_cmd(name) }
 end
+agent_tools.mimo = { cmd = resolve_cmd("mimo") }
 
 -- AGENT
 require("sidekick").setup({
