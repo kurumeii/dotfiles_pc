@@ -34,7 +34,7 @@ require("sidekick").setup({
         width = 80,
       },
       keys = {
-        prompt = { "<c-]>", "prompt" },
+        prompt = { "<M-p>", "prompt" },
       },
     },
   },
