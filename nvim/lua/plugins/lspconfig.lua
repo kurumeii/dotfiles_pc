@@ -74,6 +74,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     utils.map("n", "<s-k>", vim.lsp.buf.hover)
     utils.map("i", "<c-/", vim.lsp.buf.signature_help)
+
+    -- Select an active LSP client, then restart or disable it
+    local function select_lsp(action, cmd)
+      return function()
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
+        if #clients == 0 then
+          utils.notify("No active LSP clients", "WARN")
+          return
+        end
+        vim.ui.select(clients, {
+          prompt = action .. " LSP:",
+          format_item = function(item)
+            return item.name
+          end,
+        }, function(choice)
+          if not choice then
+            return
+          end
+          vim.cmd(cmd .. " " .. choice.name)
+        end)
+      end
+    end
+
+    utils.map("n", utils.L("cR"), select_lsp("Restart", "lsp restart"), "LSP: restart")
+    utils.map("n", utils.L("cD"), select_lsp("Disable", "lsp disable"), "LSP: disable")
   end,
 })
 

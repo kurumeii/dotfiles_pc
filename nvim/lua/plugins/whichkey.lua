@@ -27,6 +27,8 @@ wk.add({
   { "<leader>a",  group = "Agents" },
   { "<leader>b",  group = "Buffers" },
   { "<leader>c",  group = "Code" },
+  { "<leader>cR", group = "Code restart" },
+  { "<leader>cD", group = "Code disable" },
   { "<leader>cs", group = "Code spell" },
   { "<leader>d",  group = "Debugger" },
   { "<leader>f",  group = "Find" },

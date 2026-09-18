@@ -26,6 +26,19 @@ require("bufferline").setup({
     get_element_icon = function(o)
       return MiniIcons.get("filetype", o.filetype)
     end,
+    offsets = not vim.g.mini.explorer
+        and {
+          {
+            filetype = "snacks_layout_box",
+            text = function()
+              return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+            end,
+            highlight = "Directory",
+            text_align = "left",
+            separator = true,
+          },
+        }
+        or {},
   },
 })
 utils.map("n", utils.L("bp"), utils.C("BufferLineTogglePin"), "Toggle Pin")

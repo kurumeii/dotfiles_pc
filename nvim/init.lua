@@ -34,7 +34,7 @@ vim.g.mini = {
   show_dotfiles = true,
   notify = false,
   indent = false,
-  explorer = false,
+  explorer = true,
   statusline = false,
   clues = false,
 }
