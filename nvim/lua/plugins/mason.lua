@@ -22,7 +22,7 @@ require("mason-tool-installer").setup({
     "vtsls",
     "lua_ls",
     "stylua",
-    "cspell",
+    -- "cspell",
     "biome",
     "prettierd",
     -- "oxfmt",
