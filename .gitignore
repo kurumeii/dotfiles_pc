@@ -2,4 +2,4 @@
 !.dotter/global.toml
 !.dotter/local.example.toml
 gh/host.*
-.mimocode/
+.mimocode/plans
