@@ -52,6 +52,15 @@
       }
     }
   },
+  "instructions": ["instructions/*.md"],
+  "dream": {
+    "auto": true,
+    "interval_days": 3
+  },
+  "distill": {
+    "auto": true,
+    "interval_days": 14
+  },
   "agent": {
     "compose": {
       "disable": true
