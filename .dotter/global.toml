@@ -17,6 +17,7 @@ wezterm = "~/.config/wezterm"
 yazi = "~/.config/yazi"
 vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
+".commandcode/mcp.json" = { target = "~/.commandcode/mcp.json", type = "symbolic" }
 gitconfig = "~/.gitconfig"
 fish = "~/.config/fish"
 

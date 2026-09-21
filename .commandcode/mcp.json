@@ -1,0 +1,30 @@
+{
+	"mcpServers": {
+		"context7": {
+			"transport": "stdio",
+			"command": "bun",
+			"args": [
+				"x",
+				"@upstash/context7-mcp"
+			],
+			"env": {
+				"api-key": "{env:CONTEXT_7_API_KEY}"
+			}
+		},
+		"deepwiki": {
+			"transport": "http",
+			"url": "https://mcp.deepwiki.com/mcp"
+		},
+		"brave": {
+			"transport": "stdio",
+			"command": "bun",
+			"args": [
+				"x",
+				"@brave/brave-search-mcp-server"
+			],
+			"env": {
+				"BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
+			}
+		}
+	}
+}
