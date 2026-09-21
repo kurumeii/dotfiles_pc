@@ -72,6 +72,49 @@ vim.api.nvim_create_autocmd("LspAttach", {
       utils.map("n", utils.L("co"), utils.action("source.organizeImports"), "[TS] Organize imports")
       utils.map("n", utils.L("cv"), utils.command("typescript.selectTypeScriptVersion"), "[TS] Select ts version")
     end
+    if client and client.name == "tailwindcss" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = vim.api.nvim_create_augroup("tailwind-canonical-" .. args.buf, { clear = true }),
+        buffer = args.buf,
+        callback = function()
+          local bufnr = vim.api.nvim_get_current_buf()
+          local diags = vim.diagnostic.get(bufnr)
+          local edits = {}
+
+          for _, diag in ipairs(diags) do
+            if diag.code == "suggestCanonicalClasses"
+              or (diag.message and diag.message:match("can be written as"))
+            then
+              local old_class, new_class =
+                diag.message:match("The class `([^`]+)` can be written as `([^`]+)`")
+              if old_class and new_class then
+                table.insert(edits, {
+                  lnum = diag.lnum,
+                  col = diag.col,
+                  end_lnum = diag.end_lnum or diag.lnum,
+                  end_col = diag.end_col or (diag.col + #old_class),
+                  new_class = new_class,
+                })
+              end
+            end
+          end
+
+          if #edits == 0 then return end
+
+          table.sort(edits, function(a, b)
+            if a.lnum ~= b.lnum then return a.lnum > b.lnum end
+            return a.col > b.col
+          end)
+
+          for _, edit in ipairs(edits) do
+            vim.api.nvim_buf_set_text(
+              bufnr, edit.lnum, edit.col, edit.end_lnum, edit.end_col,
+              { edit.new_class }
+            )
+          end
+        end,
+      })
+    end
     utils.map("n", "<s-k>", vim.lsp.buf.hover)
     utils.map("i", "<c-/", vim.lsp.buf.signature_help)
 
