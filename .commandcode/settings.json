@@ -1,0 +1,8 @@
+{
+  "tasteLearning": true,
+  "permissions": {
+    "allow": ["mcp__context7__*", "mcp__deepwiki__*", "mcp__brave__*"],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}
