@@ -1,0 +1,12 @@
+# Taste Preferences
+- Uses **dotter** as their dotfile manager; dotfiles repo is at `~/.pc_dotfiles`. Confidence: 0.9
+- Prefers symbolic links (managed via dotter's `global.toml`) to keep config files in sync from the dotfiles repo. Confidence: 0.85
+- Inside the dotfiles repo, prefers **no dot prefix** on directory/file names (e.g., `commandcode/` not `.commandcode/`), matching the convention used by other entries like `bat`, `nvim`, `opencode`. Confidence: 0.85
+- On Windows (paths under `C:\Users\andrew.nguyen1`). Confidence: 0.95
+- Prefers removing unused/unnecessary configuration rather than leaving dead entries in place (e.g., stripped a no-op `env` block from an MCP server that doesn't require auth). Confidence: 0.8
+- Prefers **hands-on verification** when debugging — expects functional smoke tests (actually calling APIs, running commands) rather than just reading/inspecting config files. Wants independent verification (e.g., curl the API directly) when surface-level errors are ambiguous. Confidence: 0.8
+- When investigating compatibility or feature support, expects **multi-source research**: local docs, web search, and upstream project wikis/repos. Confidence: 0.75
+- Uses **bun** as their JavaScript/TypeScript runtime. Confidence: 0.85
+- When the assistant makes a claim about how a tool or feature works, expects it to **consult official docs/guides before asserting** — won't accept surface-level interpretation of config values without verification against authoritative sources. Confidence: 0.85
+- Interested in **cross-tool interoperability** and multi-agent workflows — actively explores whether skills, plugins, and features can be shared or reused across different AI coding tools (e.g., Command Code, Claude Code, OpenCode, Gemini CLI). Confidence: 0.8
+- Prefers **tabular output** for comparisons and structured data rather than prose or bullet lists. Confidence: 0.85
