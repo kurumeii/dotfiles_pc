@@ -79,6 +79,7 @@ elseif ((Get-Item $profileCacheFile).LastWriteTime -lt (Get-Item $PSCommandPath)
 }
 . $profileCacheFile
 
+$env:PATH += ";$env:USERPROFILE\Documents\PowerShell\Scripts"
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 
