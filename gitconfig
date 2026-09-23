@@ -8,7 +8,11 @@
 	helper = manager
 {{/if}}
 [core]
+{{#if dotter.packages.linux}}
+	autocrlf = input
+{{else}}
 	autocrlf = true
+{{/if}}
 [merge]
 	tool = nvim
 [diff]

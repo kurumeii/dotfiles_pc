@@ -6,19 +6,19 @@ local padding = 3
 local tabbar = wez.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local tab_pos = "bottom"
 
-local items = {
-	pwsh = {
-		args = { "pwsh.exe" },
-	},
-	nixos = {
-		label = "󱄅 nixos",
-		args = { "wsl.exe", "-d", "NixOS", "--cd", "~" },
-	},
-	fedora = {
-		label = "󰣛 fedora",
-		args = { "wsl.exe", "-d", "FedoraLinux-43", "--cd", "~" },
-	},
-}
+-- local items = {
+-- 	pwsh = {
+-- 		args = { "pwsh.exe" },
+-- 	},
+-- 	nixos = {
+-- 		label = "󱄅 nixos",
+-- 		args = { "wsl.exe", "-d", "NixOS", "--cd", "~" },
+-- 	},
+-- 	fedora = {
+-- 		label = "󰣛 fedora",
+-- 		args = { "wsl.exe", "-d", "FedoraLinux-43", "--cd", "~" },
+-- 	},
+-- }
 
 local mods = {
 	C = "CTRL",
@@ -36,11 +36,10 @@ config = {
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
 	-- front_end = "OpenGL",
-	front_end = "Software",
 	freetype_load_target = "Light",
 	line_height = 1,
 	win32_system_backdrop = "Acrylic",
-	window_background_opacity = 0.6,
+	window_background_opacity = 1,
 	macos_window_background_blur = 1,
 
 	-- wsl_domains = {
@@ -55,7 +54,7 @@ config = {
 	-- 		default_cwd = "~",
 	-- 	},
 	-- },
-	default_prog = items.pwsh.args,
+	default_prog = { "{{shell}}" },
 	-- kde_window_background_blur = true,
 	default_cursor_style = "BlinkingBlock",
 	cursor_blink_rate = 500,
@@ -63,7 +62,7 @@ config = {
 
 	color_scheme = "Catppuccin Macchiato (Gogh)",
 	enable_scroll_bar = false,
-	window_decorations = "RESIZE",
+	window_decorations = "NONE",
 	window_padding = {
 		bottom = padding,
 		right = padding,

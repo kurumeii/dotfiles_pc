@@ -1,6 +1,6 @@
 if status is-interactive
     set -g fish_greeting
-    set -u EDITOR neovim
+    set -gx EDITOR nvim
     fish_vi_key_bindings
 
     mise activate fish | source
@@ -11,6 +11,7 @@ if status is-interactive
     set -gx TAVILY_API_KEY "{{TAVILY_API_KEY}}"
     set -gx CONTEXT_7_API_KEY "{{CONTEXT_7_API_KEY}}"
     set -gx BRAVE_API_KEY "{{BRAVE_API_KEY}}"
+    set -g fish_user_paths "~/.bun/bin"
 
     alias cd z
     alias grep rg
