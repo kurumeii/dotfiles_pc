@@ -1,7 +1,13 @@
 {
   "tasteLearning": true,
   "permissions": {
-    "allow": ["mcp__context7__*", "mcp__deepwiki__*", "mcp__brave__*"],
+    "allow": [
+      "mcp__context7__*",
+      "mcp__deepwiki__*",
+      "mcp__brave__*",
+      "Shell(brew:*)",
+      "Shell(grep:*)"
+    ],
     "deny": [],
     "defaultMode": "default"
   }
