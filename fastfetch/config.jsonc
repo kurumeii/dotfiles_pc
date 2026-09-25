@@ -19,7 +19,7 @@
     { "type": "terminal", "key": "│ {#31} term    {#keys}│" },
     { "type": "shell", "key": "│ {#32} shell   {#keys}│" },
     { "type": "cpu", "key": "│ {#33} cpu     {#keys}│" },
-    { "type": "disk", "key": "│ {#34} disk    {#keys}│", "folders": "C:\\" },
+    { "type": "disk", "key": "│ {#34} disk    {#keys}│", "folders": "{{disk}}" },
     { "type": "memory", "key": "│ {#35} memory  {#keys}│" },
     { "type": "custom", "key": "├───────────┤" },
     { "type": "colors", "key": "│ {#39} colors  {#keys}│", "symbol": "circle" },
