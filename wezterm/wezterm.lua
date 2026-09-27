@@ -35,25 +35,12 @@ config = {
 	font = wez.font("CaskaydiaCove Nerd Font", { weight = "Regular" }),
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 12,
-	-- front_end = "OpenGL",
+	front_end = "OpenGL",
 	freetype_load_target = "Light",
 	line_height = 1,
 	win32_system_backdrop = "Acrylic",
 	window_background_opacity = 1,
 	macos_window_background_blur = 1,
-
-	-- wsl_domains = {
-	-- 	{
-	-- 		name = items.nixos.label,
-	-- 		distribution = items.nixos.args[3],
-	-- 		default_cwd = "~",
-	-- 	},
-	-- 	{
-	-- 		name = items.fedora.label,
-	-- 		distribution = items.fedora.args[3],
-	-- 		default_cwd = "~",
-	-- 	},
-	-- },
 	default_prog = { "{{shell}}" },
 	-- kde_window_background_blur = true,
 	default_cursor_style = "BlinkingBlock",
@@ -61,8 +48,8 @@ config = {
 	tab_bar_at_bottom = not tab_pos == "top",
 
 	color_scheme = "Catppuccin Macchiato (Gogh)",
-	enable_scroll_bar = false,
-	window_decorations = "NONE",
+	enable_scroll_bar = true,
+	window_decorations = "RESIZE",
 	window_padding = {
 		bottom = padding,
 		right = padding,
