@@ -1,0 +1,44 @@
+onboarding = false
+
+[keys]
+prefix = "alt+q"
+# Misc
+settings = "prefix+S"
+edit_scrollback = "prefix+["
+copy_mode = "prefix+]"
+# Tab and panes
+new_tab = "prefix+n"
+next_tab = "prefix+L"
+previous_tab = "prefix+H"
+focus_pane_left = "prefix+h"
+focus_pane_right = "prefix+l"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+split_horizontal = "prefix+v"
+split_vertical = "prefix+s"
+rename_tab = "prefix+r"
+rename_pane = "prefix+R"
+resize_mode = "prefix+z"
+resize_pane_left = "alt+Left"
+resize_pane_right = "alt+Right"
+resize_pane_down = "alt+Down"
+resize_pane_up = "alt+Up"
+close_pane = "prefix+c"
+close_tab = "prefix+x"
+zoom = "prefix+f"
+goto = "prefix+\\"
+
+[ui]
+status_indicators = "symbols"       # symbols | dots
+hide_tab_bar_when_single_tab = true
+confirm_close = true
+
+[ui.sound]
+enabled = false
+
+[ui.toast]
+delivery = "herdr"
+
+[theme]
+name = "catppuccin"
+auto_switch = false

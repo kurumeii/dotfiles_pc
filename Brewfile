@@ -44,9 +44,13 @@ brew "wezterm/wezterm-linuxbrew/wezterm", trusted: true
 brew "wget"
 brew "yazi"
 brew "zoxide"
+brew "herdr"
 
 # --- GUI apps (cask on Linux) ---
 cask "bruno"
 cask "keepassxc"
 cask "mockoon"
 cask "obsidian"
+
+
+npm "command-code"

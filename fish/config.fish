@@ -1,3 +1,9 @@
+set -gx GTK_IM_MODULE fcitx
+set -gx QT_IM_MODULE fcitx
+set -gx XMODIFIERS @im=fcitx
+set -gx SDL_IM_MODULE fcitx
+set -gx GLFW_IM_MODULE ibus
+
 if status is-interactive
     set -g fish_greeting
     set -gx EDITOR nvim
@@ -18,6 +24,10 @@ if status is-interactive
     alias ll "eza --long --icons"
     alias ls eza
     alias vim nvim
+
+    if status is-interactive; and command -q herdr; and not set -q HERDR_ENV
+        herdr
+    end
 end
 
 # pnpm
@@ -26,10 +36,3 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
-if status is-login
-    set -gx GTK_IM_MODULE fcitx
-    set -gx QT_IM_MODULE fcitx
-    set -gx XMODIFIERS @im=fcitx
-    set -gx SDL_IM_MODULE fcitx
-    set -gx GLFW_IM_MODULE ibus
-end
