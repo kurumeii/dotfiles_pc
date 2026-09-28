@@ -6,7 +6,8 @@
       "mcp__deepwiki__*",
       "mcp__brave__*",
       "Shell(brew:*)",
-      "Shell(grep:*)"
+      "Shell(grep:*)",
+      "Shell(dotter:*)"
     ],
     "deny": [],
     "defaultMode": "default"

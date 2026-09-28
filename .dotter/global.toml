@@ -33,6 +33,7 @@ shell = "pwsh"
 disk = 'C:\\'
 
 [linux.files]
+kitty = "~/.config/kitty"
 [linux.variables]
 shell = "/home/linuxbrew/.linuxbrew/bin/fish"
 disk = "/"
