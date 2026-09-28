@@ -49,7 +49,7 @@ config = {
 
 	color_scheme = "Catppuccin Macchiato (Gogh)",
 	enable_scroll_bar = true,
-	window_decorations = "RESIZE",
+	window_decorations = wez.target_triple:find("windows") and "RESIZE" or "NONE",
 	window_padding = {
 		bottom = padding,
 		right = padding,
