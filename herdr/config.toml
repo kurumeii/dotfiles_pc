@@ -6,6 +6,7 @@ prefix = "alt+q"
 settings = "prefix+S"
 edit_scrollback = "prefix+["
 copy_mode = "prefix+]"
+reload_config = "prefix+alt+r"
 # Tab and panes
 new_tab = "prefix+n"
 next_tab = "prefix+L"
@@ -42,3 +43,11 @@ delivery = "herdr"
 [theme]
 name = "catppuccin"
 auto_switch = false
+
+[[keys.command]]
+key = "prefix+e"
+type = "popup"
+command = "/home/linuxbrew/.linuxbrew/bin/yazi"
+description = "yazi file manager"
+width = "90%"
+height = "90%"
