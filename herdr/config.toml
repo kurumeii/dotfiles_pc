@@ -47,7 +47,7 @@ auto_switch = false
 [[keys.command]]
 key = "prefix+e"
 type = "popup"
-command = "/home/linuxbrew/.linuxbrew/bin/yazi"
+command = "/home/linuxbrew/.linuxbrew/bin/fish -c yazi"
 description = "yazi file manager"
 width = "90%"
 height = "90%"
