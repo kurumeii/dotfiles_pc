@@ -28,10 +28,17 @@ close_pane = "prefix+c"
 close_tab = "prefix+x"
 zoom = "prefix+f"
 goto = "prefix+\\"
+# Workspace
+previous_workspace = "prefix+shift+k"
+next_workspace = "prefix+shift+j"
+switch_workspace = "prefix+shift+1..9"
+# Navigate mode (prefix+w). Workspaces vertical, panes horizontal.
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
 
 [ui]
 status_indicators = "symbols"       # symbols | dots
-tab_bar_position = "top"          # top | bottom
+tab_bar_position = "top"            # top | bottom
 hide_tab_bar_when_single_tab = true
 confirm_close = true
 sidebar_collapsed_mode = "hidden"
