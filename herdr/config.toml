@@ -31,8 +31,10 @@ goto = "prefix+\\"
 
 [ui]
 status_indicators = "symbols"       # symbols | dots
+tab_bar_position = "top"          # top | bottom
 hide_tab_bar_when_single_tab = true
 confirm_close = true
+sidebar_collapsed_mode = "hidden"
 
 [ui.sound]
 enabled = false
@@ -41,7 +43,7 @@ enabled = false
 delivery = "herdr"
 
 [theme]
-name = "catppuccin"
+name = "terminal"
 auto_switch = false
 
 [[keys.command]]
@@ -59,11 +61,3 @@ command = "/home/linuxbrew/.linuxbrew/bin/fish -c btop"
 description = "Btop"
 width = "90%"
 height = "90%"
-
-[[keys.command]]
-key = "prefix+t"
-type = "popup"
-command = "exec /home/linuxbrew/.linuxbrew/bin/fish"
-description = "floating shell"
-width = "80%"
-height = "80%"
