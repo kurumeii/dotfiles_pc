@@ -5,6 +5,7 @@ depends = []
 [default.files]
 bat = "~/.config/bat"
 fastfetch = "~/.config/fastfetch"
+flameshot = "~/.config/flameshot"
 btop = "~/.config/btop"
 gh = "~/.config/gh"
 herdr = "~/.config/herdr"
