@@ -1,10 +1,8 @@
-local add = require("mini.deps").add
-add("lbrayner/vim-rzip")
+local add = require("config.deps").add
 add({
-	source = "kevinhwang91/nvim-ufo",
-	depends = {
-		"kevinhwang91/promise-async",
-	},
+	"lbrayner/vim-rzip",
+	"kevinhwang91/promise-async",
+	"kevinhwang91/nvim-ufo",
 })
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()

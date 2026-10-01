@@ -1,9 +1,9 @@
 local utils = require("config.utils")
-local add = require("mini.deps").add
+local add = require("config.deps").add
 
 add({
-  source = "mikavilpas/yazi.nvim",
-  depends = { "nvim-lua/plenary.nvim" },
+  "nvim-lua/plenary.nvim",
+  "mikavilpas/yazi.nvim",
 })
 
 require("yazi").setup({

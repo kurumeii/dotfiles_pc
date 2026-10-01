@@ -1,7 +1,6 @@
----@module 'mini.deps'
-MiniDeps.add({
-	source = "folke/noice.nvim",
-	depends = { "MunifTanjim/nui.nvim" },
+require("config.deps").add({
+	"MunifTanjim/nui.nvim",
+	"folke/noice.nvim",
 })
 
 require("noice").setup({

@@ -1,14 +1,14 @@
 local utils = require("config.utils")
-MiniDeps.add({
-  source = "saghen/blink.cmp",
-  hooks = {
-    post_checkout = utils.build_blink,
-    post_install = utils.build_blink,
-  },
-  depends = {
-    "folke/lazydev.nvim",
-    "saghen/blink.lib",
-    "fang2hou/blink-copilot",
+require("config.deps").add({
+  "folke/lazydev.nvim",
+  "saghen/blink.lib",
+  "fang2hou/blink-copilot",
+  {
+    source = "saghen/blink.cmp",
+    hooks = {
+      post_checkout = utils.build_blink,
+      post_install = utils.build_blink,
+    },
   },
 })
 require("blink.cmp").setup({
