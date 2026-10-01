@@ -42,7 +42,7 @@ status_indicators = "symbols"       # symbols | dots
 tab_bar_position = "top"            # top | bottom
 hide_tab_bar_when_single_tab = true
 confirm_close = true
-sidebar_collapsed_mode = "hidden"
+sidebar_collapsed_mode = "compact"  # compact | hidden
 
 [ui.sound]
 enabled = false
