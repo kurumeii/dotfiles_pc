@@ -1,4 +1,4 @@
-MiniDeps.add("folke/sidekick.nvim")
+require("config.deps").add("folke/sidekick.nvim")
 local utils = require("config.utils")
 
 -- ponytail: sidekick passes exepath() straight to CreateProcess unresolved; dereference symlinks ourselves.

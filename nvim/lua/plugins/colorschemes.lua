@@ -1,19 +1,18 @@
 local colorscheme = "catppuccin"
 local transparent = false
-local add = require("mini.deps").add
+local add = require("config.deps").add
 
-add("folke/tokyonight.nvim")
-add("f4z3r/gruvbox-material.nvim")
-add("ellisonleao/gruvbox.nvim")
-add("rebelot/kanagawa.nvim")
-add({ source = "catppuccin/nvim", name = "catppuccin" })
+add({
+  "folke/tokyonight.nvim",
+  "f4z3r/gruvbox-material.nvim",
+  "ellisonleao/gruvbox.nvim",
+  "rebelot/kanagawa.nvim",
+  { source = "catppuccin/nvim", name = "catppuccin" },
+  { source = "rose-pine/neovim", name = "rose-pine" },
+})
 require("gruvbox").setup({
   contrast = "",
   transparent_mode = transparent,
-})
-add({
-  source = "rose-pine/neovim",
-  name = "rose-pine",
 })
 require("gruvbox-material").setup({
   background = {

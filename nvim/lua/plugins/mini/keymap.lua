@@ -13,10 +13,8 @@ map_multistep("i", "<cr>", {
 	"minipairs_cr",
 })
 
-utils.map("n", utils.L("pu"), function()
-	vim.cmd("DepsUpdate!")
-	vim.cmd("DepsSnapSave")
-end, "Deps: Package update")
+local deps = require("config.deps")
+utils.map("n", utils.L("pu"), deps.update, "Deps: Package update")
 utils.map("n", utils.L("pm"), utils.C("Mason"), "Mason: Package")
-utils.map("n", utils.L("pc"), utils.C("DepsClean"), "Deps: Package Clean")
-utils.map("n", utils.L("ps"), utils.C("DepsSnapLoad"), "Deps: Package Sync")
+utils.map("n", utils.L("pc"), deps.clean, "Deps: Package Clean")
+utils.map("n", utils.L("ps"), deps.snap_load, "Deps: Restore to lockfile")

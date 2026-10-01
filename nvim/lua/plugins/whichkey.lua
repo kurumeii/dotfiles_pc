@@ -1,5 +1,4 @@
----@module 'mini.deps'
-MiniDeps.add("folke/which-key.nvim")
+require("config.deps").add("folke/which-key.nvim")
 
 local wk = require("which-key")
 

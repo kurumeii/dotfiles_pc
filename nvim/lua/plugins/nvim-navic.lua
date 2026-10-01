@@ -1,8 +1,6 @@
-MiniDeps.add({
-	source = "SmiteshP/nvim-navic",
-	depends = {
-		"neovim/nvim-lspconfig",
-	},
+require("config.deps").add({
+	"neovim/nvim-lspconfig",
+	"SmiteshP/nvim-navic",
 })
 require("nvim-navic").setup({
 	highlight = true,

@@ -54,3 +54,9 @@ EOF
   update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
   gtk-update-icon-cache -f -t "$HOME/.local/share/icons/hicolor" 2>/dev/null || true
 fi
+
+# Install Neovim plugins from nvim-pack-lock.json (vim.pack restores the whole lockfile on first use).
+# Requires the nvim config to be deployed first (dotter deploy).
+if command -v nvim >/dev/null 2>&1 && [ -f "$HOME/.config/nvim/init.lua" ]; then
+  nvim --headless +qa 2>&1 || echo "warning: nvim plugin install failed; run nvim manually" >&2
+fi

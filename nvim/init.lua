@@ -1,30 +1,11 @@
 vim.g.start_time = vim.uv.hrtime()
-local path_package = vim.fn.stdpath("data") .. "/site"
-local mini_path = path_package .. "/pack/deps/start/mini.nvim"
 
-if not vim.uv.fs_stat(mini_path) then
-  vim.cmd('echo "Installing `mini.nvim`" | redraw')
-  local clone_cmd = {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--branch",
-    "stable",
-    "https://github.com/nvim-mini/mini.nvim",
-    mini_path,
-  }
-  vim.fn.system(clone_cmd)
-  vim.cmd("packadd mini.nvim | helptags ALL")
-  vim.cmd('echo "Installed `mini.nvim`" | redraw')
-end
+-- Must come before any vim.pack call: registers hooks and, via the lockfile,
+-- vim.pack installs all locked plugins on its first call.
+local deps = require("config.deps")
+local now, later = deps.now, deps.later
 
-require("mini.deps").setup({
-  path = {
-    package = path_package,
-  },
-})
-
-local now, later = MiniDeps.now, MiniDeps.later
+deps.add("nvim-mini/mini.nvim")
 
 vim.g.noice = false
 vim.g.mini = {

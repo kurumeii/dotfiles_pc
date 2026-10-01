@@ -218,12 +218,56 @@ end
 --- Build blink.cmp
 --- @param params table Build parameters containing path
 H.build_blink = function(params)
-  H.notify("Building blink.cmp", "INFO")
-  local obj = vim.system({ "cargo", "build", "--release" }, { cwd = params.path }):wait()
-  if obj.code == 0 then
-    H.notify("Building blink.cmp done", "INFO")
+  local progress = { kind = "progress", source = "blink.cmp", title = "blink.cmp", status = "running" }
+  -- like vim.pack: only the first/last report is kept in :messages history
+  local function report(msg, history)
+    progress.id = vim.api.nvim_echo({ { msg } }, history or false, progress)
+    vim.cmd.redraw({ bang = true })
+  end
+
+  report("Building (cargo build --release)", true)
+  local done, code, err, pending = false, nil, {}, ""
+  local started, spawn_err = pcall(vim.system, { "cargo", "build", "--release" }, {
+    cwd = params.path,
+    text = true,
+    stderr = function(_, data)
+      if not data then
+        return
+      end
+      err[#err + 1] = data
+      -- chunks can end mid-line: only report complete "Compiling <crate> v<ver>" lines
+      pending = pending .. data
+      local lines = vim.split(pending, "[\r\n]+")
+      pending = table.remove(lines)
+      for i = #lines, 1, -1 do
+        local crate = lines[i]:match("Compiling%s+(.+)")
+        if crate then
+          vim.schedule(function()
+            report("Building: " .. crate)
+          end)
+          break
+        end
+      end
+    end,
+  }, function(obj)
+    code = obj.code
+    done = true
+  end)
+  if started then
+    -- vim.wait (unlike SystemObj:wait) keeps scheduled callbacks and redraws running
+    vim.wait(10 * 60 * 1000, function()
+      return done
+    end, 50)
   else
-    H.notify("Building blink.cmp failed", "ERROR")
+    err[#err + 1] = tostring(spawn_err)
+  end
+
+  progress.status = code == 0 and "success" or "failed"
+  if code == 0 then
+    report("Build done", true)
+  else
+    report("Build failed (exit " .. tostring(code) .. ")", true)
+    H.notify(table.concat(err):sub(-1000), "ERROR", "blink.cmp build")
   end
 end
 

@@ -1,4 +1,4 @@
-require("mini.deps").add("neovim/nvim-lspconfig")
+require("config.deps").add("neovim/nvim-lspconfig")
 local utils = require("config.utils")
 -- LspAttach
 vim.api.nvim_create_autocmd("LspAttach", {

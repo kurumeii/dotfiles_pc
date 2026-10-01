@@ -1,4 +1,3 @@
--- MiniDeps.add("rafamadriz/friendly-snippets")
 local lang_patterns = {
 	jsx = { "javascript/javascript.json", "javascript/react.json" },
 	tsx = { "javascript/javascript.json", "javascript/react.json" },

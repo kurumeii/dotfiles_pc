@@ -1,5 +1,4 @@
----@module 'mini.deps'
-MiniDeps.add("nvim-lualine/lualine.nvim")
+require("config.deps").add("nvim-lualine/lualine.nvim")
 
 local icons = mininvim.icons
 

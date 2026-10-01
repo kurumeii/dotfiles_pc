@@ -1,4 +1,4 @@
-local add = require("mini.deps").add
+local add = require("config.deps").add
 local utils = require("config.utils")
 
 add({
