@@ -30,8 +30,6 @@ brew "lua"
 brew "luarocks"
 brew "neovim"
 brew "oh-my-posh"
-brew "podman"
-brew "podman-compose" # docker-compose (you run podman)
 brew "podman-tui"
 brew "poppler"
 brew "ripgrep"

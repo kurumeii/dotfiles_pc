@@ -19,6 +19,7 @@ if status is-interactive
     alias ll "eza --long --icons"
     alias ls eza
     alias vim nvim
+    alias cat bat
 
     if status is-interactive; and command -q herdr; and not set -q HERDR_ENV
         herdr
