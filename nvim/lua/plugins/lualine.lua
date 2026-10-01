@@ -48,6 +48,15 @@ require("lualine").setup({
       },
     },
     lualine_x = {
+      {
+        function()
+          return "recording @" .. vim.fn.reg_recording()
+        end,
+        cond = function()
+          return vim.fn.reg_recording() ~= ""
+        end,
+        color = "DiagnosticError",
+      },
       { "fileformat", symbols = { unix = icons.os.linux, dos = icons.os.win } },
       { "lsp_status", icon = icons.lsp },
       { "filetype", colored = false },

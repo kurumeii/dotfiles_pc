@@ -26,6 +26,7 @@ require("mini.deps").setup({
 
 local now, later = MiniDeps.now, MiniDeps.later
 
+vim.g.noice = false
 vim.g.mini = {
   tabline = false,
   animate = true,
@@ -139,7 +140,11 @@ later(function()
   end
 
   require("plugins.nvim-navic")
-  require("plugins.noice")
+  if vim.g.noice then
+    require("plugins.noice")
+  else
+    require("plugins.ui2")
+  end
 end)
 later(function()
   -- Misc
