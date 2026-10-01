@@ -7,6 +7,7 @@ if status is-interactive
     oh-my-posh init fish --config "~/andrew.omp.json" | source
     fastfetch
     zoxide init fish | source
+    fzf --fish | source
 
     set -gx TAVILY_API_KEY "{{TAVILY_API_KEY}}"
     set -gx CONTEXT_7_API_KEY "{{CONTEXT_7_API_KEY}}"
