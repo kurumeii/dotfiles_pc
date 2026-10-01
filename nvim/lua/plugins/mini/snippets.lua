@@ -10,7 +10,6 @@ snippets.setup({
 		snippets.gen_loader.from_lang({
 			lang_patterns = lang_patterns,
 		}),
-		snippets.start_lsp_server(),
 	},
 	mappings = {
 		expand = "<c-j>",

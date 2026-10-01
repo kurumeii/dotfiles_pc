@@ -20,6 +20,7 @@ yazi = "~/.config/yazi"
 vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
 ".commandcode/mcp.json" = { target = "~/.commandcode/mcp.json", type = "symbolic" }
+".commandcode/settings.json" = { target = "~/.commandcode/settings.json", type = "symbolic" }
 "commandcode/commands" = { target = "~/.commandcode/commands", type = "symbolic" }
 gitconfig = "~/.gitconfig"
 fish = "~/.config/fish"
