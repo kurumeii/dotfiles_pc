@@ -12,30 +12,31 @@ Cross-platform (Linux + Windows) personal dotfiles managed by **Dotter** with Ha
 
 ## Directory Layout
 
-| Directory | Tool | Deployed to |
-|---|---|---|
-| `fish/` | Fish shell (config + plugins) | `~/.config/fish` |
-| `nvim/` | Neovim (Lua config, plugins, after/) | `~/.config/nvim` |
-| `kitty/` | Kitty terminal (Linux only) | `~/.config/kitty` |
-| `wezterm/` | WezTerm terminal | `~/.config/wezterm` |
-| `windows-terminal/` | Windows Terminal settings | Windows AppData path |
-| `powershell/` | PowerShell profile + scripts | `~/Documents/PowerShell/` |
-| `lazygit/` | Lazygit | `~/.config/lazygit` |
-| `bat/` | bat (syntax highlighting cat) | `~/.config/bat` |
-| `btop/` | btop (system monitor) | `~/.config/btop` |
-| `yazi/` | Yazi file manager | `~/.config/yazi` |
-| `fastfetch/` | Fastfetch (system info) | `~/.config/fastfetch` |
-| `flameshot/` | Flameshot (screenshots, Linux) | `~/.config/flameshot` |
-| `rg/` | ripgrep config | `~/.config/rg` |
-| `gh/` | GitHub CLI config | `~/.config/gh` |
-| `herdr/` | Herdr terminal multiplexer | `~/.config/herdr` |
-| `mise/` | mise (dev tool version manager) | `~/.config/mise` |
-| `mimocode/` | MimoCode AI coding tool | `~/.config/mimocode` |
-| `opencode/` | OpenCode AI coding tool | `~/.config/opencode` |
-| `commandcode/` | Command Code commands | `~/.commandcode/commands` |
-| `.commandcode/` | Command Code settings, MCP, skills | `~/.commandcode/` |
+| Directory           | Tool                                 | Deployed to               |
+| ------------------- | ------------------------------------ | ------------------------- |
+| `fish/`             | Fish shell (config + plugins)        | `~/.config/fish`          |
+| `nvim/`             | Neovim (Lua config, plugins, after/) | `~/.config/nvim`          |
+| `kitty/`            | Kitty terminal (Linux only)          | `~/.config/kitty`         |
+| `wezterm/`          | WezTerm terminal                     | `~/.config/wezterm`       |
+| `windows-terminal/` | Windows Terminal settings            | Windows AppData path      |
+| `powershell/`       | PowerShell profile + scripts         | `~/Documents/PowerShell/` |
+| `lazygit/`          | Lazygit                              | `~/.config/lazygit`       |
+| `bat/`              | bat (syntax highlighting cat)        | `~/.config/bat`           |
+| `btop/`             | btop (system monitor)                | `~/.config/btop`          |
+| `yazi/`             | Yazi file manager                    | `~/.config/yazi`          |
+| `fastfetch/`        | Fastfetch (system info)              | `~/.config/fastfetch`     |
+| `flameshot/`        | Flameshot (screenshots, Linux)       | `~/.config/flameshot`     |
+| `rg/`               | ripgrep config                       | `~/.config/rg`            |
+| `gh/`               | GitHub CLI config                    | `~/.config/gh`            |
+| `herdr/`            | Herdr terminal multiplexer           | `~/.config/herdr`         |
+| `mise/`             | mise (dev tool version manager)      | `~/.config/mise`          |
+| `mimocode/`         | MimoCode AI coding tool              | `~/.config/mimocode`      |
+| `opencode/`         | OpenCode AI coding tool              | `~/.config/opencode`      |
+| `commandcode/`      | Command Code commands                | `~/.commandcode/commands` |
+| `.commandcode/`     | Command Code settings, MCP, skills   | `~/.commandcode/`         |
 
 **Standalone files:**
+
 - `gitconfig` → `~/.gitconfig` (templated: username, email, credential helper, OS-specific diff)
 - `vimrc` → `~/.vimrc` (legacy Vim config)
 - `andrew.omp.json` → `~/andrew.omp.json` (Oh My Posh prompt theme, symlinked)
@@ -76,6 +77,7 @@ dotter deploy --packages default windows
 ## AI/Agent Skills
 
 Skills are installed in three locations for three agent tools:
+
 - `.commandcode/skills/` — Command Code skills (cavecrew, caveman variants, herdr)
 - `.agents/skills/` — Agents skills (herdr)
 - `.claude/skills/` — Claude skills (herdr)
