@@ -23,6 +23,7 @@ require("mason-tool-installer").setup({
     -- "cspell",
     "biome",
     "prettierd",
+    "markdownlint-cli2",
     -- "oxfmt",
     -- "oxlint",
     "eslint-lsp",
@@ -38,6 +39,7 @@ require("mason-tool-installer").setup({
     "fish_lsp",
     "shfmt",
     "alejandra",
+    "marksman",
   },
 })
 

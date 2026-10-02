@@ -2,7 +2,7 @@ require("config.deps").add("stevearc/conform.nvim")
 vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
     require("conform").setup({
-      notify_on_error = true,
+      notify_on_error = false,
       default_format_opts = {
         timeout_ms = 1000,
         lsp_format = "fallback",
@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("BufRead", {
         }
       end,
       formatters_by_ft = {
-        markdown = { "markdownlint-cli2" },
+        markdown = { "markdownlint-cli2", "prettierd" },
         lua = { "stylua" },
         json = { "biome" },
         yaml = { "yamlfix" },
