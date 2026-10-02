@@ -27,5 +27,10 @@
         ]
       }
     ]
+  },
+  "mods": {
+    "sources": [
+      "grknbyk/commandcode-statusline"
+    ]
   }
 }
