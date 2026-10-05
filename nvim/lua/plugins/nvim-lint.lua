@@ -36,6 +36,10 @@ lint.linters_by_ft = opts.linters_by_ft
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
   callback = utils.debounce(200, function()
+    -- Skip scratch/special buffers (LSP hover floats, prompts, terminals)
+    if vim.bo.buftype ~= "" then
+      return
+    end
     local names = lint._resolve_linter_by_ft(vim.bo.ft)
     names = vim.deepcopy(names)
     if #names == 0 then
