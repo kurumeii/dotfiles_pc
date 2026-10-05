@@ -21,6 +21,7 @@ vim.g.mini = {
   clues = false,
   input = true,
   map = true,
+  statuscolumn = true,
   colors = true,
 }
 
@@ -55,6 +56,9 @@ now(function()
   end
   if vim.g.mini.input then
     require("plugins.mini.input")
+  end
+  if vim.g.mini.statuscolumn then
+    require("plugins.mini.statuscolumn")
   end
 end)
 now(function()

@@ -3,7 +3,7 @@ require("config.deps").add("folke/snacks.nvim")
 
 require("snacks").setup({
   statuscolumn = {
-    enabled = true,
+    enabled = not vim.g.mini.statuscolumn,
     left = {
       "git",
       "mark",
