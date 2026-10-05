@@ -60,7 +60,7 @@ position = "top-right"
 new_cwd = "home"
 
 [theme]
-name = "catppuccin"
+name = "rose-pine"
 auto_switch = false
 
 [[keys.command]]
