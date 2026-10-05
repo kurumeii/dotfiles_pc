@@ -56,9 +56,18 @@ delivery = "herdr"
 [ui.toast.herdr]
 position = "top-right"
 
+[terminal]
+new_cwd = "home"
+
 [theme]
 name = "catppuccin"
 auto_switch = false
+
+[[keys.command]]
+key = "prefix+d"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" tab create --cwd \"$HERDR_ACTIVE_PANE_CWD\" --focus"
+description = "duplicate tab in current cwd"
 
 [[keys.command]]
 key = "prefix+e"
