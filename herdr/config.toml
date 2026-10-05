@@ -53,6 +53,9 @@ enabled = false
 [ui.toast]
 delivery = "herdr"
 
+[ui.toast.herdr]
+position = "top-right"
+
 [theme]
 name = "catppuccin"
 auto_switch = false
