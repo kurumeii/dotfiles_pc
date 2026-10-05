@@ -262,6 +262,18 @@ H.build_blink = function(params)
     err[#err + 1] = tostring(spawn_err)
   end
 
+  -- blink.cmp v2 loads the library from <repo>/lib/*.so.<commit>, not target/release:
+  -- its own build() (cargo is incremental here) moves the artifact there.
+  if code == 0 then
+    local ok, build_err = pcall(function()
+      require("blink.cmp").build():pwait(60 * 1000)
+    end)
+    if not ok then
+      code = 1
+      err[#err + 1] = tostring(build_err)
+    end
+  end
+
   progress.status = code == 0 and "success" or "failed"
   if code == 0 then
     report("Build done", true)
