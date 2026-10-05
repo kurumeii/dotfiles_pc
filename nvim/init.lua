@@ -20,6 +20,7 @@ vim.g.mini = {
   statusline = false,
   clues = false,
   input = true,
+  map = true,
   colors = true,
 }
 
@@ -112,6 +113,9 @@ later(function()
     require("plugins.mini.picks")
   end
   require("plugins.mini.visits")
+  if vim.g.mini.map then
+    require("plugins.mini.map")
+  end
   if vim.g.mini.indent then
     require("plugins.mini.indentscope")
   end

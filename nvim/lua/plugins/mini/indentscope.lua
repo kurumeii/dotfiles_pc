@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"help",
 		"lazy",
 		"mason",
+		"minimap",
 		"neo-tree",
 		"notify",
 		"sidekick_terminal",
