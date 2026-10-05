@@ -1,9 +1,11 @@
--- mini.hues generates the scheme from a background/foreground pair.
--- Base colors are Catppuccin Mocha; few hues + low saturation keep it muted.
+local current_theme = {
+  bg = "#1e1e2e",
+  fg = "#cdd6f4",
+}
+
 require("mini.hues").setup({
-  background = "#1e1e2e", -- base
-  foreground = "#cdd6f4", -- text
+  background = current_theme.bg,
+  foreground = current_theme.fg,
   n_hues = 4,
   saturation = "medium",
-  accent = "bg",
 })
