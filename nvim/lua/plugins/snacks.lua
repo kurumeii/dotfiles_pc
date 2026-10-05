@@ -43,7 +43,7 @@ require("snacks").setup({
   terminal = { enabled = true, win = { enter = false } },
   bigfile = { enabled = true },
   image = { enabled = true },
-  input = { enabled = true },
+  input = { enabled = not vim.g.mini.input },
   indent = { enabled = not vim.g.mini.notify, style = "compact", margin = {
     top = 2,
   } },

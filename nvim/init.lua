@@ -19,6 +19,7 @@ vim.g.mini = {
   explorer = true,
   statusline = false,
   clues = false,
+  input = true,
 }
 
 now(function()
@@ -45,6 +46,9 @@ now(function()
   end
   if vim.g.mini.animate then
     require("plugins.mini.animate")
+  end
+  if vim.g.mini.input then
+    require("plugins.mini.input")
   end
 end)
 now(function()
