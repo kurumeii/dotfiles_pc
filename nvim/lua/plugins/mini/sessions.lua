@@ -7,6 +7,18 @@ MiniSessions.setup({
 		delete = true,
 		write = true,
 	},
+	hooks = {
+		-- Session read wipes all windows, including the minimap float
+		post = {
+			read = function()
+				if vim.g.mini.map then
+					vim.schedule(function()
+						require("mini.map").open()
+					end)
+				end
+			end,
+		},
+	},
 	directory = vim.fn.stdpath("data") .. "/sessions/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
 })
 

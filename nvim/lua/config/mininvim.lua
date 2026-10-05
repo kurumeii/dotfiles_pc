@@ -24,6 +24,11 @@ _G.mininvim = {
       open = "󰅀",
       close = "󰅂",
     },
+    map = {
+      -- Same glyph so the cursor mark blends into the thumb
+      scroll_line = "▕",
+      scroll_view = "▕",
+    },
     git_signs = {
       add = "▎",
       change = "▎",
