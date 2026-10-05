@@ -3,4 +3,5 @@
 !.dotter/local.example.toml
 gh/host.*
 .mimocode/plans
-.commandcode/mods/
+.commandcode/mods/*
+.commandcode/skills/*

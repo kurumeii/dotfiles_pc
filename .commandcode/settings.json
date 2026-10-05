@@ -22,7 +22,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/caveman ultra"
+            "command": "$HOME/.commandcode/hooks/caveman-session-start.sh"
           }
         ]
       }
