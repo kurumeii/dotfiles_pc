@@ -33,7 +33,7 @@ local function normalize(spec)
   end
   return {
     src = source,
-    name = spec.name or source:gsub("/+$", ""):match("([^/]+)$"):gsub("%.git$", ""),
+    name = spec.name or (source:gsub("/+$", ""):match("([^/]+)$"):gsub("%.git$", "")),
     version = version,
   }
 end
@@ -78,6 +78,9 @@ vim.api.nvim_create_autocmd("PackChanged", {
 ---@param spec string|{source:string, name?:string, checkout?:string, hooks?:table}|(string|table)[] a spec, or a list of specs
 function M.add(spec)
   if type(spec) == "table" and spec.source == nil then
+    if #spec == 0 then
+      error("(deps) spec has no source", 2)
+    end
     for _, item in ipairs(spec) do
       M.add(item)
     end
@@ -144,6 +147,9 @@ end
 
 -- Delete plugins on disk that are not added in this session.
 function M.clean()
+  if draining or #queue > 0 then
+    return vim.notify("(deps) Startup still loading, try again")
+  end
   local names = vim
     .iter(vim.pack.get())
     :filter(function(p)
