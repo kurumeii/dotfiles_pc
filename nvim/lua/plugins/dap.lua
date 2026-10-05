@@ -81,13 +81,21 @@ utils.map("n", "<F11>", dap.step_over, "Debug: Step Over")
 utils.map("n", "<F12>", dap.step_out, "Debug: Step Out")
 utils.map("n", "<leader>db", dap.toggle_breakpoint, "Debug: Toggle Breakpoint")
 utils.map("n", "<leader>dB", function()
-	dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+	vim.ui.input({ prompt = "Breakpoint condition" }, function(condition)
+		if condition then
+			dap.set_breakpoint(condition)
+		end
+	end)
 end, "Debug: Set Breakpoint")
 utils.map("n", "<leader>du", dapui.toggle, "Debug: Toggle UI")
 utils.map("n", "<leader>dl", utils.C("DapShowLog"), "Debug: Toggle UI")
 
 utils.map("n", "<leader>dp", function()
-	dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+	vim.ui.input({ prompt = "Log point message" }, function(message)
+		if message then
+			dap.set_breakpoint(nil, nil, message)
+		end
+	end)
 end, "Debug: Set Log Point")
 utils.map("n", "<leader>dr", dap.repl.toggle, "Debug: Toggle REPL")
 utils.map("n", "<leader>dt", dap.terminate, "Debug: Terminate")
