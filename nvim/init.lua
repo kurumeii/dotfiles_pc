@@ -20,6 +20,7 @@ vim.g.mini = {
   statusline = false,
   clues = false,
   input = true,
+  colors = true,
 }
 
 now(function()
@@ -37,7 +38,11 @@ now(function()
     require("plugins.whichkey")
   end
   require("plugins.mini.starter")
-  require("plugins.colorschemes")
+  if vim.g.mini.colors then
+    require("plugins.mini.colors")
+  else
+    require("plugins.colorschemes")
+  end
   if vim.g.mini.notify then
     require("plugins.mini.notify")
   end
