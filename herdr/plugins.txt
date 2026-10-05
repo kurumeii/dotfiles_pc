@@ -1,0 +1,2 @@
+# Herdr plugins, one per line: owner/repo[/subdir] [ref]
+qu8n/herdr-automatic-rename

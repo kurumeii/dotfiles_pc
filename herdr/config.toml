@@ -40,6 +40,7 @@ navigate_workspace_down = "j"
 navigate_workspace_up = "k"
 
 [ui]
+prompt_new_tab_name = false
 status_indicators = "symbols"        # symbols | dots
 tab_bar_position = "top"             # top | bottom
 hide_tab_bar_when_single_tab = false

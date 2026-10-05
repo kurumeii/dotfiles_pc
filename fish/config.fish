@@ -20,9 +20,10 @@ if status is-interactive
     alias ls eza
     alias vim nvim
     alias cat bat
+    alias find fd
 
-    if status is-interactive; and command -q herdr; and not set -q HERDR_ENV
-        herdr
+    for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.fish
+        test -r "$_f"; and source "$_f"; and break
     end
 end
 

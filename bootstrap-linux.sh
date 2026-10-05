@@ -22,6 +22,17 @@ command -v make >/dev/null 2>&1 || sudo apt-get install -y build-essential
 
 brew bundle --file="$DIR/Brewfile"
 
+# Herdr plugins from herdr/plugins.txt (idempotent)
+if command -v herdr >/dev/null 2>&1 && [ -f "$DIR/herdr/plugins.txt" ]; then
+  installed="$(herdr plugin list 2>/dev/null || true)"
+  while read -r repo ref _; do
+    case "$repo" in "" | \#*) continue ;; esac
+    grep -q "github:${repo}@" <<<"$installed" && continue
+    herdr plugin install -y ${ref:+--ref "$ref"} "$repo" ||
+      echo "warning: could not install herdr plugin $repo" >&2
+  done <"$DIR/herdr/plugins.txt"
+fi
+
 # Cask AppImages land in ~/Applications without a .desktop entry, so GNOME's launcher can't see them.
 APPIMAGE="$HOME/Applications/KeePassXC.AppImage"
 DESKTOP_FILE="$HOME/.local/share/applications/keepassxc.desktop"
