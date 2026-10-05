@@ -148,7 +148,7 @@ later(function()
   -- Misc
   require("plugins.nvim-ufo")
   -- require("plugins.sidekick")
-  require("plugins.herdr_agent")
+  require("plugins.herdr_agent").setup()
   require("plugins.yazi")
   require("plugins.md-render")
   if not vim.g.mini.completion then
