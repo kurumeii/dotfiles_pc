@@ -20,6 +20,10 @@ _G.mininvim = {
     lsp = "󰆦",
     no_lsp = "󱏎",
     edit = "󰏫 ",
+    fold = {
+      open = "󰅀",
+      close = "󰅂",
+    },
     git_signs = {
       add = "▎",
       change = "▎",
