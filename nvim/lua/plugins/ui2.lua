@@ -5,7 +5,7 @@ require("vim._core.ui2").enable({
     ---@type string|table<string, 'cmd'|'msg'|'pager'> Default message target or table mapping |ui-messages| kinds and triggers to a target.
     -- NOTE: a string value becomes the default target, which must be 'cmd' or 'msg';
     -- 'pager' is only valid per kind/trigger (a string "pager" crashes msg_clear()).
-    targets = "msg",
+    targets = "cmd",
     cmd = { -- Options related to messages in the cmdline window.
       height = 0.5, -- Maximum height while expanded for messages beyond 'cmdheight'.
     },
