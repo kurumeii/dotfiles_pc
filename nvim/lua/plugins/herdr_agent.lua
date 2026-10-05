@@ -2,7 +2,10 @@
 local utils = require("config.utils")
 
 local RATIO = 0.4 -- share of the width given to the agent pane
-local NAME = "nvim-agent"
+-- Each nvim lives in its own herdr pane; scope everything to it so several tabs/instances don't collide.
+local SELF = vim.env.HERDR_PANE_ID
+-- herdr agent names: lowercase letter first, then [a-z0-9_-], max 32 chars.
+local NAME = ("nvim-agent-" .. (SELF or ""):gsub("[^%w]", "-")):lower():sub(1, 32)
 local KINDS = { "claude", "codex", "opencode", "gemini", "cursor", "copilot", "pi", "amp", "kimi", "qwen" }
 
 -- Tools herdr can't recognise as agents: run as a plain command in the pane (no lifecycle tracking).
@@ -17,7 +20,11 @@ local function herdr(args)
 end
 
 local function alive()
-  return pane_id ~= nil and herdr({ "pane", "get", pane_id })
+  if not pane_id then
+    return false
+  end
+  local ok, json = herdr({ "pane", "get", pane_id })
+  return ok and json ~= nil
 end
 
 local function pick_kind(cb)
@@ -36,7 +43,7 @@ local function pick_kind(cb)
 end
 
 local function open(cb)
-  if vim.env.HERDR_ENV ~= "1" then
+  if vim.env.HERDR_ENV ~= "1" or not SELF then
     return utils.notify("Not running inside herdr", "WARN", "Agent")
   end
   if alive() then
@@ -44,7 +51,7 @@ local function open(cb)
   end
   pick_kind(function(kind)
     local ok, json, err = herdr({
-      "pane", "split", "--current", "--direction", "right",
+      "pane", "split", SELF, "--direction", "right",
       "--ratio", tostring(1 - RATIO), "--cwd", vim.fn.getcwd(), "--no-focus",
     })
     if not ok or not json then
@@ -58,6 +65,9 @@ local function open(cb)
       started, _, serr = herdr({ "agent", "start", NAME, "--kind", kind, "--pane", pane_id })
     end
     if not started then
+      -- don't leave a dead pane behind that alive() would treat as the agent
+      herdr({ "pane", "close", pane_id })
+      pane_id = nil
       utils.notify("agent start failed: " .. (serr or ""), "ERROR", "Agent")
       return
     end
@@ -66,10 +76,13 @@ local function open(cb)
 end
 
 local function focus_agent()
+  if not pane_id then
+    return
+  end
   if PLAIN[last_kind] then
-    herdr({ "pane", "focus", "--current", "--direction", "right" })
+    herdr({ "pane", "focus", "--pane", SELF, "--direction", "right" })
   else
-    herdr({ "agent", "focus", NAME })
+    herdr({ "agent", "focus", pane_id })
   end
 end
 
