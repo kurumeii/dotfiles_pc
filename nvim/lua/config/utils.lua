@@ -442,4 +442,94 @@ H.setup_lsp = function(a, b)
   vim.lsp.config(server, cfg)
 end
 
+--- Remove the common leading indent of the non-blank lines
+--- @param lines string[]
+local function dedent(lines)
+  local indent = math.huge
+  for _, l in ipairs(lines) do
+    if l:find("%S") then
+      indent = math.min(indent, #l:match("^%s*"))
+    end
+  end
+  if indent == math.huge or indent == 0 then
+    return lines
+  end
+  return vim.tbl_map(function(l)
+    return l:sub(indent + 1)
+  end, lines)
+end
+
+--- Rewrite vimdoc code blocks (">lua" ... "<") into markdown fences
+--- @param lines string[]
+--- @return string[]
+H.vimdoc_to_fences = function(lines)
+  local out, block = {}, nil
+  local in_fence = false
+
+  local function close()
+    vim.list_extend(out, dedent(block))
+    out[#out + 1] = "```"
+    block = nil
+  end
+
+  for _, line in ipairs(lines) do
+    local handled = false
+    if block then
+      local rest = line:match("^<(.*)$")
+      if rest then
+        close()
+        if rest:find("%S") then
+          out[#out + 1] = vim.trim(rest)
+        end
+        handled = true
+      elseif line:find("^%S") then
+        close() -- unindented text ends the block implicitly
+      else
+        block[#block + 1] = line
+        handled = true
+      end
+    end
+
+    if not handled then
+      if line:find("^```") then
+        in_fence = not in_fence
+      elseif not in_fence then
+        local prefix, lang = line:match("^(.-)%s>(%a*)$")
+        if not prefix then
+          prefix, lang = "", line:match("^>(%a*)$")
+        end
+        -- a bare trailing " >" in prose is not a block start
+        if lang and (lang ~= "" or prefix == "" or prefix:find(":$")) then
+          if prefix:find("%S") then
+            out[#out + 1] = prefix
+          end
+          out[#out + 1] = "```" .. lang
+          block = {}
+          handled = true
+        end
+      end
+      if not handled then
+        out[#out + 1] = line
+      end
+    end
+  end
+  if block then
+    close()
+  end
+  return out
+end
+
+--- Make LSP hover (K) highlight vimdoc code blocks (e.g. mini.nvim's ">lua")
+H.patch_lsp_hover = function()
+  local util = vim.lsp.util
+  if util._vimdoc_fences_patched then
+    return
+  end
+  local orig = util.convert_input_to_markdown_lines
+  util.convert_input_to_markdown_lines = function(...)
+    return H.vimdoc_to_fences(orig(...))
+  end
+  util._vimdoc_fences_patched = true
+end
+
 return H

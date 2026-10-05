@@ -115,6 +115,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end,
       })
     end
+    utils.patch_lsp_hover()
     utils.map("n", "<s-k>", vim.lsp.buf.hover)
     utils.map("i", "<c-/", vim.lsp.buf.signature_help)
 
