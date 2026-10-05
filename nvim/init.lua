@@ -9,18 +9,18 @@ deps.add("nvim-mini/mini.nvim")
 
 vim.g.noice = false
 vim.g.mini = {
-  tabline = false,
+  tabline = true,
   animate = true,
   completion = false,
   picks = true,
   show_dotfiles = true,
-  notify = false,
-  indent = false,
+  notify = true,
+  indent = true,
   explorer = true,
-  statusline = false,
-  clues = false,
-  input = true,
+  statusline = true,
+  clues = true,
   map = true,
+  input = true,
   statuscolumn = true,
   colors = true,
 }
