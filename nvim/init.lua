@@ -117,6 +117,7 @@ later(function()
     require("plugins.mini.picks")
   end
   require("plugins.mini.visits")
+  require("plugins.mini.cmdline")
   if vim.g.mini.map then
     require("plugins.mini.map")
   end
