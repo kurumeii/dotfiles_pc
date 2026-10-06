@@ -241,7 +241,7 @@ if not vim.g.mini.picks then
     })
   end, "Find buffer line")
   utils.map("n", utils.L("ft"), Snacks.picker.colorschemes, "Find colorschemes")
-  require("config.deps").later(function()
+  vim.schedule(function()
     require("config.deps").add("folke/todo-comments.nvim")
     require("todo-comments").setup({
       signs = false,

@@ -1,7 +1,9 @@
-require("config.deps").add("windwp/nvim-ts-autotag")
+require("config.deps").add({ source = "windwp/nvim-ts-autotag", lazy = true })
 
-vim.api.nvim_create_autocmd("InsertEnter", {
-	callback = function()
+return {
+	"nvim-ts-autotag",
+	event = "InsertEnter",
+	after = function()
 		require("nvim-ts-autotag").setup({
 			opts = {
 				enable_close = true,
@@ -10,4 +12,4 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 			},
 		})
 	end,
-})
+}

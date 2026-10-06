@@ -1,9 +1,11 @@
-local add = require("config.deps").add
-local utils = require("config.utils")
+require("config.deps").add({ source = "delphinus/md-render.nvim", lazy = true })
 
-add({
-  source = "delphinus/md-render.nvim",
-})
-
-utils.map("n", utils.L("mp"), utils.C("MdRender toggle"), "Markdown preview (toggle)")
-utils.map("n", utils.L("mt"), utils.C("MdRender tab"), "Markdown preview in tab")
+return {
+  "md-render.nvim",
+  ft = "markdown",
+  cmd = "MdRender",
+  keys = {
+    { "<leader>mp", "<cmd>MdRender toggle<cr>", desc = "Markdown preview (toggle)" },
+    { "<leader>mt", "<cmd>MdRender tab<cr>", desc = "Markdown preview in tab" },
+  },
+}

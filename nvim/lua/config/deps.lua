@@ -1,6 +1,8 @@
 -- Thin plugin-manager helper on top of Neovim's built-in `vim.pack`.
--- Mimics the add/now/later API of the old deps manager used by this config:
---   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks }, now(f), later(f)
+-- Installs and registers plugins; lz.n decides when lazy ones load:
+--   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks, lazy }
+-- A spec with `lazy = true` is installed and registered but not loaded; lz.n
+-- loads it later with :packadd.
 -- Lockfile: $XDG_CONFIG_HOME/nvim/nvim-pack-lock.json (tracked in dotfiles).
 -- When it exists, vim.pack installs every plugin in it at the locked revision
 -- on the first vim.pack call, so require this module BEFORE any vim.pack.add.
@@ -10,7 +12,6 @@ M.config = { confirm = false }
 
 local hooks = {} -- [plugin name] = { post_install = fn, post_checkout = fn }
 local seen = {} -- [plugin name] = true
-local queue, draining = {}, false
 
 local function safely(label, f, ...)
   local ok, err = xpcall(f, debug.traceback, ...)
@@ -39,7 +40,8 @@ local function normalize(spec)
 end
 
 local function run_hook(fn, data)
-  if not data.active then
+  -- Check runtimepath, not data.active: a lazy plugin is active but not loaded.
+  if not vim.list_contains(vim.opt.runtimepath:get(), data.path) then
     pcall(vim.cmd.packadd, data.spec.name)
   end
   safely("hook " .. data.spec.name, fn, { path = data.path, source = data.spec.src, name = data.spec.name })
@@ -75,7 +77,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
----@param spec string|{source:string, name?:string, checkout?:string, hooks?:table}|(string|table)[] a spec, or a list of specs
+---@param spec string|{source:string, name?:string, checkout?:string, hooks?:table, lazy?:boolean}|(string|table)[] a spec, or a list of specs
 function M.add(spec)
   if type(spec) == "table" and spec.source == nil then
     if #spec == 0 then
@@ -102,7 +104,11 @@ function M.add(spec)
   if needs_install and cmdheight == 0 then
     vim.o.cmdheight = 1
   end
-  local ok, err = pcall(vim.pack.add, { s }, { load = true, confirm = M.config.confirm })
+  local load = true
+  if type(spec) == "table" and spec.lazy then
+    load = function() end -- leave :packadd to lz.n
+  end
+  local ok, err = pcall(vim.pack.add, { s }, { load = load, confirm = M.config.confirm })
   if needs_install and cmdheight == 0 then
     vim.o.cmdheight = cmdheight
   end
@@ -113,32 +119,8 @@ function M.add(spec)
   local early = installed_early[s.name]
   if early and hooks[s.name] then
     installed_early[s.name] = nil
-    early.active = true
     run_hooks(hooks[s.name], "install", early)
   end
-end
-
-function M.now(f)
-  safely("now", f)
-end
-
--- Run `f` once the event loop is free; callbacks run in order, one per tick.
-function M.later(f)
-  queue[#queue + 1] = f
-  if draining then
-    return
-  end
-  draining = true
-  local function step()
-    local next_f = table.remove(queue, 1)
-    if next_f then
-      safely("later", next_f)
-      vim.schedule(step)
-    else
-      draining = false
-    end
-  end
-  vim.schedule(step)
 end
 
 function M.update()
@@ -147,9 +129,6 @@ end
 
 -- Delete plugins on disk that are not added in this session.
 function M.clean()
-  if draining or #queue > 0 then
-    return vim.notify("(deps) Startup still loading, try again")
-  end
   local names = vim
     .iter(vim.pack.get())
     :filter(function(p)

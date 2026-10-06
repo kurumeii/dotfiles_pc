@@ -1,11 +1,16 @@
-local add = require("config.deps").add
-add({
-	"lbrayner/vim-rzip",
-	"kevinhwang91/promise-async",
-	"kevinhwang91/nvim-ufo",
+require("config.deps").add({
+	"lbrayner/vim-rzip", -- handles zip buffers itself, so keep it eager
+	{ source = "kevinhwang91/promise-async", lazy = true },
+	{ source = "kevinhwang91/nvim-ufo", lazy = true },
 })
-vim.api.nvim_create_autocmd("BufReadPost", {
-	callback = function()
+
+return {
+	"nvim-ufo",
+	event = "BufReadPost",
+	before = function()
+		vim.cmd.packadd("promise-async")
+	end,
+	after = function()
 		vim.o.foldcolumn = "auto"
 		vim.o.foldlevel = 99
 		vim.o.foldlevelstart = 99
@@ -66,4 +71,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 			end
 		end, "Peek Folded Lines")
 	end,
-})
+}

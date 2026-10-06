@@ -1,9 +1,5 @@
-require("config.deps").add({
-  "mason-org/mason.nvim",
-  "mason-org/mason-lspconfig.nvim",
-  "WhoIsSethDaniel/mason-tool-installer.nvim",
-})
-
+-- Setup only: plugins/lspconfig.lua adds these plugins and requires this file
+-- from its lz.n spec, after nvim-lspconfig is loaded.
 require("mason").setup({
   ui = {
     icons = {
