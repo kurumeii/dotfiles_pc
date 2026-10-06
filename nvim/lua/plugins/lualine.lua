@@ -1,66 +1,76 @@
-require("config.deps").add("nvim-lualine/lualine.nvim")
+local enabled = not vim.g.mini.statusline
+if enabled then
+  require("config.deps").add({ source = "nvim-lualine/lualine.nvim", lazy = true })
+end
 
-local icons = mininvim.icons
+return {
+  "lualine.nvim",
+  enabled = enabled,
+  event = "DeferredUIEnter",
+  after = function()
+    local icons = mininvim.icons
 
--- local function get_copilot_status()
---   if vim.fn.exists("*copilot#Enabled") == 1 and vim.fn["copilot#Enabled"]() == 1 then
---     return icons.groups.copilot.glyph .. " "
---   end
---   return ""
--- end
+    -- local function get_copilot_status()
+    --   if vim.fn.exists("*copilot#Enabled") == 1 and vim.fn["copilot#Enabled"]() == 1 then
+    --     return icons.groups.copilot.glyph .. " "
+    --   end
+    --   return ""
+    -- end
 
-require("lualine").setup({
-  options = {
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
-    globalstatus = true,
-  },
-  sections = {
-    lualine_a = {
-      {
-        "mode",
-        fmt = function(str)
-          return str:upper()
-        end,
+    require("lualine").setup({
+      options = {
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        globalstatus = true,
       },
-    },
-    lualine_b = {
-      { "branch", icon = icons.git_branch },
-      "diff",
-      {
-        "diagnostics",
-        symbols = {
-          error = icons.error,
-          warn = icons.warn,
-          info = icons.info,
-          hint = icons.hint,
+      sections = {
+        lualine_a = {
+          {
+            "mode",
+            fmt = function(str)
+              return str:upper()
+            end,
+          },
         },
+        lualine_b = {
+          { "branch", icon = icons.git_branch },
+          "diff",
+          {
+            "diagnostics",
+            symbols = {
+              error = icons.error,
+              warn = icons.warn,
+              info = icons.info,
+              hint = icons.hint,
+            },
+          },
+        },
+        lualine_c = {
+          {
+            "filename",
+            fmt = function()
+              return vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
+            end,
+            separator = { left = "", right = "" },
+          },
+        },
+        lualine_x = {
+          {
+            function()
+              return "recording @" .. vim.fn.reg_recording()
+            end,
+            cond = function()
+              return vim.fn.reg_recording() ~= ""
+            end,
+            color = "DiagnosticError",
+          },
+          { "fileformat", symbols = { unix = icons.os.linux, dos = icons.os.win } },
+          { "lsp_status", icon = icons.lsp },
+          { "filetype", colored = false },
+        },
+        lualine_y = { "filesize", "searchcount" },
+        lualine_z = { "progress" },
       },
-    },
-    lualine_c = {
-      {
-        "filename",
-        fmt = function()
-          return vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
-        end,
-        separator = { left = "", right = "" },
-      },
-    },
-    lualine_x = {
-      {
-        function()
-          return "recording @" .. vim.fn.reg_recording()
-        end,
-        cond = function()
-          return vim.fn.reg_recording() ~= ""
-        end,
-        color = "DiagnosticError",
-      },
-      { "fileformat", symbols = { unix = icons.os.linux, dos = icons.os.win } },
-      { "lsp_status", icon = icons.lsp },
-      { "filetype", colored = false },
-    },
-    lualine_y = { "filesize", "searchcount" },
-    lualine_z = { "progress" },
-  },
-})
+    })
+  end,
+}

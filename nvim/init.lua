@@ -58,26 +58,6 @@ if vim.g.mini.statuscolumn then
 end
 -- require("plugins.snacks")
 later(function()
-  -- UI
-  if vim.g.mini.tabline then
-    require("plugins.mini.tabline")
-  else
-    require("plugins.bufferline")
-  end
-  if vim.g.mini.statusline then
-    require("plugins.mini.statusline")
-  else
-    require("plugins.lualine")
-  end
-
-  require("plugins.nvim-navic")
-  if vim.g.noice then
-    require("plugins.noice")
-  else
-    require("plugins.ui2")
-  end
-end)
-later(function()
   -- Misc
   require("plugins.nvim-ufo")
   -- require("plugins.sidekick")
@@ -146,4 +126,25 @@ require("lz.n").load({
   require("plugins.nvim-lint"),
   require("plugins.conform"),
   require("plugins.dap"),
+  -- UI
+  {
+    "mini-ui",
+    event = "DeferredUIEnter",
+    load = noop,
+    after = function()
+      if vim.g.mini.tabline then
+        require("plugins.mini.tabline")
+      end
+      if vim.g.mini.statusline then
+        require("plugins.mini.statusline")
+      end
+      if not vim.g.noice then
+        require("plugins.ui2")
+      end
+    end,
+  },
+  require("plugins.bufferline"),
+  require("plugins.lualine"),
+  require("plugins.nvim-navic"),
+  require("plugins.noice"),
 })
