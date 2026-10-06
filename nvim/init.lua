@@ -3,7 +3,7 @@ vim.g.start_time = vim.uv.hrtime()
 -- Must come before any vim.pack call: registers hooks and, via the lockfile,
 -- vim.pack installs all locked plugins on its first call.
 local deps = require("config.deps")
-local now, later = deps.now, deps.later
+local later = deps.later
 
 deps.add("nvim-mini/mini.nvim")
 deps.add("lumen-oss/lz.n")
@@ -26,48 +26,37 @@ vim.g.mini = {
   colors = true,
 }
 
-now(function()
-  require("config.options")
-  require("config.keymaps")
-  require("config.mininvim")
-  require("config.autocmds")
-  require("plugins.mini.basics")
-  require("plugins.mini.keymap")
-  require("plugins.mini.icons")
-  require("plugins.mini.sessions")
-  if vim.g.mini.clues then
-    require("plugins.mini.clues")
-  else
-    require("plugins.whichkey")
-  end
-  require("plugins.mini.starter")
-  if vim.g.mini.colors then
-    require("plugins.mini.colors")
-  else
-    require("plugins.colorschemes")
-  end
-  if vim.g.mini.notify then
-    require("plugins.mini.notify")
-  end
-  if vim.g.mini.explorer then
-    require("plugins.mini.files")
-  end
-  if vim.g.mini.animate then
-    require("plugins.mini.animate")
-  end
-  if vim.g.mini.input then
-    require("plugins.mini.input")
-  end
-  if vim.g.mini.statuscolumn then
-    require("plugins.mini.statuscolumn")
-  end
-end)
--- now(function()
---   require("plugins.snacks")
--- end)
-now(function()
-  require("plugins.treesitter")
-end)
+require("config.options")
+require("config.keymaps")
+require("config.mininvim")
+require("config.autocmds")
+require("plugins.mini.basics")
+require("plugins.mini.keymap")
+require("plugins.mini.icons")
+require("plugins.mini.sessions")
+if vim.g.mini.clues then
+  require("plugins.mini.clues")
+end
+require("plugins.mini.starter")
+if vim.g.mini.colors then
+  require("plugins.mini.colors")
+end
+if vim.g.mini.notify then
+  require("plugins.mini.notify")
+end
+if vim.g.mini.explorer then
+  require("plugins.mini.files")
+end
+if vim.g.mini.animate then
+  require("plugins.mini.animate")
+end
+if vim.g.mini.input then
+  require("plugins.mini.input")
+end
+if vim.g.mini.statuscolumn then
+  require("plugins.mini.statuscolumn")
+end
+-- require("plugins.snacks")
 later(function()
   -- Base minis: no config, no deps
   require("mini.bufremove").setup()
@@ -157,3 +146,9 @@ later(function()
     require("plugins.blink")
   end
 end)
+
+require("lz.n").load({
+  require("plugins.colorschemes"),
+  require("plugins.treesitter"),
+  require("plugins.whichkey"),
+})

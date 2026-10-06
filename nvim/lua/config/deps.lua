@@ -41,7 +41,8 @@ local function normalize(spec)
 end
 
 local function run_hook(fn, data)
-  if not data.active then
+  -- Check runtimepath, not data.active: a lazy plugin is active but not loaded.
+  if not vim.list_contains(vim.opt.runtimepath:get(), data.path) then
     pcall(vim.cmd.packadd, data.spec.name)
   end
   safely("hook " .. data.spec.name, fn, { path = data.path, source = data.spec.src, name = data.spec.name })
@@ -119,7 +120,6 @@ function M.add(spec)
   local early = installed_early[s.name]
   if early and hooks[s.name] then
     installed_early[s.name] = nil
-    early.active = true
     run_hooks(hooks[s.name], "install", early)
   end
 end
