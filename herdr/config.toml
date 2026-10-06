@@ -72,15 +72,31 @@ description = "duplicate tab in current cwd"
 [[keys.command]]
 key = "prefix+e"
 type = "popup"
-command = "/home/linuxbrew/.linuxbrew/bin/fish -c yazi"
+command = "fish -c y"
 description = "yazi file manager"
-width = "90%"
-height = "90%"
+width = "80%"
+height = "80%"
+
+[[keys.command]]
+key = "prefix+E"
+type = "popup"
+command = "fish -c yazi"
+description = "yazi file manager"
+width = "80%"
+height = "80%"
 
 [[keys.command]]
 key = "prefix+/"
 type = "popup"
-command = "/home/linuxbrew/.linuxbrew/bin/fish -c btop"
-description = "Btop"
-width = "90%"
-height = "90%"
+command = "fish -c btop"
+description = "open btop (pop)"
+width = "80%"
+height = "80%"
+
+[[keys.command]]
+key = "prefix+g"
+type = "popup"
+command = "fish -c lazygit"
+description = "Open lazygit (pop)"
+width = "80%"
+height = "80%"

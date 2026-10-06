@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "d93ef1e8365950420ea3e706e82caf65dc9ff968",
+      "rev": "83b0f1dc1ef1cc736bb4216654b1d173bcaf4ba6",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "blink-copilot": {
@@ -41,11 +41,11 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "md-render.nvim": {
-      "rev": "cb79d5a1c4cd929fe0144c4d75be50a1ad4c2c74",
+      "rev": "8bc28beac878f8a21093aa186dcb1fb7d9f4ae03",
       "src": "https://github.com/delphinus/md-render.nvim"
     },
     "mini.nvim": {
-      "rev": "65d615e1f78775323bfd4651f694824256e2adc1",
+      "rev": "6f0cd5049f414932ba55a5d6f3282a59d55c71a3",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-dap": {
@@ -65,7 +65,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "3e8d598d3b5f8338a41699c436e5fa11d2666cf0",
+      "rev": "910f0c4d46aa186641518395bc7e6fffb4d23baf",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -123,7 +123,7 @@
       "src": "https://github.com/justinsgithub/wezterm-types"
     },
     "yazi.nvim": {
-      "rev": "6118c41a05367bbb4b1b2dc32b62af523692f5db",
+      "rev": "bc84dd40ef471a05501ceabd7ceadebb9fef94a3",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }

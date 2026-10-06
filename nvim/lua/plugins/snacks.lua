@@ -35,24 +35,18 @@ require("snacks").setup({
     },
   },
   animate = {
+    enabled = vim.g.mini.animate,
     easing = "inOutQuad",
   },
   quickfile = { enabled = false },
   scroll = { enabled = not vim.g.mini.animate },
-  lazygit = { enabled = true },
+  lazygit = { enabled = false },
   terminal = { enabled = true, win = { enter = false } },
-  bigfile = { enabled = true },
-  image = { enabled = true },
+  bigfile = { enabled = false },
+  image = { enabled = not vim.g.mini.picks },
   input = { enabled = not vim.g.mini.input },
-  indent = { enabled = not vim.g.mini.notify, style = "compact", margin = {
-    top = 2,
-  } },
-  -- Styles
-  styles = {
-    notification = {
-      wo = { wrap = true },
-    },
-  },
+  indent = { enabled = not vim.g.mini.notify, style = "compact", margin = { top = 2 } }, -- Styles
+  styles = { notification = { wo = { wrap = true } } },
 })
 
 if not vim.g.mini.notify then
@@ -122,87 +116,87 @@ local function kill_term(term)
     end
   end
 end
+--
+-- utils.map("n", utils.L("gg"), function()
+--   Snacks.lazygit.open({ win = { enter = true } })
+-- end, "Open Lazygit")
+--
+-- utils.map("n", utils.L("tb"), function()
+--   Snacks.terminal.open("btop", { win = { style = "float", enter = true } })
+-- end, "Open btop in floating terminal")
+--
+-- utils.map("n", utils.L("tn"), function()
+--   Snacks.terminal.open(nil, {
+--     count = get_next_id(),
+--   })
+-- end, "Terminal New")
 
-utils.map("n", utils.L("gg"), function()
-  Snacks.lazygit.open({ win = { enter = true } })
-end, "Open Lazygit")
+-- utils.map("n", utils.L("tf"), function()
+--   Snacks.terminal.open(nil, {
+--     count = get_next_id(),
+--     win = {
+--       style = "float",
+--       enter = true,
+--       width = 0.7,
+--       border = "rounded",
+--       title = "Float Terminal",
+--       title_pos = "center",
+--     },
+--   })
+-- end, "Terminal New (Float)")
 
-utils.map("n", utils.L("tb"), function()
-  Snacks.terminal.open("btop", { win = { style = "float", enter = true } })
-end, "Open btop in floating terminal")
+-- utils.map("n", utils.L("td"), function()
+--   local terms = get_terms()
+--   if #terms == 0 then
+--     utils.notify("No terminals to destroy", "WARN")
+--     return
+--   end
+--
+--   if #terms == 1 then
+--     kill_term(terms[1].term)
+--   else
+--     vim.ui.select(terms, {
+--       prompt = "Select terminal to destroy:",
+--       format_item = function(item)
+--         return "Terminal " .. item.id
+--       end,
+--     }, function(choice)
+--       if choice then
+--         kill_term(choice.term)
+--       end
+--     end)
+--   end
+-- end, "Destroy Terminal")
 
-utils.map("n", utils.L("tn"), function()
-  Snacks.terminal.open(nil, {
-    count = get_next_id(),
-  })
-end, "Terminal New")
-
-utils.map("n", utils.L("tf"), function()
-  Snacks.terminal.open(nil, {
-    count = get_next_id(),
-    win = {
-      style = "float",
-      enter = true,
-      width = 0.7,
-      border = "rounded",
-      title = "Float Terminal",
-      title_pos = "center",
-    },
-  })
-end, "Terminal New (Float)")
-
-utils.map("n", utils.L("td"), function()
-  local terms = get_terms()
-  if #terms == 0 then
-    utils.notify("No terminals to destroy", "WARN")
-    return
-  end
-
-  if #terms == 1 then
-    kill_term(terms[1].term)
-  else
-    vim.ui.select(terms, {
-      prompt = "Select terminal to destroy:",
-      format_item = function(item)
-        return "Terminal " .. item.id
-      end,
-    }, function(choice)
-      if choice then
-        kill_term(choice.term)
-      end
-    end)
-  end
-end, "Destroy Terminal")
-
-utils.map("n", utils.L("tt"), function()
-  for _, item in ipairs(get_terms()) do
-    item.term:toggle()
-  end
-end, "Hide all terminals")
-
-utils.map("n", utils.L("tx"), function()
-  for _, item in ipairs(get_terms()) do
-    kill_term(item.term)
-  end
-end, "Close all terminals")
-
-utils.map("n", utils.L("tl"), function()
-  local terms = get_terms()
-  if #terms == 0 then
-    utils.notify("No terminals found", "WARN")
-    return
-  end
-  vim.ui.select(terms, {
-    prompt = "Select terminal:",
-    format_item = function(item)
-      return "Terminal " .. item.id
-    end,
-  }, function(choice)
-    if choice then
-      choice.term:toggle({ win = { enter = false } })
-    end
-  end)
-end, "Terminal List/Select")
+-- utils.map("n", utils.L("tt"), function()
+--   for _, item in ipairs(get_terms()) do
+--     item.term:toggle()
+--   end
+-- end, "Hide all terminals")
+--
+-- utils.map("n", utils.L("tx"), function()
+--   for _, item in ipairs(get_terms()) do
+--     kill_term(item.term)
+--   end
+-- end, "Close all terminals")
+--
+-- utils.map("n", utils.L("tl"), function()
+--   local terms = get_terms()
+--   if #terms == 0 then
+--     utils.notify("No terminals found", "WARN")
+--     return
+--   end
+--   vim.ui.select(terms, {
+--     prompt = "Select terminal:",
+--     format_item = function(item)
+--       return "Terminal " .. item.id
+--     end,
+--   }, function(choice)
+--     if choice then
+--       choice.term:toggle({ win = { enter = false } })
+--     end
+--   end)
+-- end, "Terminal List/Select")
 
 if not vim.g.mini.picks then
   vim.ui.select = Snacks.picker.select
