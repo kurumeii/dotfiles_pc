@@ -1,2 +1,13 @@
 [mgr]
 show_hidden = true
+
+[opener]
+edit-tab = [
+  { run = 'bash "$HOME/.config/yazi/herdr-edit.sh" %s1', orphan = true, for = "unix", desc = "nvim in new herdr tab" },
+]
+
+[open]
+prepend_rules = [
+  { mime = "text/*", use = "edit-tab" },
+  { mime = "application/json", use = "edit-tab" },
+]
