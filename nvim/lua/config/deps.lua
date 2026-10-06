@@ -1,6 +1,8 @@
 -- Thin plugin-manager helper on top of Neovim's built-in `vim.pack`.
 -- Mimics the add/now/later API of the old deps manager used by this config:
---   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks }, now(f), later(f)
+--   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks, lazy }, now(f), later(f)
+-- A spec with `lazy = true` is installed and registered but not loaded; lz.n
+-- loads it later with :packadd.
 -- Lockfile: $XDG_CONFIG_HOME/nvim/nvim-pack-lock.json (tracked in dotfiles).
 -- When it exists, vim.pack installs every plugin in it at the locked revision
 -- on the first vim.pack call, so require this module BEFORE any vim.pack.add.
@@ -75,7 +77,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
----@param spec string|{source:string, name?:string, checkout?:string, hooks?:table}|(string|table)[] a spec, or a list of specs
+---@param spec string|{source:string, name?:string, checkout?:string, hooks?:table, lazy?:boolean}|(string|table)[] a spec, or a list of specs
 function M.add(spec)
   if type(spec) == "table" and spec.source == nil then
     if #spec == 0 then
@@ -102,7 +104,11 @@ function M.add(spec)
   if needs_install and cmdheight == 0 then
     vim.o.cmdheight = 1
   end
-  local ok, err = pcall(vim.pack.add, { s }, { load = true, confirm = M.config.confirm })
+  local load = true
+  if type(spec) == "table" and spec.lazy then
+    load = function() end -- leave :packadd to lz.n
+  end
+  local ok, err = pcall(vim.pack.add, { s }, { load = load, confirm = M.config.confirm })
   if needs_install and cmdheight == 0 then
     vim.o.cmdheight = cmdheight
   end

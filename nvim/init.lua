@@ -6,6 +6,7 @@ local deps = require("config.deps")
 local now, later = deps.now, deps.later
 
 deps.add("nvim-mini/mini.nvim")
+deps.add("lumen-oss/lz.n")
 
 vim.g.noice = false
 vim.g.mini = {
