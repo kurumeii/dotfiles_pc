@@ -1,6 +1,6 @@
 -- Thin plugin-manager helper on top of Neovim's built-in `vim.pack`.
--- Mimics the add/now/later API of the old deps manager used by this config:
---   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks, lazy }, now(f), later(f)
+-- Installs and registers plugins; lz.n decides when lazy ones load:
+--   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks, lazy }
 -- A spec with `lazy = true` is installed and registered but not loaded; lz.n
 -- loads it later with :packadd.
 -- Lockfile: $XDG_CONFIG_HOME/nvim/nvim-pack-lock.json (tracked in dotfiles).
@@ -12,7 +12,6 @@ M.config = { confirm = false }
 
 local hooks = {} -- [plugin name] = { post_install = fn, post_checkout = fn }
 local seen = {} -- [plugin name] = true
-local queue, draining = {}, false
 
 local function safely(label, f, ...)
   local ok, err = xpcall(f, debug.traceback, ...)
@@ -124,38 +123,12 @@ function M.add(spec)
   end
 end
 
-function M.now(f)
-  safely("now", f)
-end
-
--- Run `f` once the event loop is free; callbacks run in order, one per tick.
-function M.later(f)
-  queue[#queue + 1] = f
-  if draining then
-    return
-  end
-  draining = true
-  local function step()
-    local next_f = table.remove(queue, 1)
-    if next_f then
-      safely("later", next_f)
-      vim.schedule(step)
-    else
-      draining = false
-    end
-  end
-  vim.schedule(step)
-end
-
 function M.update()
   vim.pack.update()
 end
 
 -- Delete plugins on disk that are not added in this session.
 function M.clean()
-  if draining or #queue > 0 then
-    return vim.notify("(deps) Startup still loading, try again")
-  end
   local names = vim
     .iter(vim.pack.get())
     :filter(function(p)
