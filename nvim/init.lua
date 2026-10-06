@@ -3,7 +3,6 @@ vim.g.start_time = vim.uv.hrtime()
 -- Must come before any vim.pack call: registers hooks and, via the lockfile,
 -- vim.pack installs all locked plugins on its first call.
 local deps = require("config.deps")
-local later = deps.later
 
 deps.add("nvim-mini/mini.nvim")
 deps.add("lumen-oss/lz.n")
@@ -57,17 +56,6 @@ if vim.g.mini.statuscolumn then
   require("plugins.mini.statuscolumn")
 end
 -- require("plugins.snacks")
-later(function()
-  -- Misc
-  require("plugins.nvim-ufo")
-  -- require("plugins.sidekick")
-  require("plugins.herdr_agent").setup()
-  -- require("plugins.yazi")
-  require("plugins.md-render")
-  if not vim.g.mini.completion then
-    require("plugins.blink")
-  end
-end)
 
 -- Virtual specs (no package of their own) skip lz.n's :packadd.
 local function noop() end
@@ -147,4 +135,18 @@ require("lz.n").load({
   require("plugins.lualine"),
   require("plugins.nvim-navic"),
   require("plugins.noice"),
+  -- Misc
+  require("plugins.nvim-ufo"),
+  require("plugins.md-render"),
+  require("plugins.blink"),
+  {
+    "herdr-agent",
+    event = "DeferredUIEnter",
+    load = noop,
+    after = function()
+      require("plugins.herdr_agent").setup()
+    end,
+  },
+  -- require("plugins.sidekick")
+  -- require("plugins.yazi")
 })
