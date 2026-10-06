@@ -18,6 +18,7 @@ return {
 		{ "<leader>dB", desc = "Debug: Set Breakpoint" },
 		{ "<leader>du", desc = "Debug: Toggle UI" },
 		{ "<leader>dl", desc = "Debug: Show log" },
+		{ "<leader>dL", desc = "Debug: Set Log Point" },
 		{ "<leader>dr", desc = "Debug: Toggle REPL" },
 		{ "<leader>dt", desc = "Debug: Terminate" },
 		{ "<leader>dh", mode = { "n", "v" }, desc = "Debug: widget hover" },
@@ -116,7 +117,7 @@ return {
 		utils.map("n", "<leader>du", dapui.toggle, "Debug: Toggle UI")
 		utils.map("n", "<leader>dl", utils.C("DapShowLog"), "Debug: Toggle UI")
 
-		utils.map("n", "<leader>dp", function()
+		utils.map("n", "<leader>dL", function()
 			vim.ui.input({ prompt = "Log point message" }, function(message)
 				if message then
 					dap.set_breakpoint(nil, nil, message)

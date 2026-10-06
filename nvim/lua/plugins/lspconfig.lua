@@ -139,7 +139,7 @@ return {
         end
         utils.patch_lsp_hover()
         utils.map("n", "<s-k>", vim.lsp.buf.hover)
-        utils.map("i", "<c-/", vim.lsp.buf.signature_help)
+        utils.map("i", "<c-/>", vim.lsp.buf.signature_help)
 
         -- Select an active LSP client, then restart or disable it
         local function select_lsp(action, cmd)
