@@ -58,17 +58,6 @@ if vim.g.mini.statuscolumn then
 end
 -- require("plugins.snacks")
 later(function()
-  -- Base minis: no config, no deps
-  require("mini.bufremove").setup()
-  require("mini.trailspace").setup()
-  require("mini.move").setup()
-  require("mini.fuzzy").setup()
-  require("mini.bracketed").setup({
-    treesitter = { suffix = "s" },
-  })
-  require("mini.extra").setup()
-end)
-later(function()
   -- Dev tooling
   require("plugins.lazydev")
   -- Typescript
@@ -86,34 +75,6 @@ later(function()
   require("plugins.conform")
   -- Debugging
   require("plugins.dap")
-end)
-later(function()
-  -- Mini editing + display plugins
-  require("plugins.mini.operators")
-  require("plugins.mini.git")
-  require("plugins.mini.ai")
-  require("plugins.mini.jump")
-  require("plugins.mini.surround")
-  require("plugins.mini.comment")
-  require("plugins.mini.snippets")
-  if vim.g.mini.completion then
-    require("plugins.mini.completion")
-  end
-  require("plugins.mini.cursorword")
-  require("plugins.mini.pairs")
-  require("plugins.mini.hipatterns")
-  require("plugins.mini.misc")
-  if vim.g.mini.picks then
-    require("plugins.mini.picks")
-  end
-  require("plugins.mini.visits")
-  require("plugins.mini.cmdline")
-  if vim.g.mini.map then
-    require("plugins.mini.map")
-  end
-  if vim.g.mini.indent then
-    require("plugins.mini.indentscope")
-  end
 end)
 later(function()
   -- UI
@@ -147,8 +108,54 @@ later(function()
   end
 end)
 
+-- Virtual specs (no package of their own) skip lz.n's :packadd.
+local function noop() end
+
 require("lz.n").load({
   require("plugins.colorschemes"),
   require("plugins.treesitter"),
   require("plugins.whichkey"),
+  {
+    "mini",
+    event = "DeferredUIEnter",
+    load = noop,
+    after = function()
+      -- Base minis: no config, no deps
+      require("mini.bufremove").setup()
+      require("mini.trailspace").setup()
+      require("mini.move").setup()
+      require("mini.fuzzy").setup()
+      require("mini.bracketed").setup({
+        treesitter = { suffix = "s" },
+      })
+      require("mini.extra").setup()
+
+      -- Mini editing + display plugins (ai, hipatterns, picks use MiniExtra)
+      require("plugins.mini.operators")
+      require("plugins.mini.git")
+      require("plugins.mini.ai")
+      require("plugins.mini.jump")
+      require("plugins.mini.surround")
+      require("plugins.mini.snippets")
+      if vim.g.mini.completion then
+        require("plugins.mini.completion")
+      end
+      require("plugins.mini.cursorword")
+      require("plugins.mini.pairs")
+      require("plugins.mini.hipatterns")
+      require("plugins.mini.misc")
+      if vim.g.mini.picks then
+        require("plugins.mini.picks")
+      end
+      require("plugins.mini.visits")
+      require("plugins.mini.cmdline")
+      if vim.g.mini.map then
+        require("plugins.mini.map")
+      end
+      if vim.g.mini.indent then
+        require("plugins.mini.indentscope")
+      end
+    end,
+  },
+  require("plugins.mini.comment"),
 })
