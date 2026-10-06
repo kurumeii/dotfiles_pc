@@ -1,6 +1,11 @@
-require("config.deps").add("stevearc/conform.nvim")
-vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
+require("config.deps").add({ source = "stevearc/conform.nvim", lazy = true })
+
+return {
+  "conform.nvim",
+  event = "BufWritePre",
+  cmd = "ConformInfo",
+  keys = { { "<leader>cf", desc = "Format buffer (Conform)" } },
+  after = function()
     require("conform").setup({
       notify_on_error = false,
       default_format_opts = {
@@ -58,4 +63,4 @@ vim.api.nvim_create_autocmd("BufRead", {
     local utils = require("config.utils")
     utils.map("n", utils.L("cf"), require("conform").format, "Format buffer (Conform)")
   end,
-})
+}

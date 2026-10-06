@@ -58,25 +58,6 @@ if vim.g.mini.statuscolumn then
 end
 -- require("plugins.snacks")
 later(function()
-  -- Dev tooling
-  require("plugins.lazydev")
-  -- Typescript
-  require("plugins.ts-autotag")
-end)
-later(function()
-  -- LSP: mason first, then lspconfig
-  require("plugins.mason")
-  require("plugins.lspconfig")
-end)
-later(function()
-  -- Linters
-  require("plugins.nvim-lint")
-  -- Format
-  require("plugins.conform")
-  -- Debugging
-  require("plugins.dap")
-end)
-later(function()
   -- UI
   if vim.g.mini.tabline then
     require("plugins.mini.tabline")
@@ -158,4 +139,11 @@ require("lz.n").load({
     end,
   },
   require("plugins.mini.comment"),
+  -- LSP (sets up mason), dev tooling, linters, format, debugging
+  require("plugins.lspconfig"),
+  require("plugins.lazydev"),
+  require("plugins.ts-autotag"),
+  require("plugins.nvim-lint"),
+  require("plugins.conform"),
+  require("plugins.dap"),
 })
