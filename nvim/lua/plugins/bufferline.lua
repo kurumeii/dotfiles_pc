@@ -1,11 +1,14 @@
 require("config.deps").add("akinsho/bufferline.nvim")
 local utils = require("config.utils")
+local MiniBufremove = require("mini.bufremove")
+local MiniIcons = require("mini.icons")
+
 require("bufferline").setup({
   options = {
     always_show_bufferline = true,
     show_close_icon = false,
     show_buffer_close_icons = false,
-    separator_style = "slant", -- slant | padded_slant | slope | padded_slope | thick | thin
+    separator_style = "thin", -- slant | padded_slant | slope | padded_slope | thick | thin
     groups = {
       options = {
         items = {
@@ -25,19 +28,17 @@ require("bufferline").setup({
     get_element_icon = function(o)
       return MiniIcons.get("filetype", o.filetype)
     end,
-    offsets = not vim.g.mini.explorer
-        and {
-          {
-            filetype = "snacks_layout_box",
-            text = function()
-              return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
-            end,
-            highlight = "Directory",
-            text_align = "left",
-            separator = true,
-          },
-        }
-        or {},
+    offsets = not vim.g.mini.explorer and {
+      {
+        filetype = "snacks_layout_box",
+        text = function()
+          return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+        end,
+        highlight = "Directory",
+        text_align = "left",
+        separator = true,
+      },
+    } or {},
   },
 })
 utils.map("n", utils.L("bp"), utils.C("BufferLineTogglePin"), "Toggle Pin")

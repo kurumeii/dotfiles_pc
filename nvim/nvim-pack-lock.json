@@ -16,6 +16,10 @@
       "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
       "src": "https://github.com/saghen/blink.lib"
     },
+    "bufferline.nvim": {
+      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -110,10 +114,6 @@
       "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
       "src": "https://github.com/kevinhwang91/promise-async"
     },
-    "snacks.nvim": {
-      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
-      "src": "https://github.com/folke/snacks.nvim"
-    },
     "vim-rzip": {
       "rev": "f65400fed27b27c7cff7ef8d428c4e5ff749bf28",
       "src": "https://github.com/lbrayner/vim-rzip"
@@ -121,10 +121,6 @@
     "wezterm-types": {
       "rev": "998639c5c5dd4513912966465772af80e7005f32",
       "src": "https://github.com/justinsgithub/wezterm-types"
-    },
-    "yazi.nvim": {
-      "rev": "bc84dd40ef471a05501ceabd7ceadebb9fef94a3",
-      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }

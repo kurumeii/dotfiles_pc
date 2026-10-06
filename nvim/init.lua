@@ -9,7 +9,7 @@ deps.add("nvim-mini/mini.nvim")
 
 vim.g.noice = false
 vim.g.mini = {
-  tabline = true,
+  tabline = false,
   animate = true,
   completion = false,
   picks = true,
@@ -61,9 +61,9 @@ now(function()
     require("plugins.mini.statuscolumn")
   end
 end)
-now(function()
-  require("plugins.snacks")
-end)
+-- now(function()
+--   require("plugins.snacks")
+-- end)
 now(function()
   require("plugins.treesitter")
 end)
