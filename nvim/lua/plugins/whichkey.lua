@@ -1,11 +1,6 @@
-local enabled = not vim.g.mini.clues
-if enabled then
-  require("config.deps").add({ source = "folke/which-key.nvim", lazy = true })
-end
-
 return {
-  "which-key.nvim",
-  enabled = enabled,
+  "folke/which-key.nvim",
+  enabled = not vim.g.mini.clues,
   after = function()
     local wk = require("which-key")
 

@@ -1,29 +1,20 @@
 local colorscheme = "catppuccin"
 local transparent = false
 
-local enabled = not vim.g.mini.colors
-local plugins = {
-  { source = "folke/tokyonight.nvim", lazy = true },
-  { source = "f4z3r/gruvbox-material.nvim", lazy = true },
-  { source = "ellisonleao/gruvbox.nvim", lazy = true },
-  { source = "rebelot/kanagawa.nvim", lazy = true },
-  { source = "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { source = "rose-pine/neovim", name = "rose-pine", lazy = true },
-}
-if enabled then
-  require("config.deps").add(plugins)
-end
-
 return {
   "colorschemes",
-  enabled = enabled,
+  enabled = not vim.g.mini.colors,
   priority = 1000,
-  -- Virtual spec: load every theme so any of them can be selected.
-  load = function()
-    for _, plugin in ipairs(plugins) do
-      vim.cmd.packadd(plugin.name or plugin.source:match("[^/]+$"))
-    end
-  end,
+  -- Virtual spec: its dependencies are all themes, loaded so any can be selected.
+  virtual = true,
+  dependencies = {
+    "folke/tokyonight.nvim",
+    "f4z3r/gruvbox-material.nvim",
+    "ellisonleao/gruvbox.nvim",
+    "rebelot/kanagawa.nvim",
+    { "catppuccin/nvim", name = "catppuccin" },
+    { "rose-pine/neovim", name = "rose-pine" },
+  },
   after = function()
     require("gruvbox").setup({
       contrast = "",

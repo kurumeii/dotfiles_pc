@@ -1,7 +1,5 @@
-require("config.deps").add({ source = "mfussenegger/nvim-lint", lazy = true })
-
 return {
-  "nvim-lint",
+  "mfussenegger/nvim-lint",
   event = { "BufReadPost", "BufNewFile" },
   after = function()
     local lint = require("lint")

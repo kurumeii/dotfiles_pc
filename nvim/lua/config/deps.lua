@@ -1,8 +1,21 @@
--- Thin plugin-manager helper on top of Neovim's built-in `vim.pack`.
--- Installs and registers plugins; lz.n decides when lazy ones load:
---   add(spec | { spec, ... }), spec = string | { source, name, checkout, hooks, lazy }
--- A spec with `lazy = true` is installed and registered but not loaded; lz.n
--- loads it later with :packadd.
+-- Thin plugin manager on top of Neovim's built-in `vim.pack` and lz.n, in the
+-- style of lazy.nvim: one spec declares what to install and when to load it.
+--   setup(specs)  install every spec with vim.pack, then hand lazy-loading to lz.n
+--   add(spec)     install (and load) plugins right away, without lz.n
+--
+-- Spec = lz.n spec fields (event, cmd, ft, keys, colorscheme, before, after,
+-- priority, enabled, lazy, ...) plus:
+--   [1]            "owner/repo", a full git url, or a bare name when `virtual`
+--   name           plugin name (default: repo name)
+--   checkout       branch, tag or commit (vim.pack `version`)
+--   build          fun(data) run after install and update (data: path, source, name)
+--   hooks          { post_install = fn, post_checkout = fn } for finer control
+--   dependencies   string|spec[]: installed and :packadd-ed before the plugin loads
+--   virtual        no package of its own, only `dependencies` and hooks
+-- Specs come from `{ import = "plugins" }` (every module directly under
+-- lua/plugins, returning a spec or a list of specs), like lazy.nvim, or inline.
+-- A spec without triggers loads at startup; `lazy = true` waits for dependency
+-- or `require("lz.n").trigger_load`. A spec with `enabled = false` is not installed.
 -- Lockfile: $XDG_CONFIG_HOME/nvim/nvim-pack-lock.json (tracked in dotfiles).
 -- When it exists, vim.pack installs every plugin in it at the locked revision
 -- on the first vim.pack call, so require this module BEFORE any vim.pack.add.
@@ -24,7 +37,7 @@ local function normalize(spec)
   if type(spec) == "string" then
     spec = { source = spec }
   end
-  local source = spec.source
+  local source = spec.source or spec[1]
   if not source:find("://", 1, true) and not source:find("^git@") then
     source = "https://github.com/" .. source
   end
@@ -77,50 +90,208 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
----@param spec string|{source:string, name?:string, checkout?:string, hooks?:table, lazy?:boolean}|(string|table)[] a spec, or a list of specs
-function M.add(spec)
-  if type(spec) == "table" and spec.source == nil then
-    if #spec == 0 then
-      error("(deps) spec has no source", 2)
-    end
-    for _, item in ipairs(spec) do
-      M.add(item)
-    end
-    return
+local function noop() end
+
+---A single spec has a source or is `{ "owner/repo", ... }`; anything else is a list of specs.
+local function is_single(spec)
+  return type(spec) == "string" or spec.source ~= nil or (type(spec[1]) == "string" and spec[2] == nil)
+end
+
+local function is_enabled(spec)
+  local enabled = type(spec) == "table" and spec.enabled
+  if type(enabled) == "function" then
+    enabled = enabled()
   end
-  local s = normalize(spec)
-  if seen[s.name] then
-    return
+  return enabled ~= false
+end
+
+local function as_table(spec)
+  return type(spec) == "string" and { spec } or spec
+end
+
+---Install the specs with one vim.pack.add; `lazy` ones are not loaded.
+---@param items { spec: table, lazy: boolean }[]
+local function install(items)
+  local fresh, lazy_names, packs = {}, {}, {}
+  for _, item in ipairs(items) do
+    local s = normalize(item.spec)
+    if not seen[s.name] then
+      seen[s.name] = true
+      if item.spec.hooks then
+        hooks[s.name] = item.spec.hooks
+      end
+      if item.spec.build then
+        hooks[s.name] = { post_install = item.spec.build, post_checkout = item.spec.build }
+      end
+      lazy_names[s.name] = item.lazy
+      fresh[#fresh + 1] = s
+      packs[#packs + 1] = s
+    end
   end
-  seen[s.name] = true
-  if type(spec) == "table" and spec.hooks then
-    hooks[s.name] = spec.hooks
+  if #fresh == 0 then
+    return
   end
   -- vim.pack reports install progress in the cmdline; with cmdheight=0 (and ui2
   -- not enabled yet) it would be invisible, so show the cmdline during installs.
-  local pack_dir = vim.fn.stdpath("data") .. "/site/pack/core/opt/" .. s.name
-  local needs_install = vim.uv.fs_stat(pack_dir) == nil
+  local pack_root = vim.fn.stdpath("data") .. "/site/pack/core/opt/"
+  local needs_install = vim.iter(fresh):any(function(s)
+    return vim.uv.fs_stat(pack_root .. s.name) == nil
+  end)
   local cmdheight = vim.o.cmdheight
   if needs_install and cmdheight == 0 then
     vim.o.cmdheight = 1
   end
-  local load = true
-  if type(spec) == "table" and spec.lazy then
-    load = function() end -- leave :packadd to lz.n
+  local function load(data)
+    if not lazy_names[data.spec.name] then
+      vim.cmd.packadd(data.spec.name)
+    end
   end
-  local ok, err = pcall(vim.pack.add, { s }, { load = load, confirm = M.config.confirm })
+  local ok, err = pcall(vim.pack.add, packs, { load = load, confirm = M.config.confirm })
   if needs_install and cmdheight == 0 then
     vim.o.cmdheight = cmdheight
   end
   if not ok then
-    seen[s.name] = nil
+    for _, s in ipairs(fresh) do
+      seen[s.name] = nil
+    end
     error(err, 0)
   end
-  local early = installed_early[s.name]
-  if early and hooks[s.name] then
-    installed_early[s.name] = nil
-    run_hooks(hooks[s.name], "install", early)
+  for _, s in ipairs(fresh) do
+    local early = installed_early[s.name]
+    if early and hooks[s.name] then
+      installed_early[s.name] = nil
+      run_hooks(hooks[s.name], "install", early)
+    end
   end
+end
+
+---Install and load plugins immediately, without lz.n.
+---@param spec string|table a spec, or a list of specs
+function M.add(spec)
+  local items = {}
+  local function collect(list)
+    if type(list) == "table" and #list == 0 and list.source == nil then
+      error("(deps) spec has no source", 3)
+    end
+    if is_single(list) then
+      items[#items + 1] = { spec = as_table(list), lazy = type(list) == "table" and list.lazy == true }
+    else
+      for _, item in ipairs(list) do
+        collect(item)
+      end
+    end
+  end
+  collect(spec)
+  install(items)
+end
+
+---Modules directly under lua/<import>: files and directories with an init.lua, sorted.
+---@param import string module name, e.g. "plugins"
+---@return string[]
+local function import_modules(import)
+  local root = vim.fs.joinpath("lua", (import:gsub("%.", "/")))
+  local found = {}
+  for _, dir in ipairs(vim.api.nvim_get_runtime_file(root, true)) do
+    for name, kind in vim.fs.dir(dir) do
+      -- dotter deploys per-file symlinks, so resolve "link" entries
+      local path = vim.fs.joinpath(dir, name)
+      if kind == "link" then
+        local stat = vim.uv.fs_stat(path)
+        kind = stat and stat.type
+      end
+      local mod
+      if kind == "file" and name:sub(-4) == ".lua" then
+        mod = name:sub(1, -5)
+      elseif kind == "directory" and vim.uv.fs_stat(vim.fs.joinpath(path, "init.lua")) then
+        mod = name
+      end
+      if mod and mod ~= "init" then
+        found[import .. "." .. mod] = true
+      end
+    end
+  end
+  local mods = vim.tbl_keys(found)
+  table.sort(mods)
+  return mods
+end
+
+-- Spec fields consumed here; everything else goes to lz.n untouched.
+local own_fields = { "source", "name", "checkout", "build", "hooks", "dependencies", "virtual" }
+
+---Install all specs, then let lz.n load them (lazily when the spec has triggers).
+---@param specs table a spec, `{ import = "module" }`, or a (nested) list of them
+function M.setup(specs)
+  M.add("lumen-oss/lz.n")
+  local items, lz_specs = {}, {}
+
+  -- Registers dependencies for install; returns their names, dependencies of dependencies first.
+  local function add_deps(list, names)
+    for _, dep in ipairs(list or {}) do
+      dep = as_table(dep)
+      add_deps(dep.dependencies, names)
+      items[#items + 1] = { spec = dep, lazy = true }
+      names[#names + 1] = normalize(dep).name
+    end
+    return names
+  end
+
+  local function process(spec)
+    if not is_enabled(spec) then
+      return
+    end
+    local lz = {}
+    for k, v in pairs(spec) do
+      if not vim.list_contains(own_fields, k) then
+        lz[k] = v
+      end
+    end
+    local dep_names = add_deps(spec.dependencies, {})
+    if spec.virtual then
+      lz[1] = spec[1]
+      lz.load = lz.load or noop
+      if spec.build or spec.hooks then
+        error(("(deps) virtual spec %s cannot have build or hooks"):format(spec[1]), 3)
+      end
+    else
+      items[#items + 1] = { spec = spec, lazy = true }
+      lz[1] = normalize(spec).name
+    end
+    if #dep_names > 0 then
+      local before = spec.before
+      lz.before = function(plugin)
+        for _, name in ipairs(dep_names) do
+          vim.cmd.packadd(name)
+        end
+        if before then
+          before(plugin)
+        end
+      end
+    end
+    lz_specs[#lz_specs + 1] = lz
+  end
+
+  local function walk(list)
+    if list.import then
+      for _, mod in ipairs(import_modules(list.import)) do
+        local ok, result = pcall(require, mod)
+        if ok and type(result) == "table" then
+          walk(result)
+        elseif not ok then
+          vim.notify(("(deps) Failed to import %s: %s"):format(mod, result), vim.log.levels.ERROR)
+        end
+      end
+    elseif is_single(list) then
+      process(as_table(list))
+    else
+      for _, item in ipairs(list) do
+        walk(item)
+      end
+    end
+  end
+  walk(specs)
+
+  install(items)
+  require("lz.n").load(lz_specs)
 end
 
 function M.update()

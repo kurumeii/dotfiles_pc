@@ -1,29 +1,12 @@
 local utils = require("config.utils")
-local enabled = not vim.g.mini.completion
-if enabled then
-  -- lazydev (the lazydev provider) is added and loaded by plugins/lazydev.lua
-  require("config.deps").add({
-    { source = "saghen/blink.lib", lazy = true },
-    { source = "fang2hou/blink-copilot", lazy = true },
-    {
-      source = "saghen/blink.cmp",
-      lazy = true,
-      hooks = {
-        post_checkout = utils.build_blink,
-        post_install = utils.build_blink,
-      },
-    },
-  })
-end
 
+-- lazydev (the lazydev provider) is added and loaded by plugins/lazydev.lua
 return {
-  "blink.cmp",
-  enabled = enabled,
+  "saghen/blink.cmp",
+  enabled = not vim.g.mini.completion,
+  build = utils.build_blink,
+  dependencies = { "saghen/blink.lib", "fang2hou/blink-copilot" },
   event = { "InsertEnter", "CmdlineEnter" },
-  before = function()
-    vim.cmd.packadd("blink.lib")
-    vim.cmd.packadd("blink-copilot")
-  end,
   after = function()
     require("blink.cmp").setup({
       keymap = {

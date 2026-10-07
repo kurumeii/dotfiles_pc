@@ -1,19 +1,8 @@
-local add = require("config.deps").add
-
-add({
-  "nvim-lua/plenary.nvim",
-  { source = "b0o/SchemaStore.nvim", lazy = true },
-  { source = "justinsgithub/wezterm-types", lazy = true },
-  { source = "folke/lazydev.nvim", lazy = true },
-})
-
 return {
-  "lazydev.nvim",
+  "folke/lazydev.nvim",
+  -- lazydev resolves library paths from runtimepath
+  dependencies = { "justinsgithub/wezterm-types" },
   ft = "lua",
-  before = function()
-    -- lazydev resolves library paths from runtimepath
-    vim.cmd.packadd("wezterm-types")
-  end,
   after = function()
     require("lazydev").setup({
       library = {

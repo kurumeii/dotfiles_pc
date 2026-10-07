@@ -1,7 +1,5 @@
-require("config.deps").add({ source = "windwp/nvim-ts-autotag", lazy = true })
-
 return {
-	"nvim-ts-autotag",
+	"windwp/nvim-ts-autotag",
 	event = "InsertEnter",
 	after = function()
 		require("nvim-ts-autotag").setup({

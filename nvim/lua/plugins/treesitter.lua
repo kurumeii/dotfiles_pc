@@ -1,27 +1,16 @@
 local utils = require("config.utils")
-local add = require("config.deps").add
-add({
-  {
-    source = "nvim-treesitter/nvim-treesitter",
-    checkout = "main",
-    lazy = true,
-    hooks = {
-      post_checkout = function()
-        vim.cmd("TSUpdate")
-      end,
-    },
-  },
-  { source = "nvim-treesitter/nvim-treesitter-textobjects", checkout = "main", lazy = true },
-  { source = "nvim-treesitter/nvim-treesitter-context", lazy = true },
-})
 
 return {
-  "nvim-treesitter",
-  priority = 900,
-  before = function()
-    vim.cmd.packadd("nvim-treesitter-textobjects")
-    vim.cmd.packadd("nvim-treesitter-context")
+  "nvim-treesitter/nvim-treesitter",
+  checkout = "main",
+  build = function()
+    vim.cmd("TSUpdate")
   end,
+  dependencies = {
+    { "nvim-treesitter/nvim-treesitter-textobjects", checkout = "main" },
+    "nvim-treesitter/nvim-treesitter-context",
+  },
+  priority = 900,
   after = function()
     local ts = require("nvim-treesitter")
     ts.setup()

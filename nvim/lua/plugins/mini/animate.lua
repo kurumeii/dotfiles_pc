@@ -1,14 +1,22 @@
-local MiniAnimate = require("mini.animate")
+return {
+  "mini-animate",
+  virtual = true,
+  enabled = vim.g.mini.animate,
+  priority = 950,
+  after = function()
+    local MiniAnimate = require("mini.animate")
 
-MiniAnimate.setup({
-  cursor = { enable = false },
-  scroll = {
-    enable = false,
-    timing = MiniAnimate.gen_timing.quadratic({
-      unit = "total",
-    }),
-  },
-  resize = { enable = false },
-  open = { enable = false },
-  close = { enable = false },
-})
+    MiniAnimate.setup({
+      cursor = { enable = false },
+      scroll = {
+        enable = false,
+        timing = MiniAnimate.gen_timing.quadratic({
+          unit = "total",
+        }),
+      },
+      resize = { enable = false },
+      open = { enable = false },
+      close = { enable = false },
+    })
+  end,
+}

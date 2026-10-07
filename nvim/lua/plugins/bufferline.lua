@@ -1,11 +1,6 @@
-local enabled = not vim.g.mini.tabline
-if enabled then
-  require("config.deps").add({ source = "akinsho/bufferline.nvim", lazy = true })
-end
-
 return {
-  "bufferline.nvim",
-  enabled = enabled,
+  "akinsho/bufferline.nvim",
+  enabled = not vim.g.mini.tabline,
   event = "DeferredUIEnter",
   after = function()
     local utils = require("config.utils")

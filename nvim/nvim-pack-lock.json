@@ -1,24 +1,8 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "83b0f1dc1ef1cc736bb4216654b1d173bcaf4ba6",
+      "rev": "ba1c08d07452528a430d319c53fba46e5884ef11",
       "src": "https://github.com/b0o/SchemaStore.nvim"
-    },
-    "blink-copilot": {
-      "rev": "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39",
-      "src": "https://github.com/fang2hou/blink-copilot"
-    },
-    "blink.cmp": {
-      "rev": "8219b58f1c11a2fb1644d3c7116c509fa8348ec0",
-      "src": "https://github.com/saghen/blink.cmp"
-    },
-    "blink.lib": {
-      "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
-      "src": "https://github.com/saghen/blink.lib"
-    },
-    "bufferline.nvim": {
-      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
-      "src": "https://github.com/akinsho/bufferline.nvim"
     },
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
@@ -53,7 +37,7 @@
       "src": "https://github.com/delphinus/md-render.nvim"
     },
     "mini.nvim": {
-      "rev": "6f0cd5049f414932ba55a5d6f3282a59d55c71a3",
+      "rev": "fa9037326e9996381e34a14b6350e18168618532",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-dap": {
@@ -73,7 +57,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "910f0c4d46aa186641518395bc7e6fffb4d23baf",
+      "rev": "33497f4930d40f28a465d38a763a00fc6902c658",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
