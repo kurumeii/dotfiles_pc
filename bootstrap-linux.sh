@@ -12,12 +12,6 @@ if ! command -v brew >/dev/null 2>&1 && [ -x "$BREW_BIN" ]; then
   eval "$("$BREW_BIN" shellenv)"
 fi
 
-FISH_CONF="$HOME/.config/fish/conf.d/brew.fish"
-if [ -d "$HOME/.config/fish" ]; then
-  mkdir -p "$(dirname "$FISH_CONF")"
-  grep -q linuxbrew "$FISH_CONF" 2>/dev/null || echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >"$FISH_CONF"
-fi
-
 command -v make >/dev/null 2>&1 || sudo apt-get install -y build-essential
 
 brew bundle --file="$DIR/Brewfile"

@@ -1,3 +1,7 @@
+if test -x /home/linuxbrew/.linuxbrew/bin/brew
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+end
+
 if status is-interactive
     set -g fish_greeting
     set -gx EDITOR nvim
