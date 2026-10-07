@@ -1,0 +1,20 @@
+curl
+gnome-tweaks
+gpaste-2
+chrome-gnome-shell
+libfuse2t64
+podman
+podman-compose
+xclip
+
+# ppa:quentiumyt/flameshot
+flameshot
+
+# fcitx5-lotus.pages.dev
+fcitx5-lotus
+
+# download.onlyoffice.com
+onlyoffice-desktopeditors
+
+# repo.teamsforlinux.de
+teams-for-linux

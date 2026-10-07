@@ -16,6 +16,26 @@ command -v make >/dev/null 2>&1 || sudo apt-get install -y build-essential
 
 brew bundle --file="$DIR/Brewfile"
 
+# Sync apt: add third-party repos via apt/repos/*.sh (each is idempotent, sources noted inside),
+# then install missing packages from apt/packages.txt.
+if command -v apt-get >/dev/null 2>&1 && [ -f "$DIR/apt/packages.txt" ]; then
+  apt_before="$(ls /etc/apt/sources.list.d 2>/dev/null | md5sum)"
+  for repo in "$DIR"/apt/repos/*.sh; do
+    [ -f "$repo" ] || continue
+    bash "$repo" || echo "warning: apt repo script failed: $repo" >&2
+  done
+  [ "$apt_before" != "$(ls /etc/apt/sources.list.d 2>/dev/null | md5sum)" ] && sudo apt-get update
+  missing=()
+  while read -r pkg _; do
+    case "$pkg" in "" | \#*) continue ;; esac
+    dpkg -s "$pkg" >/dev/null 2>&1 || missing+=("$pkg")
+  done <"$DIR/apt/packages.txt"
+  if [ "${#missing[@]}" -gt 0 ]; then
+    sudo apt-get install -y "${missing[@]}" ||
+      echo "warning: apt install failed for: ${missing[*]}" >&2
+  fi
+fi
+
 # Herdr plugins from herdr/plugins.txt (idempotent)
 if command -v herdr >/dev/null 2>&1 && [ -f "$DIR/herdr/plugins.txt" ]; then
   installed="$(herdr plugin list 2>/dev/null || true)"
