@@ -1,7 +1,5 @@
-require("config.deps").add({ source = "stevearc/conform.nvim", lazy = true })
-
 return {
-  "conform.nvim",
+  "stevearc/conform.nvim",
   event = "BufWritePre",
   cmd = "ConformInfo",
   keys = { { "<leader>cf", desc = "Format buffer (Conform)" } },

@@ -1,13 +1,11 @@
-require("config.deps").add({
-	{ source = "mfussenegger/nvim-dap", lazy = true },
-	{ source = "nvim-neotest/nvim-nio", lazy = true },
-	{ source = "rcarriga/nvim-dap-ui", lazy = true },
-	{ source = "theHamsta/nvim-dap-virtual-text", lazy = true },
-	{ source = "jay-babu/mason-nvim-dap.nvim", lazy = true },
-})
-
 return {
-	"nvim-dap",
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"nvim-neotest/nvim-nio",
+		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
+		"jay-babu/mason-nvim-dap.nvim",
+	},
 	cmd = { "DapContinue", "DapToggleBreakpoint", "DapShowLog" },
 	keys = {
 		{ "<F5>", desc = "Debug: Start/Continue" },
@@ -29,10 +27,6 @@ return {
 	before = function()
 		-- mason-nvim-dap needs mason, which the lspconfig spec sets up
 		require("lz.n").trigger_load("nvim-lspconfig")
-		vim.cmd.packadd("nvim-nio")
-		vim.cmd.packadd("nvim-dap-ui")
-		vim.cmd.packadd("nvim-dap-virtual-text")
-		vim.cmd.packadd("mason-nvim-dap.nvim")
 	end,
 	after = function()
 		local dap = require("dap")

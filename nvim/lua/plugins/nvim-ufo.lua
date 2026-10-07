@@ -1,15 +1,7 @@
-require("config.deps").add({
-	"lbrayner/vim-rzip", -- handles zip buffers itself, so keep it eager
-	{ source = "kevinhwang91/promise-async", lazy = true },
-	{ source = "kevinhwang91/nvim-ufo", lazy = true },
-})
-
 return {
-	"nvim-ufo",
+	"kevinhwang91/nvim-ufo",
+	dependencies = { "kevinhwang91/promise-async" },
 	event = "BufReadPost",
-	before = function()
-		vim.cmd.packadd("promise-async")
-	end,
 	after = function()
 		vim.o.foldcolumn = "auto"
 		vim.o.foldlevel = 99

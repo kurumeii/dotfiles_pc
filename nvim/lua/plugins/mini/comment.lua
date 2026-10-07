@@ -1,7 +1,5 @@
-require("config.deps").add({ source = "JoosepAlviste/nvim-ts-context-commentstring", lazy = true })
-
 return {
-	"nvim-ts-context-commentstring",
+	"JoosepAlviste/nvim-ts-context-commentstring",
 	event = "DeferredUIEnter",
 	after = function()
 		require("ts_context_commentstring").setup({
@@ -15,9 +13,9 @@ return {
 			},
 		})
 
-		-- Commentstring
+		-- Commentstring: JSON has none, so use `//` for mini.comment
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "json" },
+			pattern = { "json", "jsonc" },
 			callback = function()
 				vim.bo.commentstring = "// %s"
 			end,

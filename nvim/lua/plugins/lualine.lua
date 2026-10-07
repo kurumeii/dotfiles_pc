@@ -1,14 +1,17 @@
-local enabled = not vim.g.mini.statusline
-if enabled then
-  require("config.deps").add({ source = "nvim-lualine/lualine.nvim", lazy = true })
-end
-
 return {
-  "lualine.nvim",
-  enabled = enabled,
+  "nvim-lualine/lualine.nvim",
+  enabled = not vim.g.mini.statusline,
   event = "DeferredUIEnter",
   after = function()
     local icons = mininvim.icons
+
+    -- Lualine doesn't redraw on its own when macro recording starts/stops.
+    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+      callback = function()
+        -- RecordingLeave fires before reg_recording() is cleared, so defer the refresh.
+        vim.schedule(require("lualine").refresh)
+      end,
+    })
 
     -- local function get_copilot_status()
     --   if vim.fn.exists("*copilot#Enabled") == 1 and vim.fn["copilot#Enabled"]() == 1 then

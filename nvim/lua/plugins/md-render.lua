@@ -1,7 +1,5 @@
-require("config.deps").add({ source = "delphinus/md-render.nvim", lazy = true })
-
 return {
-  "md-render.nvim",
+  "delphinus/md-render.nvim",
   ft = "markdown",
   cmd = "MdRender",
   keys = {

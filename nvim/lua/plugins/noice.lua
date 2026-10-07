@@ -1,18 +1,8 @@
-local enabled = vim.g.noice
-if enabled then
-	require("config.deps").add({
-		{ source = "MunifTanjim/nui.nvim", lazy = true },
-		{ source = "folke/noice.nvim", lazy = true },
-	})
-end
-
 return {
-	"noice.nvim",
-	enabled = enabled,
+	"folke/noice.nvim",
+	enabled = vim.g.noice,
+	dependencies = { "MunifTanjim/nui.nvim" },
 	event = "DeferredUIEnter",
-	before = function()
-		vim.cmd.packadd("nui.nvim")
-	end,
 	after = function()
 		require("noice").setup({
 			cmdline = {

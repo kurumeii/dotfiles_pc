@@ -1,7 +1,5 @@
-require("config.deps").add({ source = "SmiteshP/nvim-navic", lazy = true })
-
 return {
-	"nvim-navic",
+	"SmiteshP/nvim-navic",
 	-- lz.n re-fires LspAttach after loading, so navic attaches to the first client.
 	event = "LspAttach",
 	after = function()

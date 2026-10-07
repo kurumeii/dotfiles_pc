@@ -1,25 +1,17 @@
-require("config.deps").add({
-  { source = "neovim/nvim-lspconfig", lazy = true },
-  { source = "mason-org/mason.nvim", lazy = true },
-  { source = "mason-org/mason-lspconfig.nvim", lazy = true },
-  { source = "WhoIsSethDaniel/mason-tool-installer.nvim", lazy = true },
-  -- Used by after/lsp/jsonls.lua and after/lsp/yamlls.lua
-  { source = "b0o/SchemaStore.nvim", lazy = true },
-})
-
 return {
-  "nvim-lspconfig",
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- Used by after/lsp/jsonls.lua and after/lsp/yamlls.lua
+    "b0o/SchemaStore.nvim",
+  },
   event = { "BufReadPre", "BufNewFile" },
   cmd = { "Mason", "MasonToolsInstall", "MasonToolsInstallSync", "MasonToolsUpdate" },
-  before = function()
-    vim.cmd.packadd("mason.nvim")
-    vim.cmd.packadd("mason-lspconfig.nvim")
-    vim.cmd.packadd("mason-tool-installer.nvim")
-    vim.cmd.packadd("SchemaStore.nvim")
-  end,
   after = function()
     -- mason-lspconfig needs nvim-lspconfig on runtimepath, so set mason up here.
-    require("plugins.mason")
+    require("config.mason")
 
     local utils = require("config.utils")
     -- LspAttach
