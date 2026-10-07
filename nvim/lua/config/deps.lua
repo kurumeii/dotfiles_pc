@@ -6,12 +6,10 @@
 -- Spec = lz.n spec fields (event, cmd, ft, keys, colorscheme, before, after,
 -- priority, enabled, lazy, ...) plus:
 --   [1]            "owner/repo", a full git url, or a bare name when `virtual`
---   name           plugin name (default: repo name)
 --   checkout       branch, tag or commit (vim.pack `version`)
 --   build          fun(data) run after install and update (data: path, source, name)
---   hooks          { post_install = fn, post_checkout = fn } for finer control
 --   dependencies   string|spec[]: installed and :packadd-ed before the plugin loads
---   virtual        no package of its own, only `dependencies` and hooks
+--   virtual        no package of its own, only `dependencies`
 -- Specs come from `{ import = "plugins" }` (every module directly under
 -- lua/plugins, returning a spec or a list of specs), like lazy.nvim, or inline.
 -- A spec without triggers loads at startup; `lazy = true` waits for dependency
@@ -47,7 +45,7 @@ local function normalize(spec)
   end
   return {
     src = source,
-    name = spec.name or (source:gsub("/+$", ""):match("([^/]+)$"):gsub("%.git$", "")),
+    name = source:gsub("/+$", ""):match("([^/]+)$"):gsub("%.git$", ""),
     version = version,
   }
 end
@@ -117,9 +115,6 @@ local function install(items)
     local s = normalize(item.spec)
     if not seen[s.name] then
       seen[s.name] = true
-      if item.spec.hooks then
-        hooks[s.name] = item.spec.hooks
-      end
       if item.spec.build then
         hooks[s.name] = { post_install = item.spec.build, post_checkout = item.spec.build }
       end
@@ -216,7 +211,7 @@ local function import_modules(import)
 end
 
 -- Spec fields consumed here; everything else goes to lz.n untouched.
-local own_fields = { "source", "name", "checkout", "build", "hooks", "dependencies", "virtual" }
+local own_fields = { "source", "checkout", "build", "dependencies", "virtual" }
 
 ---Install all specs, then let lz.n load them (lazily when the spec has triggers).
 ---@param specs table a spec, `{ import = "module" }`, or a (nested) list of them
@@ -249,8 +244,8 @@ function M.setup(specs)
     if spec.virtual then
       lz[1] = spec[1]
       lz.load = lz.load or noop
-      if spec.build or spec.hooks then
-        error(("(deps) virtual spec %s cannot have build or hooks"):format(spec[1]), 3)
+      if spec.build then
+        error(("(deps) virtual spec %s cannot have build"):format(spec[1]), 3)
       end
     else
       items[#items + 1] = { spec = spec, lazy = true }
