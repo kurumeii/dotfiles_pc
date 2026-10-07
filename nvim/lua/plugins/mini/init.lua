@@ -73,9 +73,6 @@ return {
       if vim.g.mini.statusline then
         require("plugins.mini.statusline")
       end
-      if not vim.g.noice then
-        require("config.ui2")
-      end
     end,
   },
 }
