@@ -34,37 +34,59 @@ if command -v herdr >/dev/null 2>&1 && [ -f "$DIR/herdr/plugins.txt" ]; then
 fi
 
 # Cask AppImages land in ~/Applications without a .desktop entry, so GNOME's launcher can't see them.
-APPIMAGE="$HOME/Applications/KeePassXC.AppImage"
-DESKTOP_FILE="$HOME/.local/share/applications/keepassxc.desktop"
-if [ -x "$APPIMAGE" ] && [ ! -f "$DESKTOP_FILE" ]; then
-  TMP_ICONS="$(mktemp -d)"
-  (cd "$TMP_ICONS" && "$APPIMAGE" --appimage-extract 'usr/share/icons' >/dev/null 2>&1) || true
-  mkdir -p "$HOME/.local/share/icons/hicolor/scalable/apps"
-  cp "$TMP_ICONS/squashfs-root/usr/share/icons/hicolor/scalable/apps/keepassxc.svg" \
-    "$HOME/.local/share/icons/hicolor/scalable/apps/keepassxc.svg" 2>/dev/null ||
-    echo "warning: could not extract keepassxc icon" >&2
-  rm -rf "$TMP_ICONS"
-  cat >"$DESKTOP_FILE" <<EOF
+# Extract each AppImage's own .desktop + icons and point Exec at the stable (symlinked) AppImage path.
+APPS_DIR="$HOME/.local/share/applications"
+ICONS_DIR="$HOME/.local/share/icons/hicolor"
+mkdir -p "$APPS_DIR" "$ICONS_DIR"
+for APPIMAGE in "$HOME"/Applications/*.AppImage; do
+  [ -x "$APPIMAGE" ] || continue
+  name="$(basename "$APPIMAGE" .AppImage)"
+  DESKTOP_FILE="$APPS_DIR/${name,,}.desktop"
+  [ -f "$DESKTOP_FILE" ] && continue
+  TMP="$(mktemp -d)"
+  (cd "$TMP" && for pat in '*.desktop' 'usr/share/applications/*' 'usr/share/icons/*'; do
+    "$APPIMAGE" --appimage-extract "$pat" >/dev/null 2>&1 || true
+  done)
+  src="$(find -L "$TMP/squashfs-root" -maxdepth 1 -name '*.desktop' -type f 2>/dev/null | head -n1)"
+  if [ -z "$src" ]; then
+    echo "warning: no .desktop found in $APPIMAGE" >&2
+    rm -rf "$TMP"
+    continue
+  fi
+  [ -d "$TMP/squashfs-root/usr/share/icons/hicolor" ] &&
+    cp -rn "$TMP/squashfs-root/usr/share/icons/hicolor/." "$ICONS_DIR/" 2>/dev/null
+  sed -E -e '/^TryExec=/d' -e "s|^Exec=[^ ]+|Exec=$APPIMAGE|" -e "/^Exec=/a TryExec=$APPIMAGE" \
+    "$src" >"$TMP/out.desktop" && mv "$TMP/out.desktop" "$DESKTOP_FILE"
+  rm -rf "$TMP"
+done
+
+# Brew's wezterm formula ships no .desktop or icon either.
+WEZTERM_BIN="$(command -v wezterm || true)"
+WEZTERM_DESKTOP="$APPS_DIR/wezterm.desktop"
+if [ -n "$WEZTERM_BIN" ] && [ ! -f "$WEZTERM_DESKTOP" ]; then
+  WEZTERM_ICON="$ICONS_DIR/128x128/apps/org.wezfurlong.wezterm.png"
+  if [ ! -f "$WEZTERM_ICON" ]; then
+    mkdir -p "$(dirname "$WEZTERM_ICON")"
+    curl -fsSL -o "$WEZTERM_ICON" \
+      https://raw.githubusercontent.com/wezterm/wezterm/main/assets/icon/terminal.png ||
+      echo "warning: could not download wezterm icon" >&2
+  fi
+  cat >"$WEZTERM_DESKTOP" <<EOF
 [Desktop Entry]
-Name=KeePassXC
-GenericName=Password Manager
-Comment=Community-driven port of the Windows application "KeePass Password Safe"
-Exec=$APPIMAGE %f
-TryExec=$APPIMAGE
-Icon=keepassxc
-StartupWMClass=keepassxc
-StartupNotify=false
-Terminal=false
+Name=WezTerm
+Comment=Wez's Terminal Emulator
+Keywords=shell;prompt;command;commandline;cmd;
+Icon=org.wezfurlong.wezterm
+StartupWMClass=org.wezfurlong.wezterm
+TryExec=$WEZTERM_BIN
+Exec=$WEZTERM_BIN start --cwd .
 Type=Application
-Categories=Utility;Security;Qt;
-MimeType=application/x-keepass2;
-SingleMainWindow=true
-X-GNOME-SingleWindow=true
-Keywords=security;privacy;password-manager;yubikey;password;keepass;
+Categories=System;TerminalEmulator;Utility;
+Terminal=false
 EOF
-  update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
-  gtk-update-icon-cache -f -t "$HOME/.local/share/icons/hicolor" 2>/dev/null || true
 fi
+update-desktop-database "$APPS_DIR" 2>/dev/null || true
+gtk-update-icon-cache -f -t "$ICONS_DIR" 2>/dev/null || true
 
 # Install Neovim plugins from nvim-pack-lock.json (vim.pack restores the whole lockfile on first use).
 # Requires the nvim config to be deployed first (dotter deploy).
