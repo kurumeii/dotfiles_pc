@@ -19,6 +19,7 @@ return {
     require("mason-tool-installer").setup({
       ensure_installed = {
         "tailwindcss",
+        "tsc",
         "vtsls",
         "lua_ls",
         "stylua",
@@ -47,7 +48,7 @@ return {
 
     require("mason-lspconfig").setup({
       automatic_enable = {
-        exclude = { "oxfmt" },
+        exclude = { "oxfmt", "vtsls" },
       },
     })
   end,

@@ -1,5 +1,5 @@
 {
-  "tasteLearning": true,
+  "tasteLearning": false,
   "permissions": {
     "allow": [
       "mcp__context7__*",
