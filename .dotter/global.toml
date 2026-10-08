@@ -19,6 +19,7 @@ wezterm = "~/.config/wezterm"
 yazi = "~/.config/yazi"
 vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
+"claude.omp.json" = { target = "~/claude.omp.json", type = "symbolic" }
 ".commandcode/settings.json" = "~/.commandcode/settings.json"
 ".commandcode/mcp.json" = "~/.commandcode/mcp.json"
 ".commandcode/hooks" = "~/.commandcode/hooks"
