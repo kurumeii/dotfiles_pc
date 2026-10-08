@@ -1,53 +1,57 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "permission": {
-    "bash": "allow",
-    "list": "allow",
-    "grep": "allow",
-    "glob": "allow",
-    "external_directory": "allow",
-    "skill": "allow",
-    "edit": "ask",
-    "read": "allow"
-  },
-  "logLevel": "WARN",
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "allow" },
+    { "action": "grep", "resource": "*", "effect": "allow" },
+    { "action": "glob", "resource": "*", "effect": "allow" },
+    { "action": "external_directory", "resource": "*", "effect": "allow" },
+    { "action": "skill", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "edit", "resource": "*", "effect": "ask" }
+  ],
   "username": "😺 Andrew Nguyen",
-  "plugin": ["opencode-agent-skills", "@dietrichgebert/ponytail"],
-  "command": {
-    "commit": {
-      "description": "You are expert in working with Git and creating meaningful Git commit messages using Conventional Commits v1.0.0.",
-      "template": "Here are the instruction: \n1. User input is git diff of changes to be committed \n2. You need to understand the changes and output commit message following conventions \n3.Do not output anything else than commit message\n 4. Output only one commit message. If there are multiple changes, describe them in bullet points, do not use any fancy visuals or ancient characters. Use only dash or asterisk symbols for bullet points\n 5. Follow Git Conventional Commits v1.0.0 specification",
-      "agent": "plan"
-    }
-  },
+  "plugins": [
+    "@dietrichgebert/ponytail"
+  ],
   "mcp": {
-    "context7": {
-      "enabled": true,
-      "type": "local",
-      "command": ["bun", "x", "@upstash/context7-mcp"],
-      "environment": {
-        "api-key": "{env:CONTEXT_7_API_KEY}"
-      }
-    },
-    "tavily": {
-      "enabled": false,
-      "type": "local",
-      "command": ["bun", "x", "tavily-mcp@latest"],
-      "environment": {
-        "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
-      }
-    },
-    "deepwiki": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.deepwiki.com/mcp"
-    },
-    "brave": {
-      "enabled": true,
-      "type": "local",
-      "command": ["bun", "x", "@brave/brave-search-mcp-server"],
-      "environment": {
-        "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
+    "servers": {
+      "context7": {
+        "type": "local",
+        "command": [
+          "bun",
+          "x",
+          "@upstash/context7-mcp"
+        ],
+        "environment": {
+          "api-key": "{env:CONTEXT_7_API_KEY}"
+        }
+      },
+      "tavily": {
+        "type": "local",
+        "disabled": true,
+        "command": [
+          "bun",
+          "x",
+          "tavily-mcp@latest"
+        ],
+        "environment": {
+          "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
+        }
+      },
+      "deepwiki": {
+        "type": "remote",
+        "url": "https://mcp.deepwiki.com/mcp"
+      },
+      "brave": {
+        "type": "local",
+        "command": [
+          "bun",
+          "x",
+          "@brave/brave-search-mcp-server"
+        ],
+        "environment": {
+          "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
+        }
       }
     }
   },

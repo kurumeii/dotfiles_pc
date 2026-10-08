@@ -39,6 +39,7 @@ disk = 'C:\\'
 
 [linux.files]
 kitty = "~/.config/kitty"
+"opencode/cli.json" = "~/.config/opencode/cli.json"
 [linux.variables]
 shell = "/home/linuxbrew/.linuxbrew/bin/fish"
 disk = "/"

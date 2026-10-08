@@ -1,3 +1,4 @@
+tap "anomalyco/tap"
 tap "wezterm/wezterm-linuxbrew"
 # Download with resuming and segmented downloading
 brew "aria2"
@@ -77,6 +78,8 @@ brew "wget"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# OpenCode V2 - the AI coding agent for the terminal
+brew "anomalyco/tap/opencode-v2", trusted: true
 # A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
 brew "wezterm/wezterm-linuxbrew/wezterm", trusted: true
 # Open source IDE for exploring and testing APIs
