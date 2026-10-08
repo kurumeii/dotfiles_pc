@@ -7,7 +7,7 @@ return {
     local sc = require("mini.statuscolumn")
 
     vim.o.foldcolumn = "1"
-    vim.o.signcolumn = "auto:1-2"
+    vim.o.signcolumn = "yes"
     vim.opt.fillchars:append({
       foldopen = mininvim.icons.fold.open,
       foldclose = mininvim.icons.fold.close,
