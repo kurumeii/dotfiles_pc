@@ -3,7 +3,6 @@ return {
 	dependencies = { "kevinhwang91/promise-async" },
 	event = "BufReadPost",
 	after = function()
-		vim.o.foldcolumn = "auto"
 		vim.o.foldlevel = 99
 		vim.o.foldlevelstart = 99
 		vim.o.foldenable = true
