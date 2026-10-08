@@ -22,9 +22,36 @@ return {
             return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
           end,
         },
+        stylelint = {
+          condition = function(ctx)
+            local files = {
+              ".stylelintrc",
+              ".stylelintrc.json",
+              ".stylelintrc.json5",
+              ".stylelintrc.yaml",
+              ".stylelintrc.yml",
+              ".stylelintrc.js",
+              ".stylelintrc.mjs",
+              ".stylelintrc.cjs",
+              ".stylelintrc.toml",
+              "stylelint.config.js",
+              "stylelint.config.mjs",
+              "stylelint.config.cjs",
+            }
+            if vim.fs.find(files, { path = ctx.filename, upward = true })[1] then
+              return true
+            end
+            local package_json = vim.fs.find("package.json", { path = ctx.filename, upward = true })[1]
+            if not package_json then
+              return false
+            end
+            local ok, data = pcall(vim.json.decode, table.concat(vim.fn.readfile(package_json), "\n"))
+            return ok and type(data) == "table" and data.stylelint ~= nil
+          end,
+        },
       },
     }
-    for name, linter in ipairs(opts.linters) do
+    for name, linter in pairs(opts.linters) do
       if type(linter) == "table" and type(lint.linters[name]) == "table" then
         lint.linters[name] = vim.tbl_deep_extend("force", lint.linters[name], linter)
         if type(linter.prepend_args) == "table" then
