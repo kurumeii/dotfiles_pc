@@ -15,13 +15,18 @@ hash = "868db729374b97871bc30b96d0e9061f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "f703392"
+rev = "6229767"
 hash = "f281261ff04ad7ec867c3f802a50835f"
 
 [[plugin.deps]]
 use = "saumyajyoti/omp"
 rev = "32ae96c"
 hash = "ca913db57342496f96c533725a64ccc4"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "6229767"
+hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
@@ -30,7 +35,7 @@ hash = "c69a63981e254a3a06a11c2bf0e6af1d"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "20b47bf"
+rev = "1183892"
 hash = "ce320f877fe709b189433941aba747c4"
 
 [[flavor.deps]]

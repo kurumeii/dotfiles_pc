@@ -1,5 +1,7 @@
 require("yamb"):setup {}
 
+require("zoxide"):setup { update_db = true }
+
 require("full-border"):setup { type = ui.Border.ROUNDED }
 
 require("omp"):setup {
