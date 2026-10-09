@@ -7,6 +7,7 @@ settings = "prefix+S"
 edit_scrollback = "prefix+["
 copy_mode = "prefix+]"
 reload_config = "prefix+alt+r"
+detach = "prefix+d"
 # Tab and panes
 new_tab = "prefix+n"
 next_tab = "prefix+L"
@@ -56,29 +57,29 @@ delivery = "herdr"
 [ui.toast.herdr]
 position = "top-right"
 
-[terminal]
-new_cwd = "home"
+# [terminal]
+# new_cwd = "home"
 
 [theme]
 name = "rose-pine"
 auto_switch = false
 
-[[keys.command]]
-key = "prefix+d"
-type = "shell"
-command = "\"$HERDR_BIN_PATH\" tab create --cwd \"$HERDR_ACTIVE_PANE_CWD\" --focus"
-description = "duplicate tab in current cwd"
+# [[keys.command]]
+# key = "prefix+d"
+# type = "shell"
+# command = "\"$HERDR_BIN_PATH\" tab create --cwd \"$HERDR_ACTIVE_PANE_CWD\" --focus"
+# description = "duplicate tab in current cwd"
+
+# [[keys.command]]
+# key = "prefix+e"
+# type = "popup"
+# command = "fish -c y"
+# description = "yazi file manager"
+# width = "90%"
+# height = "90%"
 
 [[keys.command]]
 key = "prefix+e"
-type = "popup"
-command = "fish -c y"
-description = "yazi file manager"
-width = "90%"
-height = "90%"
-
-[[keys.command]]
-key = "prefix+E"
 type = "popup"
 command = "fish -c yazi"
 description = "yazi file manager"
