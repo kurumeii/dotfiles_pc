@@ -1,11 +1,9 @@
 local utils = require("config.utils")
-local blame_enabled = true
+local blameline = require("plugins.mini.blameline")
 local style = {
   sign = "sign",
   num = "number",
 }
-local au_group = vim.api.nvim_create_augroup("MiniGitBlameGroup", { clear = true })
-local ns_id = vim.api.nvim_create_namespace("MiniGitBlame")
 
 require("mini.git").setup()
 require("mini.diff").setup({
@@ -27,11 +25,9 @@ require("mini.diff").setup({
   },
 })
 
-vim.opt.updatetime = 500
+blameline.setup()
 
-local function clear_blame()
-  vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
-end
+vim.opt.updatetime = 500
 
 -- Diff current buffer against a commit
 local function diff_this()
@@ -141,16 +137,6 @@ local function diff_this()
   end)
 end
 
--- Toggle for blame annotations
-local function toggle_blame()
-  blame_enabled = not blame_enabled
-  if not blame_enabled then
-    clear_blame()
-  end
-  local msg = blame_enabled and "Blame annotations enabled" or "Blame annotations disabled"
-  vim.notify(msg, vim.log.levels.INFO, { title = "Git" })
-end
-
 local function toggle_diff_style()
   local config = MiniDiff.config
   if config.view.style == style.sign then
@@ -162,80 +148,6 @@ local function toggle_diff_style()
   end
   MiniDiff.setup(config)
 end
-
--- Show blame when cursor holds still
-vim.api.nvim_create_autocmd("CursorHold", {
-  group = au_group,
-  callback = function()
-    if not blame_enabled then
-      return
-    end
-    clear_blame()
-    if not MiniGit then
-      return
-    end
-    local buf_data = MiniGit.get_buf_data(0)
-    if not buf_data or not buf_data.root then
-      return
-    end
-
-    -- Use the root path found by mini.git for safety
-    local root = buf_data.root
-    -- INTEGRATION END
-
-    local file = vim.fn.expand("%")
-    local line = vim.fn.line(".")
-    local cmd_list = { "git", "-C", root, "blame", "-L", string.format("%d,%d", line, line), "--porcelain", file }
-
-    vim.system(cmd_list, { text = true }, function(obj)
-      vim.schedule(function()
-        -- If we moved away, don't show stale blame
-        if vim.api.nvim_win_get_cursor(0)[1] ~= line then
-          return
-        end
-
-        if obj.code ~= 0 or obj.stdout == "" then
-          return
-        end
-
-        local output = obj.stdout or ""
-        -- Parse Output
-        local author = output:match("author (.-)\n")
-        local date_ts = output:match("author%-time (.-)\n")
-        local summary = output:match("summary (.-)\n")
-        local hash = output:match("^(%S+)")
-        if hash and hash:match("^0+$") then
-          local text = "  Not committed yet"
-
-          vim.api.nvim_buf_set_extmark(0, ns_id, line - 1, 0, {
-            virt_text = { { text, "Comment" } },
-            hl_mode = "combine",
-          })
-          return
-        end
-
-        if author and date_ts and summary then
-          -- Calculate relative time
-          local to_num_date_ts = tonumber(date_ts) or 0
-          local rel_time = utils.get_relative_time(to_num_date_ts)
-          -- Format your text here
-          local text = string.format(" (%s) %s -> %s", rel_time, author, summary)
-
-          vim.api.nvim_buf_set_extmark(0, ns_id, line - 1, 0, {
-            virt_text = { { text, "Comment" } },
-            hl_mode = "combine",
-          })
-        end
-      end)
-    end)
-  end,
-})
-
--- Clear blame immediately when moving
-vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter" }, {
-  group = au_group,
-  callback = clear_blame,
-})
 
 -- Minigit
 vim.api.nvim_create_autocmd("User", {
@@ -288,7 +200,7 @@ vim.api.nvim_create_autocmd("User", {
 
 utils.map("n", utils.L("gd"), diff_this, "Git diff against commit")
 utils.map("n", utils.L("gh"), MiniDiff.toggle_overlay, "Git toggle git overlay")
-utils.map("n", utils.L("gb"), toggle_blame, "Git toggle git Blame")
+utils.map("n", utils.L("gb"), blameline.toggle, "Git toggle git Blame")
 utils.map("n", utils.L("gt"), toggle_diff_style, "Git toggle diff Style")
 utils.map("n", utils.L("gu"), function()
   MiniExtra.pickers.git_hunks()

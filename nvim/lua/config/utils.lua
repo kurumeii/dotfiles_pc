@@ -257,6 +257,7 @@ end
 
 --- Get relative time string from timestamp
 --- @param timestamp number Unix timestamp
+--- @return string
 H.get_relative_time = function(timestamp)
   local current_time = os.time()
   local diff = os.difftime(current_time, timestamp)
@@ -273,7 +274,7 @@ H.get_relative_time = function(timestamp)
   elseif days <= 3 then
     return string.format("%d days ago", days)
   else
-    return os.date("%m/%d/%Y", timestamp)
+    return os.date("%m/%d/%Y", timestamp) --[[@as string]]
   end
 end
 
