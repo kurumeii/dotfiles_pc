@@ -37,7 +37,7 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
-#
+
 if status is-login
     set -gx GTK_IM_MODULE fcitx
     set -gx QT_IM_MODULE fcitx

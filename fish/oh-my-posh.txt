@@ -1,0 +1,4 @@
+ZedMono
+CaskadiaCove
+FiraCode
+GeistMono
