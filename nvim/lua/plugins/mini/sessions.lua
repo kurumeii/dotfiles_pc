@@ -13,9 +13,15 @@ return {
 				write = true,
 			},
 			hooks = {
+				pre = {
+					write = function()
+						vim.cmd("ScopeSaveState")
+					end,
+				},
 				-- Session read wipes all windows, including the minimap float
 				post = {
 					read = function()
+						vim.cmd("ScopeLoadState")
 						if vim.g.mini.map then
 							vim.schedule(function()
 								require("mini.map").open()
