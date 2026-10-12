@@ -13,7 +13,7 @@ return {
       background = current_theme.bg,
       foreground = current_theme.fg,
       n_hues = 6,
-      -- saturation = "medium",
+      saturation = "mediumhigh",
       accent = "bg",
     })
   end,
