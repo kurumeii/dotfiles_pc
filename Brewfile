@@ -1,5 +1,7 @@
 tap "anomalyco/tap"
 tap "wezterm/wezterm-linuxbrew"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@4"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Code searching, linting, rewriting
@@ -56,12 +58,10 @@ brew "tree-sitter"
 brew "neovim"
 # Prompt theme engine for any shell
 brew "oh-my-posh"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@4"
-# Podman Terminal User Interface
-brew "podman-tui"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# SVG rendering tool and library
+brew "resvg"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
@@ -86,8 +86,6 @@ brew "wezterm/wezterm-linuxbrew/wezterm", trusted: true
 cask "bruno"
 # Password manager app
 cask "keepassxc"
-# Create mock APIs in seconds
-cask "mockoon"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 npm "command-code"
