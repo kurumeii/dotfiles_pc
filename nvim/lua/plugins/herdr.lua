@@ -182,13 +182,13 @@ return {
       function()
         local mode = vim.fn.mode()
         if not mode:match("^[vV\22]") then
-          return ("@%s:%d"):format(relpath(), vim.fn.line("."))
+          return send(("@%s:%d "):format(relpath(), vim.fn.line(".")))
         end
         local a, b = vim.fn.line("v"), vim.fn.line(".")
         local s, e = math.min(a, b), math.max(a, b)
         vim.api.nvim_feedkeys(vim.keycode("<esc>"), "nx", false)
         local lines = vim.api.nvim_buf_get_lines(0, s - 1, e, false)
-        send(lines)
+        send(("@%s:%d-%d\n%s\n"):format(relpath(), s, e, table.concat(lines, "\n")))
       end,
       mode = { "x", "n" },
       desc = "Agent: Send Selection",
