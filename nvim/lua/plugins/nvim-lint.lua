@@ -51,6 +51,7 @@ return {
         },
       },
     }
+    lint.linters.biome = require("config.lint.biome").linter()
     for name, linter in pairs(opts.linters) do
       if type(linter) == "table" and type(lint.linters[name]) == "table" then
         lint.linters[name] = vim.tbl_deep_extend("force", lint.linters[name], linter)
@@ -92,26 +93,7 @@ return {
         end
       end),
     })
-    local cspell_config_file = cspell_util.config_path()
-    if cspell_config_file then
-      lint.linters_by_ft = {
-        ["*"] = { "cspell" },
-      }
-      lint.linters.cspell = function()
-        local default_config = require("lint.linters.cspell")
-        local config = vim.deepcopy(default_config)
-        config.args = {
-          "lint",
-          "--no-color",
-          "--no-progress",
-          "--no-summary",
-          type(cspell_config_file) == "string" and "--config=" .. cspell_config_file or "",
-          function()
-            return "stdin://" .. vim.api.nvim_buf_get_name(0)
-          end,
-        }
-        return config
-      end
-    end
+    lint.linters.cspell = cspell_util.linter()
+    lint.linters_by_ft["*"] = { "cspell" }
   end,
 }

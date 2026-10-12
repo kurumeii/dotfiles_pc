@@ -23,7 +23,7 @@ return {
         "vtsls",
         "lua_ls",
         "stylua",
-        -- "cspell",
+        "cspell",
         "biome",
         "prettierd",
         "markdownlint-cli2",
