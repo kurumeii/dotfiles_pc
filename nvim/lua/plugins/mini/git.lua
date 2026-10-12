@@ -255,30 +255,40 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
--- vim.api.nvim_create_autocmd("User", {
--- 	pattern = "MiniDiffUpdated",
--- 	callback = function(data)
--- 		local summary = vim.b[data.buf].minidiff_summary
--- 		local t = {}
--- 		if summary == nil then
--- 			return
--- 		end
--- 		if summary.add > 0 then
--- 			table.insert(t, mininvim.icons.git_add .. summary.add)
--- 		end
--- 		if summary.change > 0 then
--- 			table.insert(t, mininvim.icons.git_edit .. summary.change)
--- 		end
--- 		if summary.delete > 0 then
--- 			table.insert(t, mininvim.icons.git_remove .. summary.delete)
--- 		end
--- 		vim.b[data.buf].minidiff_summary_string = table.concat(t, " ")
--- 	end,
--- })
+-- Statusline git summary: branch only, without the " ( M)" file status
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniGitUpdated",
+  callback = function(data)
+    local summary = vim.b[data.buf].minigit_summary or {}
+    vim.b[data.buf].minigit_summary_string = summary.head_name or ""
+  end,
+})
 
-utils.map("n", utils.L("gb"), toggle_blame, "Git toggle git Blame")
+-- Statusline diff summary in gitsigns' format: "+3 ~1 -2"
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniDiffUpdated",
+  callback = function(data)
+    local summary = vim.b[data.buf].minidiff_summary
+    if summary == nil then
+      return
+    end
+    local t = {}
+    if summary.add > 0 then
+      table.insert(t, "+" .. summary.add)
+    end
+    if summary.change > 0 then
+      table.insert(t, "~" .. summary.change)
+    end
+    if summary.delete > 0 then
+      table.insert(t, "-" .. summary.delete)
+    end
+    vim.b[data.buf].minidiff_summary_string = table.concat(t, " ")
+  end,
+})
+
 utils.map("n", utils.L("gd"), diff_this, "Git diff against commit")
 utils.map("n", utils.L("gh"), MiniDiff.toggle_overlay, "Git toggle git overlay")
+utils.map("n", utils.L("gb"), toggle_blame, "Git toggle git Blame")
 utils.map("n", utils.L("gt"), toggle_diff_style, "Git toggle diff Style")
 utils.map("n", utils.L("gu"), function()
   MiniExtra.pickers.git_hunks()
