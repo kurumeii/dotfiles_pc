@@ -324,11 +324,14 @@ end
 --- @param lines string[]
 --- @return string[]
 H.vimdoc_to_fences = function(lines)
-  local out, block = {}, nil
+  local out = {}
+  --- @type string[]?
+  local block = nil
   local in_fence = false
 
-  local function close()
-    vim.list_extend(out, dedent(block))
+  --- @param code string[]
+  local function close(code)
+    vim.list_extend(out, dedent(code))
     out[#out + 1] = "```"
     block = nil
   end
@@ -338,13 +341,13 @@ H.vimdoc_to_fences = function(lines)
     if block then
       local rest = line:match("^<(.*)$")
       if rest then
-        close()
+        close(block)
         if rest:find("%S") then
           out[#out + 1] = vim.trim(rest)
         end
         handled = true
       elseif line:find("^%S") then
-        close() -- unindented text ends the block implicitly
+        close(block) -- unindented text ends the block implicitly
       else
         block[#block + 1] = line
         handled = true
@@ -375,22 +378,35 @@ H.vimdoc_to_fences = function(lines)
     end
   end
   if block then
-    close()
+    close(block)
   end
   return out
 end
 
---- Make LSP hover (K) highlight vimdoc code blocks (e.g. mini.nvim's ">lua")
-H.patch_lsp_hover = function()
-  local util = vim.lsp.util
-  if util._vimdoc_fences_patched then
+local wrapped = {}
+
+--- Replace `tbl[name]` with `wrapper(orig, ...)`, at most once per function
+--- @param tbl table Table holding the function (e.g. `vim.lsp.util`)
+--- @param name string Function name
+--- @param wrapper fun(orig: function, ...): ...
+H.wrap = function(tbl, name, wrapper)
+  wrapped[tbl] = wrapped[tbl] or {}
+  if wrapped[tbl][name] then
     return
   end
-  local orig = util.convert_input_to_markdown_lines
-  util.convert_input_to_markdown_lines = function(...)
-    return H.vimdoc_to_fences(orig(...))
+  wrapped[tbl][name] = true
+
+  local orig = tbl[name]
+  tbl[name] = function(...)
+    return wrapper(orig, ...)
   end
-  util._vimdoc_fences_patched = true
+end
+
+--- Make LSP hover (K) highlight vimdoc code blocks (e.g. mini.nvim's ">lua")
+H.patch_lsp_hover = function()
+  H.wrap(vim.lsp.util, "convert_input_to_markdown_lines", function(orig, ...)
+    return H.vimdoc_to_fences(orig(...))
+  end)
 end
 
 return H
