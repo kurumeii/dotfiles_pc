@@ -1,31 +1,54 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "permissions": [
-    { "action": "shell", "resource": "*", "effect": "allow" },
-    { "action": "grep", "resource": "*", "effect": "allow" },
-    { "action": "glob", "resource": "*", "effect": "allow" },
-    { "action": "external_directory", "resource": "*", "effect": "allow" },
-    { "action": "skill", "resource": "*", "effect": "allow" },
-    { "action": "read", "resource": "*", "effect": "allow" },
-    { "action": "edit", "resource": "*", "effect": "ask" }
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "grep",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "glob",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "edit",
+      "resource": "*",
+      "effect": "ask"
+    }
   ],
   "username": "😺 Andrew Nguyen",
   "plugins": [
-    "@dietrichgebert/ponytail"
+    "@dietrichgebert/ponytail",
+    {
+      "package": "@upstash/context7-opencode",
+      "options": {
+        "apiKey": "{env:CONTEXT_7_API_KEY}"
+      }
+    }
   ],
   "mcp": {
     "servers": {
-      "context7": {
-        "type": "local",
-        "command": [
-          "bun",
-          "x",
-          "@upstash/context7-mcp"
-        ],
-        "environment": {
-          "api-key": "{env:CONTEXT_7_API_KEY}"
-        }
-      },
       "tavily": {
         "type": "local",
         "disabled": true,
