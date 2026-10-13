@@ -11,12 +11,9 @@ return {
         lsp_format = "fallback",
         stop_after_first = true,
       },
-      format_after_save = function(buf)
-        return {
-          bufnr = buf,
-          async = true,
-        }
-      end,
+      -- Sync on BufWritePre: one write per save (async format_after_save
+      -- re-writes the file, doubling every "Saved" notification).
+      format_on_save = {},
       formatters_by_ft = {
         markdown = { "markdownlint-cli2", "prettierd" },
         lua = { "stylua" },

@@ -318,7 +318,9 @@ H.rename_file = function(from, to)
   local pending, handled, reported, errors = 0, 0, false, {}
 
   local function report()
-    if reported then return end
+    if reported then
+      return
+    end
     reported = true
     if #errors > 0 then
       H.notify("Rename " .. label .. " failed: " .. table.concat(errors, "; "), "ERROR", "LSP rename")
@@ -345,7 +347,9 @@ H.rename_file = function(from, to)
             client:notify("workspace/didRenameFiles", params)
           end
           pending = pending - 1
-          if pending == 0 then report() end
+          if pending == 0 then
+            report()
+          end
         end, vim.api.nvim_get_current_buf())
         if not sent then
           pending = pending - 1
@@ -356,7 +360,9 @@ H.rename_file = function(from, to)
       end
     end
   end
-  if pending == 0 then report() end
+  if pending == 0 then
+    report()
+  end
 end
 
 --- Remove the common leading indent of the non-blank lines
