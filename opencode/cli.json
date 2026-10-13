@@ -12,17 +12,11 @@
     "thinking": "hide",
     "markdown": "rendered",
     "grouping": "auto",
-    "verbosity": "high",
+    "verbosity": "medium",
     "image_preview": true
   },
   "tabs": {
     "indicators": "status",
     "layout": "horizontal"
-  },
-  "terminal": {
-    "copy": "manual"
-  },
-  "debug": {
-    "turn_tokens": "verbose"
   }
 }
