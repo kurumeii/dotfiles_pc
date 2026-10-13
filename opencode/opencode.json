@@ -34,6 +34,11 @@
       "action": "edit",
       "resource": "*",
       "effect": "ask"
+    },
+    {
+      "action": "webfetch",
+      "resource": "*",
+      "effect": "deny"
     }
   ],
   "username": "😺 Andrew Nguyen",
