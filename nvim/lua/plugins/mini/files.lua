@@ -60,12 +60,7 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "MiniFilesActionRename",
 			callback = function(event)
-				local Snacks = require("snacks.rename")
-				if Snacks then
-					Snacks.on_rename_file(event.data.from, event.data.to)
-				else
-					utils.rename_file(event.data.from, event.data.to)
-				end
+				utils.rename_file(event.data.from, event.data.to)
 			end,
 		})
 	end,

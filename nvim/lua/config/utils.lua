@@ -304,6 +304,61 @@ H.setup_lsp = function(a, b)
   vim.lsp.config(server, cfg)
 end
 
+--- Tell LSP servers a file moved so they update references (was snacks.rename).
+--- willRename clients may return a WorkspaceEdit (e.g. fix imports), which is applied
+--- before that client gets the didRename notification. Notifies the outcome once
+--- every willRename response settles.
+---@param from string
+---@param to string
+H.rename_file = function(from, to)
+  local params = {
+    files = { { oldUri = vim.uri_from_fname(from), newUri = vim.uri_from_fname(to) } },
+  }
+  local label = ("%s -> %s"):format(vim.fn.fnamemodify(from, ":t"), vim.fn.fnamemodify(to, ":t"))
+  local pending, handled, reported, errors = 0, 0, false, {}
+
+  local function report()
+    if reported then return end
+    reported = true
+    if #errors > 0 then
+      H.notify("Rename " .. label .. " failed: " .. table.concat(errors, "; "), "ERROR", "LSP rename")
+    elseif handled == 0 then
+      H.notify("Rename " .. label .. " skipped: no LSP server handles file renames", "WARN", "LSP rename")
+    else
+      H.notify("Renamed " .. label, "INFO", "LSP rename")
+    end
+  end
+
+  for _, client in ipairs(vim.lsp.get_clients()) do
+    local ops = client.server_capabilities.fileOperations
+    if ops and (ops.willRename or ops.didRename) then
+      handled = handled + 1
+      if ops.willRename then
+        pending = pending + 1
+        local sent = client:request("workspace/willRenameFiles", params, function(err, edit)
+          if err then
+            errors[#errors + 1] = client.name .. ": " .. (err.message or tostring(err))
+          elseif edit and not vim.tbl_isempty(edit) then
+            vim.lsp.util.apply_workspace_edit(edit, client.offset_encoding)
+          end
+          if ops.didRename then
+            client:notify("workspace/didRenameFiles", params)
+          end
+          pending = pending - 1
+          if pending == 0 then report() end
+        end, vim.api.nvim_get_current_buf())
+        if not sent then
+          pending = pending - 1
+          errors[#errors + 1] = client.name .. ": request not sent"
+        end
+      else
+        client:notify("workspace/didRenameFiles", params)
+      end
+    end
+  end
+  if pending == 0 then report() end
+end
+
 --- Remove the common leading indent of the non-blank lines
 --- @param lines string[]
 local function dedent(lines)
