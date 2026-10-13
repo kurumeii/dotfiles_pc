@@ -16,6 +16,7 @@ if status is-interactive
     set -gx TAVILY_API_KEY "{{TAVILY_API_KEY}}"
     set -gx CONTEXT_7_API_KEY "{{CONTEXT_7_API_KEY}}"
     set -gx BRAVE_API_KEY "{{BRAVE_API_KEY}}"
+    set -gx EXA_API_KEY "{{EXA_API_KEY}}"
     set -g fish_user_paths "~/.bun/bin"
 
     alias cd z

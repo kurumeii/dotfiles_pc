@@ -15,6 +15,7 @@ $env:RIPGREP_CONFIG_PATH = "$env:USERPROFILE\.config\rg\.ripgreprc"
 $env:TAVILY_API_KEY      = "{{TAVILY_API_KEY}}"
 $env:CONTEXT_7_API_KEY   = "{{CONTEXT_7_API_KEY}}"
 $env:BRAVE_API_KEY       = "{{BRAVE_API_KEY}}"
+$env:EXA_API_KEY         = "{{EXA_API_KEY}}"
 
 # --- Cached shell-integration scripts (see README) ---
 $script:CompletionCacheMaxAgeDays = 7

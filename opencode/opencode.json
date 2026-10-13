@@ -1,5 +1,4 @@
 {
-  "$schema": "https://opencode.ai/config.json",
   "permissions": [
     {
       "action": "shell",
@@ -65,18 +64,15 @@
         "type": "remote",
         "url": "https://mcp.deepwiki.com/mcp"
       },
-      "brave": {
-        "type": "local",
-        "command": [
-          "bun",
-          "x",
-          "@brave/brave-search-mcp-server"
-        ],
-        "environment": {
-          "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
+      "exa": {
+        "type": "remote",
+        "url": "https://mcp.exa.ai/mcp",
+        "oauth": false,
+        "headers": {
+          "x-api-key": "{env:EXA_API_KEY}"
         }
       }
     }
   },
-  "shell": "powershell"
+  "websearch": false
 }
