@@ -39,6 +39,15 @@ switch_workspace = "prefix+shift+1..9"
 # Navigate mode (prefix+w). Workspaces vertical, panes horizontal.
 navigate_workspace_down = "j"
 navigate_workspace_up = "k"
+# Custom commands
+command = [
+  # { key = "prefix+d", type = "shell", command = "\"$HERDR_BIN_PATH\" tab create --cwd \"$HERDR_ACTIVE_PANE_CWD\" --focus", description = "duplicate tab in current cwd" },
+  # { key = "prefix+shift+e", type = "popup", command = "fish -c y", description = "yazi file manager", width = "90%", height = "90%" },
+
+  { key = "prefix+e", type = "popup", command = "fish -c yazi", description = "yazi file manager", width = "90%", height = "90%" },
+  { key = "prefix+/", type = "popup", command = "fish -c btop", description = "open btop (pop)", width = "90%", height = "90%" },
+  { key = "prefix+g", type = "popup", command = "fish -c lazygit", description = "Open lazygit (pop)", width = "90%", height = "90%" },
+]
 
 [ui]
 prompt_new_tab_name = false
@@ -47,57 +56,13 @@ tab_bar_position = "top"             # top | bottom
 hide_tab_bar_when_single_tab = false
 confirm_close = true
 sidebar_collapsed_mode = "hidden"    # compact | hidden
-
-[ui.sound]
-enabled = false
-
-[ui.toast]
-delivery = "herdr"
-
-[ui.toast.herdr]
-position = "top-right"
+sound.enabled = false
+toast.delivery = "herdr"
+toast.herdr.position = "top-right"
 
 # [terminal]
 # new_cwd = "home"
 
 [theme]
-name = "rose-pine"
+name = "catppuccin"
 auto_switch = false
-
-# [[keys.command]]
-# key = "prefix+d"
-# type = "shell"
-# command = "\"$HERDR_BIN_PATH\" tab create --cwd \"$HERDR_ACTIVE_PANE_CWD\" --focus"
-# description = "duplicate tab in current cwd"
-
-# [[keys.command]]
-# key = "prefix+e"
-# type = "popup"
-# command = "fish -c y"
-# description = "yazi file manager"
-# width = "90%"
-# height = "90%"
-
-[[keys.command]]
-key = "prefix+e"
-type = "popup"
-command = "fish -c yazi"
-description = "yazi file manager"
-width = "90%"
-height = "90%"
-
-[[keys.command]]
-key = "prefix+/"
-type = "popup"
-command = "fish -c btop"
-description = "open btop (pop)"
-width = "90%"
-height = "90%"
-
-[[keys.command]]
-key = "prefix+g"
-type = "popup"
-command = "fish -c lazygit"
-description = "Open lazygit (pop)"
-width = "90%"
-height = "90%"
