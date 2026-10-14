@@ -21,7 +21,7 @@ if status is-interactive
 
     alias cd z
     alias grep rg
-    alias ll "eza --long --icons"
+    alias ll "eza -lA --icons auto"
     alias ls eza
     alias vim nvim
     alias cat bat
