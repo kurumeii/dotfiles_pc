@@ -13,7 +13,9 @@
     "markdown": "rendered",
     "grouping": "auto",
     "verbosity": "medium",
-    "image_preview": true
+    "image_preview": true,
+    "permissions": "autoaccept",
+    "sidebar": "hide"
   },
   "tabs": {
     "indicators": "status",
