@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "9ec57eeac6e2e14b7b9b9e74dc8b0ca4954a684b",
+      "rev": "1c6d5e0b721c877c4c8061d2361f8fc20adaf896",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "conform.nvim": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/lumen-oss/lz.n"
     },
     "mason-lspconfig.nvim": {
-      "rev": "e17625cdc8c2650787467398e02c5d63a2cde966",
+      "rev": "00b5473cca4db5b410ff4bae724e3b6e21f2687f",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-nvim-dap.nvim": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/delphinus/md-render.nvim"
     },
     "mini.nvim": {
-      "rev": "9ee72c26ac1440ee6c95ce708c1d739684be316a",
+      "rev": "8831fa150fa26492cfe135801fa498132f1491d2",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-colorizer.lua": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "6d27c288ff951e1e94cb5f91c800adeddf0dc0c2",
+      "rev": "ac062d0d01c019c0dbdb798968f3e5d8b35c3853",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -115,7 +115,7 @@
       "src": "https://github.com/lbrayner/vim-rzip"
     },
     "wezterm-types": {
-      "rev": "46b6b13c38cf79b3dd4f1414aa89fbfaffb892ae",
+      "rev": "18c276bcb503a6a152c714b0d3a15baed787052d",
       "src": "https://github.com/justinsgithub/wezterm-types"
     }
   }
