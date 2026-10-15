@@ -31,4 +31,5 @@ vim.o.formatoptions = "jcroqlnt" -- tcqj
 vim.o.grepformat = "%f:%l:%c:%m"
 vim.o.grepprg = "rg --vimgrep"
 vim.o.scrolloff = 5
+vim.o.termguicolors = true
 vim.opt.sessionoptions:append("globals") -- scope.nvim keeps its per-tab state in vim.g.ScopeState

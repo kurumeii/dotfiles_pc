@@ -55,16 +55,9 @@
   "mcp": {
     "servers": {
       "tavily": {
-        "type": "local",
         "disabled": false,
-        "command": [
-          "bun",
-          "x",
-          "tavily-mcp@latest"
-        ],
-        "environment": {
-          "TAVILY_API_KEY": "{env:TAVILY_API_KEY}"
-        }
+        "type": "remote",
+        "url": "https://mcp.tavily.com/mcp/"
       },
       "deepwiki": {
         "type": "remote",

@@ -313,6 +313,24 @@ function M.clean()
   end
 end
 
+-- Delete one chosen plugin from disk (only plugins managed by vim.pack).
+function M.del()
+  local names = {}
+  for _, p in ipairs(vim.pack.get()) do
+    names[#names + 1] = p.spec.name
+  end
+  table.sort(names)
+  vim.ui.select(names, { prompt = "Delete plugin:" }, function(name)
+    if not name then
+      return
+    end
+    local msg = ("Delete %s from disk?\nRestart Neovim afterwards."):format(name)
+    if vim.fn.confirm(msg, "&Yes\n&No", 2) == 1 then
+      vim.pack.del({ name }, { force = true })
+    end
+  end)
+end
+
 -- Restore all plugins to the revisions recorded in the lockfile.
 function M.snap_load()
   vim.pack.update(nil, { target = "lockfile" })
@@ -320,6 +338,7 @@ end
 
 vim.api.nvim_create_user_command("DepsUpdate", M.update, { desc = "Update plugins (vim.pack)" })
 vim.api.nvim_create_user_command("DepsClean", M.clean, { desc = "Delete inactive plugins" })
+vim.api.nvim_create_user_command("DepsDel", M.del, { desc = "Delete chosen plugin" })
 vim.api.nvim_create_user_command("DepsSnapLoad", M.snap_load, { desc = "Restore plugins to lockfile" })
 
 return M

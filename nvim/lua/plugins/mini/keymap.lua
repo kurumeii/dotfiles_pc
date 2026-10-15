@@ -22,6 +22,7 @@ return {
 		utils.map("n", utils.L("pu"), deps.update, "Deps: Package update")
 		utils.map("n", utils.L("pm"), utils.C("Mason"), "Mason: Package")
 		utils.map("n", utils.L("pc"), deps.clean, "Deps: Package Clean")
+		utils.map("n", utils.L("pd"), deps.del, "Deps: Package delete")
 		utils.map("n", utils.L("ps"), deps.snap_load, "Deps: Restore to lockfile")
 	end,
 }

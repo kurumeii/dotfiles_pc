@@ -1,8 +1,17 @@
+local utils = require("config.utils")
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
   cmd = "ConformInfo",
-  keys = { { "<leader>cf", desc = "Format buffer (Conform)" } },
+  keys = {
+    {
+      utils.L("cf"),
+      function()
+        require("conform").format({ async = true, lsp_format = "fallback" })
+      end,
+      desc = "Format buffer",
+    },
+  },
   after = function()
     require("conform").setup({
       notify_on_error = false,
@@ -55,7 +64,5 @@ return {
         },
       },
     })
-    local utils = require("config.utils")
-    utils.map("n", utils.L("cf"), require("conform").format, "Format buffer (Conform)")
   end,
 }
