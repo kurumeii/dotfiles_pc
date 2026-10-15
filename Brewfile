@@ -40,6 +40,8 @@ brew "git"
 brew "git-flow-next"
 # Extra themes for the GNOME desktop environment
 brew "gnome-themes-extra"
+# Tool for glamorous shell scripts
+brew "gum"
 # Agent multiplexer that lives in your terminal
 brew "herdr"
 # Tools and libraries to manipulate images in select formats
@@ -58,6 +60,8 @@ brew "tree-sitter"
 brew "neovim"
 # Prompt theme engine for any shell
 brew "oh-my-posh"
+# Alternative to docker-compose using podman
+brew "podman-compose"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # SVG rendering tool and library
@@ -88,4 +92,3 @@ cask "bruno"
 cask "keepassxc"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-npm "command-code"

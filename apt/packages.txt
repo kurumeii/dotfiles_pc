@@ -3,8 +3,6 @@ gnome-tweaks
 gpaste-2
 chrome-gnome-shell
 libfuse2t64
-podman
-podman-compose
 xclip
 
 # ppa:quentiumyt/flameshot
