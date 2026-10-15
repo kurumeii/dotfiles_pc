@@ -17,3 +17,6 @@
 	tool = nvim
 [diff]
 external = difft
+[fetch]
+all = true
+prune = true

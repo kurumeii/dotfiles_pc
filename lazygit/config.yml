@@ -7,7 +7,6 @@ gui:
     frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
     rate: 120
 git:
-  fetchAll: true
   autoFetch: true
   mainBranches:
     - main
