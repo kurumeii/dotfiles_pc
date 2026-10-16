@@ -3,23 +3,67 @@
   "logo": {
     "type": "file",
     "source": "~/.config/fastfetch/bongo_cat.txt",
-    "padding": { "top": 1 }
+    "padding": {
+      "top": 1
+    }
   },
-  "display": { "separator": " " },
+  "display": {
+    "separator": " "
+  },
   // Keep icons in the BMP private-use area (U+E000-U+F8FF). Plane-15 nerd-font
   // glyphs (U+F0000+) render 2 cells wide in WezTerm and break the box border.
   "modules": [
-    { "type": "title", "key": "{#31}╭─  user", "format": "{user-name}" },
-    { "type": "title", "key": "{#32}├─  hname", "format": "{host-name}" },
-    { "type": "uptime", "key": "{#33}├─  uptime" },
-    { "type": "os", "key": "{#34}├─ {icon} distro" },
-    { "type": "kernel", "key": "{#35}├─  kernel" },
-    { "type": "wm", "key": "{#36}├─  desktop" },
-    { "type": "terminal", "key": "{#31}├─  term" },
-    { "type": "shell", "key": "{#32}├─  shell" },
-    { "type": "cpu", "key": "{#33}├─  cpu" },
-    { "type": "disk", "key": "{#34}├─  disk", "folders": "{{disk}}" },
-    { "type": "memory", "key": "{#35}├─  memory" },
-    { "type": "colors", "key": "{#39}╰─  colors", "symbol": "circle" }
+    {
+      "type": "title",
+      "key": "{#31}╭─ 󰇇 user",
+      "format": "{user-name}"
+    },
+    {
+      "type": "title",
+      "key": "{#32}├─ 󰇅 hname",
+      "format": "{host-name}"
+    },
+    {
+      "type": "uptime",
+      "key": "{#33}├─  uptime"
+    },
+    {
+      "type": "os",
+      "key": "{#34}├─ {icon} distro"
+    },
+    {
+      "type": "kernel",
+      "key": "{#35}├─ 󰌽 kernel"
+    },
+    {
+      "type": "wm",
+      "key": "{#36}├─ 󰇄 desktop"
+    },
+    {
+      "type": "terminal",
+      "key": "{#31}├─  term"
+    },
+    {
+      "type": "shell",
+      "key": "{#32}├─  shell"
+    },
+    {
+      "type": "cpu",
+      "key": "{#33}├─ 󰻠 cpu"
+    },
+    {
+      "type": "disk",
+      "key": "{#34}├─ 󰉉 disk",
+      "folders": "{{disk}}"
+    },
+    {
+      "type": "memory",
+      "key": "{#35}├─ 󰍛 memory"
+    },
+    {
+      "type": "colors",
+      "key": "{#39}╰─  colors",
+      "symbol": "circle"
+    }
   ]
 }
