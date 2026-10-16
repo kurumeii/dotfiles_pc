@@ -54,17 +54,12 @@
   ],
   "mcp": {
     "servers": {
-      "tavily": {
-        "disabled": false,
-        "type": "remote",
-        "url": "https://mcp.tavily.com/mcp/"
-      },
       "deepwiki": {
         "type": "remote",
         "url": "https://mcp.deepwiki.com/mcp"
       },
       "exa": {
-        "disabled": true,
+        "disabled": false,
         "type": "remote",
         "url": "https://mcp.exa.ai/mcp",
         "oauth": false,
