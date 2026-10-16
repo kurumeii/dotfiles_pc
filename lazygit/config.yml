@@ -1,16 +1,16 @@
+---
 gui:
-  nerdFontsVersion: "3"
+  nerdFontsVersion: '3'
   showRandomTip: false
   showBranchCommitHash: false
   showCommandLog: true
+  commitHashLength: 0
   spinner:
-    frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+    frames: [⠋, ⠙, ⠹, ⠸, ⠼, ⠴, ⠦, ⠧, ⠇, ⠏]
     rate: 120
 git:
   autoFetch: true
-  mainBranches:
-    - main
-    - master
+  mainBranches: [main, master]
   diffRenderers:
     - command: difft --color=always --display=inline
       type: extDiff
