@@ -16,6 +16,8 @@ local EXE = { ["command code"] = "cmdc", mimo = "mimo" }
 local TIMEOUT = 3000 -- ms; keep a hung herdr from freezing nvim
 local STARTUP_DELAY = 1500 -- ms; let a fresh agent TUI come up before sending text
 
+local PREVIEW_LINES = 5 -- max selected lines echoed to the agent before "..."
+
 local pane_id, last_kind
 
 local function herdr(args)
@@ -187,8 +189,13 @@ return {
         local a, b = vim.fn.line("v"), vim.fn.line(".")
         local s, e = math.min(a, b), math.max(a, b)
         vim.api.nvim_feedkeys(vim.keycode("<esc>"), "nx", false)
-        local lines = vim.api.nvim_buf_get_lines(0, s - 1, e, false)
-        send(("@%s:%d-%d\n%s\n"):format(relpath(), s, e, table.concat(lines, "\n")))
+        local ft = vim.bo.filetype ~= "" and vim.bo.filetype or "txt"
+        local lines = vim.api.nvim_buf_get_lines(0, s - 1, math.min(e, s + PREVIEW_LINES - 1), false)
+        if e - s + 1 > PREVIEW_LINES then
+          lines[#lines + 1] = "..."
+        end
+        local range = s == e and ("L:%d"):format(s) or ("L:%d - L:%d"):format(s, e)
+        send(("@%s %s\n```%s\n%s\n```\n"):format(relpath(), range, ft, table.concat(lines, "\n")))
       end,
       mode = { "x", "n" },
       desc = "Agent: Send Selection",
@@ -199,6 +206,23 @@ return {
         send("@" .. relpath() .. " ")
       end,
       desc = "Agent: Send File",
+    },
+    {
+      utils.L("ab"),
+      function()
+        local refs = {}
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          local name = vim.api.nvim_buf_get_name(buf)
+          if vim.bo[buf].buflisted and vim.bo[buf].buftype == "" and name ~= "" then
+            refs[#refs + 1] = "- @" .. vim.fn.fnamemodify(name, ":.")
+          end
+        end
+        if #refs == 0 then
+          return utils.notify("No buffers to send", "WARN", "Agent")
+        end
+        send(table.concat(refs, "\n") .. "\n")
+      end,
+      desc = "Agent: Send Buffers",
     },
     {
       utils.L("ax"),
