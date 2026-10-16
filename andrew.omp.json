@@ -18,8 +18,8 @@
           "style": "plain"
         },
         {
-          "template": "\udb85\udc0b",
-          "foreground": "#62ED8B",
+          "template": "to",
+          "foreground": "#86F2A5",
           "type": "text",
           "style": "plain"
         },
@@ -53,6 +53,46 @@
           "style": "plain"
         },
         {
+          "options": {
+            "fetch_version": true
+          },
+          "template": "<#ffffff>via</>  {{ .Full }} ",
+          "foreground": "#61AFEF",
+          "type": "lua",
+          "style": "plain"
+        },
+        {
+          "options": {
+            "fetch_version": true
+          },
+          "template": "<#ffffff>via</>  {{ .Full }} ",
+          "foreground": "#E5A06B",
+          "type": "rust",
+          "style": "plain"
+        },
+        {
+          "options": {
+            "fetch_version": true,
+            "fetch_virtual_env": true
+          },
+          "template": "<#ffffff>via</>  {{ .Full }}{{ if .Venv }} ({{ .Venv }}){{ end }} ",
+          "foreground": "#E5C07B",
+          "type": "python",
+          "style": "plain"
+        },
+        {
+          "template": "{{ if or (glob \"flake.nix\") (glob \"shell.nix\") (glob \"default.nix\") }}<#ffffff>via</>  nix {{ end }}",
+          "foreground": "#7EBAE4",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "template": "<#ffffff>in</>  {{ .Type }} ",
+          "foreground": "#7EBAE4",
+          "type": "nix-shell",
+          "style": "plain"
+        },
+        {
           "template": " \uf119",
           "foreground": "#DCB977",
           "type": "status",
@@ -65,8 +105,8 @@
       "alignment": "left",
       "segments": [
         {
-          "template": "\uea9f ",
-          "foreground": "#62ED8B",
+          "template": "\udb80\udd1b ",
+          "foreground": "#86F2A5",
           "type": "text",
           "style": "plain"
         }
