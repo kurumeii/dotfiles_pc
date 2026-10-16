@@ -69,4 +69,21 @@
       }
     }
   },
+  "default_agent": "chat",
+  "agents": {
+    "plan": {
+      "model": "opencode-go/deepseek-v4-pro",
+      "request": { "body": { "temperature": 0.3 } }
+    },
+    "build": {
+      "model": "opencode-go/deepseek-v4.1-flash#low",
+      "request": { "body": { "temperature": 0.15 } }
+    },
+    "chat": {
+      "description": "Creative discussion, long-context reading, and image input",
+      "mode": "primary",
+      "model": "opencode-go/mimo-v2.6-flash",
+      "request": { "body": { "temperature": 0.8 } }
+    }
+  },
 }
