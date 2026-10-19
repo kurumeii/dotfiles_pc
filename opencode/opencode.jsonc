@@ -72,18 +72,23 @@
   "default_agent": "chat",
   "agents": {
     "plan": {
-      "model": "opencode-go/deepseek-v4-pro",
+      "model": "opencode-go/glm-5.3-flash",
       "request": { "body": { "temperature": 0.3 } }
     },
     "build": {
-      "model": "opencode-go/deepseek-v4.1-flash#low",
-      "request": { "body": { "temperature": 0.15 } }
+      "model": "opencode-go/mimo-v2.6-pro",
+      "request": { "body": { "temperature": 0.3 } }
     },
     "chat": {
-      "description": "Creative discussion, long-context reading, and image input",
+      "description": "Daily chatting with heads in the cloud",
       "mode": "primary",
-      "model": "opencode-go/mimo-v2.6-flash",
-      "request": { "body": { "temperature": 0.8 } }
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "request": { "body": { "temperature": 0.8 } },
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
     }
   },
 }

@@ -15,10 +15,21 @@
     "verbosity": "medium",
     "image_preview": true,
     "permissions": "autoaccept",
-    "sidebar": "hide"
+    "sidebar": "auto"
   },
   "tabs": {
     "indicators": "status",
     "layout": "horizontal"
+  },
+  "prompt": {
+    "image_preview": true,
+    "paste": "compact"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true
+  },
+  "scroll": {
+    "acceleration": true
   }
 }
