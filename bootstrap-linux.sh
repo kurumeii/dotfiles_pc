@@ -69,7 +69,8 @@ for APPIMAGE in "$HOME"/Applications/*.AppImage; do
   fi
   [ -d "$TMP/squashfs-root/usr/share/icons/hicolor" ] &&
     cp -rn "$TMP/squashfs-root/usr/share/icons/hicolor/." "$ICONS_DIR/" 2>/dev/null
-  sed -E -e '/^TryExec=/d' -e "s|^Exec=[^ ]+|Exec=$APPIMAGE|" -e "/^Exec=/a TryExec=$APPIMAGE" \
+  # APPIMAGE_EXTRACT_AND_RUN=1: FUSE self-mount is denied on this machine, so extract to tmp on launch instead.
+  sed -E -e '/^TryExec=/d' -e "s|^Exec=[^ ]+|Exec=env APPIMAGE_EXTRACT_AND_RUN=1 $APPIMAGE|" -e "/^Exec=/a TryExec=$APPIMAGE" \
     "$src" >"$TMP/out.desktop" && mv "$TMP/out.desktop" "$DESKTOP_FILE"
   rm -rf "$TMP"
 done

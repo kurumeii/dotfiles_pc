@@ -1,5 +1,7 @@
 tap "anomalyco/tap"
 tap "wezterm/wezterm-linuxbrew"
+# Simple, modern, secure file encryption
+brew "age"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@4"
 # Download with resuming and segmented downloading
@@ -18,6 +20,8 @@ brew "difftastic"
 brew "dotter"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
+# More intuitive version of du in rust
+brew "dust"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -36,6 +40,8 @@ brew "gh"
 brew "ghostscript"
 # Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Modern implementation of the Git-flow branching model
 brew "git-flow-next"
 # Extra themes for the GNOME desktop environment
@@ -92,3 +98,5 @@ cask "bruno"
 cask "keepassxc"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Gecko based web browser
+cask "zen"
