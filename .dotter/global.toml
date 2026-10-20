@@ -20,6 +20,7 @@ vimrc = "~/.vimrc"
 "andrew.omp.json" = { target = "~/andrew.omp.json", type = "symbolic" }
 "claude.omp.json" = { target = "~/claude.omp.json", type = "symbolic" }
 gitconfig = "~/.gitconfig"
+"markdownlint.jsonc" = "~/.markdownlint.jsonc"
 fish = "~/.config/fish"
 
 [windows.files]
