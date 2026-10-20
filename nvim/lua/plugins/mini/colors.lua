@@ -5,8 +5,8 @@ return {
   priority = 980,
   after = function()
     local current_theme = {
-      bg = "#1e1e2e",
-      fg = "#cdd6f4",
+      bg = "#15161e",
+      fg = "#c0caf5",
     }
 
     require("mini.hues").setup({

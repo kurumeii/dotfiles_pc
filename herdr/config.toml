@@ -64,5 +64,5 @@ toast.herdr.position = "top-right"
 # new_cwd = "home"
 
 [theme]
-name = "catppuccin"
+name = "tokyo-night"
 auto_switch = false
