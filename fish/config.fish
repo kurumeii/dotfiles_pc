@@ -18,6 +18,7 @@ if status is-interactive
     set -gx BRAVE_API_KEY "{{BRAVE_API_KEY}}"
     set -gx EXA_API_KEY "{{EXA_API_KEY}}"
     set -g fish_user_paths "~/.bun/bin"
+    set -gx HOMEBREW_NO_ENV_HINTS 1
 
     alias cd z
     alias grep rg
