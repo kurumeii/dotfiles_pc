@@ -34,7 +34,7 @@ opacity-cells = true
 decorations = "Disabled"
 
 [fonts]
-size = 16
+size = 15
 family = "CaskaydiaCove Nerd Font"
 features = ["calt", "liga"]
 
