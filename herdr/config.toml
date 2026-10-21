@@ -51,12 +51,12 @@ command = [
 
 [ui]
 prompt_new_tab_name = false
-status_indicators = "symbols"        # symbols | dots
+status_indicators = "dots"           # symbols | dots
 tab_bar_position = "top"             # top | bottom
 hide_tab_bar_when_single_tab = false
 confirm_close = true
 sidebar_collapsed_mode = "hidden"    # compact | hidden
-sound.enabled = false
+sound.enabled = true
 toast.delivery = "herdr"
 toast.herdr.position = "top-right"
 
