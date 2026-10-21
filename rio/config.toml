@@ -2,18 +2,29 @@
 
 theme = "tokyonight"
 
-padding-x = 0
-padding-y = 0
+padding = [0]
 confirm-before-quit = false
 copy-on-select = true
 hide-mouse-cursor-when-typing = true
+line-height = 1.1
 
 [cursor]
 shape = "block"
 blinking = true
 
 [navigation]
-hide-if-single = true
+mode = "Plain"
+use-split = true
+unfocused-split-opacity = 0.8
+
+[panel]
+row-gap = 4
+column-gap = 4
+border-radius = 6.0
+
+[editor]
+program = "nvim"
+args = []
 
 [window]
 mode = "Maximized"
@@ -25,7 +36,7 @@ decorations = "Disabled"
 [fonts]
 size = 16
 family = "CaskaydiaCove Nerd Font"
-features = ["calt", "liga", "cv01=2"]
+features = ["calt", "liga"]
 
 [fonts.regular]
 weight = 600
