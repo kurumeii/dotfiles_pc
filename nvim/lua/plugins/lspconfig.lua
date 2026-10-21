@@ -79,8 +79,10 @@ return {
         utils.map("n", utils.L("cd"), vim.diagnostic.open_float, "Code show diagnostic")
         utils.map("n", utils.L("cr"), vim.lsp.buf.rename, "LSP: rename")
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client.name == "vtsls" then
+        if client and (client.name == "tsc" or client.name == "vtsls") then
           utils.map("n", utils.L("co"), utils.action("source.organizeImports"), "[TS] Organize imports")
+        end
+        if client and client.name == "vtsls" then
           utils.map("n", utils.L("cv"), utils.command("typescript.selectTypeScriptVersion"), "[TS] Select ts version")
         end
         if client and client.name == "tailwindcss" then
