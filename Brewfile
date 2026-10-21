@@ -1,5 +1,4 @@
 tap "anomalyco/tap"
-tap "wezterm/wezterm-linuxbrew"
 # Simple, modern, secure file encryption
 brew "age"
 # Cryptography and SSL/TLS Toolkit
@@ -90,8 +89,6 @@ brew "yazi"
 brew "zoxide"
 # OpenCode V2 - the AI coding agent for the terminal
 brew "anomalyco/tap/opencode-v2", trusted: true
-# A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
-brew "wezterm/wezterm-linuxbrew/wezterm", trusted: true
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Password manager app

@@ -75,31 +75,6 @@ for APPIMAGE in "$HOME"/Applications/*.AppImage; do
   rm -rf "$TMP"
 done
 
-# Brew's wezterm formula ships no .desktop or icon either.
-WEZTERM_BIN="$(command -v wezterm || true)"
-WEZTERM_DESKTOP="$APPS_DIR/wezterm.desktop"
-if [ -n "$WEZTERM_BIN" ] && [ ! -f "$WEZTERM_DESKTOP" ]; then
-  WEZTERM_ICON="$ICONS_DIR/128x128/apps/org.wezfurlong.wezterm.png"
-  if [ ! -f "$WEZTERM_ICON" ]; then
-    mkdir -p "$(dirname "$WEZTERM_ICON")"
-    curl -fsSL -o "$WEZTERM_ICON" \
-      https://raw.githubusercontent.com/wezterm/wezterm/main/assets/icon/terminal.png ||
-      echo "warning: could not download wezterm icon" >&2
-  fi
-  cat >"$WEZTERM_DESKTOP" <<EOF
-[Desktop Entry]
-Name=WezTerm
-Comment=Wez's Terminal Emulator
-Keywords=shell;prompt;command;commandline;cmd;
-Icon=org.wezfurlong.wezterm
-StartupWMClass=org.wezfurlong.wezterm
-TryExec=$WEZTERM_BIN
-Exec=$WEZTERM_BIN start --cwd .
-Type=Application
-Categories=System;TerminalEmulator;Utility;
-Terminal=false
-EOF
-fi
 update-desktop-database "$APPS_DIR" 2>/dev/null || true
 gtk-update-icon-cache -f -t "$ICONS_DIR" 2>/dev/null || true
 

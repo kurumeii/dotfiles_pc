@@ -1,0 +1,39 @@
+# See the full configuration reference: https://rioterm.com/docs/config
+
+theme = "tokyonight"
+
+padding-x = 0
+padding-y = 0
+confirm-before-quit = false
+copy-on-select = true
+hide-mouse-cursor-when-typing = true
+
+[cursor]
+shape = "block"
+blinking = true
+
+[navigation]
+hide-if-single = true
+
+[window]
+mode = "Maximized"
+blur = true
+opacity = 0.8
+opacity-cells = true
+decorations = "Disabled"
+
+[fonts]
+size = 16
+family = "CaskaydiaCove Nerd Font"
+features = ["calt", "liga", "cv01=2"]
+
+[fonts.regular]
+weight = 600
+
+[bindings]
+keys = [
+  { key = "n", with = "control | shift", action = "None" },
+  { key = "t", with = "control | shift", action = "None" },
+  { key = "d", with = "control | shift", action = "None" },
+  { key = "e", with = "control | shift", action = "None" },
+]

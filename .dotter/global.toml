@@ -35,6 +35,7 @@ disk = 'C:\\'
 
 [linux.files]
 kitty = "~/.config/kitty"
+rio = { target = "~/.config/rio", type = "template" }
 "opencode/cli.json" = "~/.config/opencode/cli.json"
 [linux.variables]
 shell = "/home/linuxbrew/.linuxbrew/bin/fish"
