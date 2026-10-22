@@ -35,14 +35,8 @@
       "action": "edit",
       "resource": "*",
       "effect": "ask"
-    },
-    {
-      "action": "webfetch",
-      "resource": "*",
-      "effect": "deny"
     }
   ],
-  "websearch": false,
   "plugins": [
     "@dietrichgebert/ponytail",
     {
@@ -52,6 +46,9 @@
       }
     }
   ],
+  "websearch": {
+    "provider": "exa"
+  },
   "mcp": {
     "servers": {
       "deepwiki": {
@@ -73,22 +70,9 @@
   "agents": {
     "plan": {
       "model": "opencode-go/glm-5.3-flash",
-      "request": { "body": { "temperature": 0.3 } }
     },
     "build": {
       "model": "opencode-go/mimo-v2.6-pro",
-      "request": { "body": { "temperature": 0.3 } }
     },
-    "chat": {
-      "description": "Daily chatting with heads in the cloud",
-      "mode": "primary",
-      "model": "opencode-go/deepseek-v4.1-flash",
-      "request": { "body": { "temperature": 0.8 } },
-      "permissions": [
-        { "action": "edit", "resource": "*", "effect": "deny" },
-        { "action": "shell", "resource": "*", "effect": "deny" },
-        { "action": "subagent", "resource": "*", "effect": "deny" }
-      ]
-    }
   },
 }
