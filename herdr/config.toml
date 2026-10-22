@@ -60,8 +60,8 @@ sound.enabled = true
 toast.delivery = "herdr"
 toast.herdr.position = "top-right"
 
-# [terminal]
-# new_cwd = "home"
+[terminal]
+default_shell = "fish"
 
 [theme]
 name = "tokyo-night"
