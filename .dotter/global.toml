@@ -37,6 +37,7 @@ disk = 'C:\\'
 kitty = "~/.config/kitty"
 rio = { target = "~/.config/rio", type = "template" }
 "opencode/cli.json" = "~/.config/opencode/cli.json"
+"systemd/sh.brew.herdr.service.d/path.conf" = "~/.config/systemd/user/sh.brew.herdr.service.d/path.conf"
 [linux.variables]
 shell = "/home/linuxbrew/.linuxbrew/bin/fish"
 disk = "/"
