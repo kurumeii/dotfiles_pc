@@ -46,6 +46,9 @@
       }
     }
   ],
+  "compaction": {
+    "buffer": "30%"
+  },
   "websearch": {
     "provider": "exa"
   },
