@@ -37,15 +37,6 @@
       "effect": "ask"
     }
   ],
-  "plugins": [
-    "@dietrichgebert/ponytail",
-    {
-      "package": "@upstash/context7-opencode",
-      "options": {
-        "apiKey": "{env:CONTEXT_7_API_KEY}"
-      }
-    }
-  ],
   "compaction": {
     "buffer": "30%"
   },

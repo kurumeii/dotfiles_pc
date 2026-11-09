@@ -4,7 +4,40 @@
     "name": "system"
   },
   "plugins": [
-    "./herdr-opencode"
+    "./herdr-opencode",
+    "@streetturtle/opencode-recap",
+    {
+      "package": "opencode-plugin-usage",
+      "options": {
+        "providers": {
+          "opencode-go": {
+            "enabled": true
+          }
+        }
+      }
+    },
+    {
+      "package": "opencode-exit-plan",
+      "options": {
+        "agent": "build",
+        "phrases": [
+          "go ahead",
+          "ship it",
+          "approved",
+          "go",
+          "proceed"
+        ]
+      }
+    },
+    "@dietrichgebert/ponytail",
+    {
+      "package": "@upstash/context7-opencode",
+      "options": {
+        "apiKey": "{env:CONTEXT_7_API_KEY}"
+      }
+    },
+    "opencode-bubble-tabs",
+    "opencode-ghost"
   ],
   "animations": true,
   "session": {
