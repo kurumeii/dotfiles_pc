@@ -16,19 +16,6 @@
         }
       }
     },
-    {
-      "package": "opencode-exit-plan",
-      "options": {
-        "agent": "build",
-        "phrases": [
-          "go ahead",
-          "ship it",
-          "approved",
-          "go",
-          "proceed"
-        ]
-      }
-    },
     "@dietrichgebert/ponytail",
     {
       "package": "@upstash/context7-opencode",

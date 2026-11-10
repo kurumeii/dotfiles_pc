@@ -60,6 +60,21 @@
       }
     }
   },
+  // "plugins": [
+  //   {
+  //     "package": "opencode-exit-plan",
+  //     "options": {
+  //       "agent": "build",
+  //       "phrases": [
+  //         "go ahead",
+  //         "ship it",
+  //         "approved",
+  //         "go",
+  //         "proceed"
+  //       ]
+  //     }
+  //   }
+  // ],
   "agents": {
     "plan": {
       "model": "opencode-go/glm-5.3-flash",
