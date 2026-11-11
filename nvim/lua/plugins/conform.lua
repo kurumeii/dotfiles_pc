@@ -26,7 +26,7 @@ return {
       formatters_by_ft = {
         markdown = { "markdownlint-cli2", "prettierd" },
         lua = { "stylua" },
-        json = { "biome" },
+        json = { "biome-defaults" },
         yaml = { "yamlfix" },
         javascript = { "biome", "prettierd" },
         typescript = { "biome", "prettierd" },
@@ -41,6 +41,15 @@ return {
       formatters = {
         biome = {
           require_cwd = true,
+          condition = function(_, ctx)
+            return require("config.lint.biome").config_path(ctx.filename) ~= nil
+          end,
+        },
+        -- Biome's built-in config formats with defaults when no biome.json
+        -- exists, so JSON keeps that even in config-less repos.
+        ["biome-defaults"] = {
+          inherit = "biome",
+          require_cwd = false,
         },
         stylua = {},
         yamlfix = {},

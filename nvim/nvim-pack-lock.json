@@ -36,10 +36,6 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "md-render.nvim": {
-      "rev": "4f6d73a276356bc23dbffa594d2a54dc978e98bb",
-      "src": "https://github.com/delphinus/md-render.nvim"
-    },
     "mini.nvim": {
       "rev": "a321b535c75ca88ba7fddfd8eb5b583fbda50dd6",
       "src": "https://github.com/nvim-mini/mini.nvim"
