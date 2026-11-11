@@ -16,6 +16,10 @@
       "rev": "c368ae2c6cc6b58a598adcee2cbfc36d341053f2",
       "src": "https://github.com/lumen-oss/lz.n"
     },
+    "markview.nvim": {
+      "rev": "aadb6d817577d553bbef61e8b9073f1bf4b87e08",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "3a5cd6d562a01f6829a35ae761dc383264ea452b",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
