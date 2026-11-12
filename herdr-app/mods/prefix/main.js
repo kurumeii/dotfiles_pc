@@ -4,7 +4,16 @@
 
 import { View, div } from "gpui-kit";
 import { v_flex, h_flex } from "gpui-base";
-import { run, props, closeOverlay, theme } from "herdr";
+import { run, props, closeOverlay, theme, layout } from "herdr";
+
+function find(node, id) {
+  if (node?.id === id) return node;
+  for (const child of node?.children ?? []) {
+    const found = find(child, id);
+    if (found) return found;
+  }
+  return null;
+}
 
 const FISH = "/home/linuxbrew/.linuxbrew/bin/fish";
 const openTool = (name) => run("pane.split", { direction: "right", argv: [FISH, "-c", name] });
@@ -29,6 +38,7 @@ const ROWS = [
   ["K", "previous space", () => run("space.prev")],
   ["J", "next space", () => run("space.next")],
   ["1…9", "go to space", null],
+  ["b", "toggle sidebar", () => run("layout.toggle", { id: "sidebar" })],
   ["e", "yazi", () => openTool("yazi")],
   ["/", "btop", () => openTool("btop")],
   ["g", "lazygit", () => openTool("lazygit")],
@@ -90,6 +100,7 @@ export default class Prefix extends View {
         c: () => run("pane.close"),
         f: () => run("pane.zoom"),
         x: () => run("space.close"),
+        b: () => { if (find(layout(), "sidebar")) run("layout.toggle", { id: "sidebar" }); },
         e: () => openTool("yazi"),
         g: () => openTool("lazygit"),
       }[key] ?? null;
