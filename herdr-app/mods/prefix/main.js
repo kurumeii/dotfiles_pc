@@ -16,7 +16,8 @@ function find(node, id) {
 }
 
 const FISH = "/home/linuxbrew/.linuxbrew/bin/fish";
-const openTool = (name) => run("pane.split", { direction: "right", argv: [FISH, "-c", name] });
+const openTool = (name) =>
+  run("pane.split", { direction: "right", argv: [FISH, "-c", name] });
 
 // [keys, label, action]
 const ROWS = [
@@ -28,8 +29,8 @@ const ROWS = [
   ["j", "focus pane down", () => run("pane.go", { direction: "down" })],
   ["k", "focus pane up", () => run("pane.go", { direction: "up" })],
   ["l", "focus pane right", () => run("pane.go", { direction: "right" })],
-  ["s", "split right", () => run("pane.split", { direction: "right" })],
-  ["v", "split down", () => run("pane.split", { direction: "down" })],
+  ["v", "split right", () => run("pane.split", { direction: "right" })],
+  ["s", "split down", () => run("pane.split", { direction: "down" })],
   ["r", "rename tab", () => run("tab.rename")],
   ["c", "close pane", () => run("pane.close")],
   ["C", "close tab", () => run("tab.close")],
@@ -44,7 +45,17 @@ const ROWS = [
   ["g", "lazygit", () => openTool("lazygit")],
 ];
 
-const SHIFTED_DIGITS = { "!": 1, "@": 2, "#": 3, "$": 4, "%": 5, "^": 6, "&": 7, "*": 8, "(": 9 };
+const SHIFTED_DIGITS = {
+  "!": 1,
+  "@": 2,
+  "#": 3,
+  $: 4,
+  "%": 5,
+  "^": 6,
+  "&": 7,
+  "*": 8,
+  "(": 9,
+};
 
 export default class Prefix extends View {
   init(_props, cx) {
@@ -79,31 +90,36 @@ export default class Prefix extends View {
     if (digit) act = () => run("space.select", { index: digit });
     else if (key === "/" || key === "?") act = () => openTool("btop");
     else if (shift) {
-      act = {
-        s: () => run("app.settings"),
-        l: () => run("tab.next"),
-        h: () => run("tab.prev"),
-        c: () => run("tab.close"),
-        k: () => run("space.prev"),
-        j: () => run("space.next"),
-      }[key] ?? null;
+      act =
+        {
+          s: () => run("app.settings"),
+          l: () => run("tab.next"),
+          h: () => run("tab.prev"),
+          c: () => run("tab.close"),
+          k: () => run("space.prev"),
+          j: () => run("space.next"),
+        }[key] ?? null;
     } else {
-      act = {
-        n: () => run("tab.new"),
-        h: () => run("pane.go", { direction: "left" }),
-        j: () => run("pane.go", { direction: "down" }),
-        k: () => run("pane.go", { direction: "up" }),
-        l: () => run("pane.go", { direction: "right" }),
-        s: () => run("pane.split", { direction: "right" }),
-        v: () => run("pane.split", { direction: "down" }),
-        r: () => run("tab.rename"),
-        c: () => run("pane.close"),
-        f: () => run("pane.zoom"),
-        x: () => run("space.close"),
-        b: () => { if (find(layout(), "sidebar")) run("layout.toggle", { id: "sidebar" }); },
-        e: () => openTool("yazi"),
-        g: () => openTool("lazygit"),
-      }[key] ?? null;
+      act =
+        {
+          n: () => run("tab.new"),
+          h: () => run("pane.go", { direction: "left" }),
+          j: () => run("pane.go", { direction: "down" }),
+          k: () => run("pane.go", { direction: "up" }),
+          l: () => run("pane.go", { direction: "right" }),
+          s: () => run("pane.split", { direction: "right" }),
+          v: () => run("pane.split", { direction: "down" }),
+          r: () => run("tab.rename"),
+          c: () => run("pane.close"),
+          f: () => run("pane.zoom"),
+          x: () => run("space.close"),
+          b: () => {
+            if (find(layout(), "sidebar"))
+              run("layout.toggle", { id: "sidebar" });
+          },
+          e: () => openTool("yazi"),
+          g: () => openTool("lazygit"),
+        }[key] ?? null;
     }
 
     this.close();
@@ -114,10 +130,22 @@ export default class Prefix extends View {
   render(cx) {
     const t = theme();
     const chip = (keys) =>
-      div().px(6).py(2).rounded(5).bg(t.raised).text_color(t.foreground).text_size(11).child(keys);
+      div()
+        .px(6)
+        .py(2)
+        .rounded(5)
+        .bg(t.raised)
+        .text_color(t.foreground)
+        .text_size(11)
+        .child(keys);
 
     const row = ([keys, label]) =>
-      h_flex().h(24).gap(9).items_center().child(chip(keys)).child(div().text_color(t.muted).child(label));
+      h_flex()
+        .h(24)
+        .gap(9)
+        .items_center()
+        .child(chip(keys))
+        .child(div().text_color(t.muted).child(label));
 
     const half = Math.ceil(ROWS.length / 2);
     const columns = [ROWS.slice(0, half), ROWS.slice(half)];
@@ -137,7 +165,13 @@ export default class Prefix extends View {
         h_flex()
           .items_center()
           .justify_between()
-          .child(div().text_size(14).font_semibold().text_color(t.foreground).child("Prefix"))
+          .child(
+            div()
+              .text_size(14)
+              .font_semibold()
+              .text_color(t.foreground)
+              .child("Prefix"),
+          )
           .child(div().text_size(11).text_color(t.dim).child("Esc")),
       )
       .child(
@@ -145,7 +179,11 @@ export default class Prefix extends View {
           .flex_1()
           .min_h(0)
           .gap(24)
-          .children(columns.map((rows) => v_flex().flex_1().gap(2).children(rows.map(row)))),
+          .children(
+            columns.map((rows) =>
+              v_flex().flex_1().gap(2).children(rows.map(row)),
+            ),
+          ),
       );
   }
 }
