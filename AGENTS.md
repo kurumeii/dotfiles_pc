@@ -29,6 +29,8 @@ Cross-platform (Linux + Windows) personal dotfiles managed by **Dotter** with Ha
 | `rg/`               | ripgrep config                       | `~/.config/rg`            |
 | `gh/`               | GitHub CLI config                    | `~/.config/gh`            |
 | `herdr/`            | Herdr terminal multiplexer           | `~/.config/herdr`         |
+| `herdr-app/`        | Herdr app keys, settings, theme, mods | `~/.config/herdr-app`     |
+| `herdr-core/`       | herdr-core shell config (Linux)      | `~/.config/herdr-core`    |
 | `mise/`             | mise (dev tool version manager)      | `~/.config/mise`          |
 | `mimocode/`         | MimoCode AI coding tool              | `~/.config/mimocode`      |
 | `opencode/`         | OpenCode AI coding tool              | `~/.config/opencode`      |

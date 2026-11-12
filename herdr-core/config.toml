@@ -1,0 +1,3 @@
+# Migrated from ~/.config/herdr/config.toml ([terminal] default_shell = "fish").
+# Absolute path: herdr-core's PATH does not include linuxbrew.
+shell = ["/home/linuxbrew/.linuxbrew/bin/fish"]

@@ -9,6 +9,7 @@ flameshot = "~/.config/flameshot"
 btop = "~/.config/btop"
 gh = "~/.config/gh"
 herdr = "~/.config/herdr"
+herdr-app = "~/.config/herdr-app"
 lazygit = "~/.config/lazygit"
 mise = "~/.config/mise"
 nvim = "~/.config/nvim"
@@ -35,6 +36,7 @@ disk = 'C:\\'
 
 [linux.files]
 kitty = "~/.config/kitty"
+herdr-core = "~/.config/herdr-core"
 rio = { target = "~/.config/rio", type = "template" }
 "opencode/cli.json" = "~/.config/opencode/cli.json"
 "systemd/sh.brew.herdr.service.d/path.conf" = "~/.config/systemd/user/sh.brew.herdr.service.d/path.conf"
