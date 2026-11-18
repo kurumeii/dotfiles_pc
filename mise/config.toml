@@ -1,11 +1,6 @@
 [tools]
+just = "latest"
 node = ["latest", "lts"]
 bun = "latest"
 uv = "latest"
 rust = "latest"
-
-[settings]
-trusted_config_paths = [
-  "~/.home/mise/config.toml",
-  "~/.pc_dotfiles/mise/config.toml",
-]
