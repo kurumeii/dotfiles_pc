@@ -43,6 +43,9 @@
   "websearch": {
     "provider": "exa"
   },
+  "instructions": [
+    "~/.config/opencode/instructions/*.md"
+  ],
   "mcp": {
     "servers": {
       "deepwiki": {
