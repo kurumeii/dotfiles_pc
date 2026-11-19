@@ -34,6 +34,7 @@ Cross-platform (Linux + Windows) personal dotfiles managed by **Dotter** with Ha
 | `mise/`             | mise (dev tool version manager)      | `~/.config/mise`          |
 | `mimocode/`         | MimoCode AI coding tool              | `~/.config/mimocode`      |
 | `opencode/`         | OpenCode AI coding tool              | `~/.config/opencode`      |
+| `serena/`           | Serena global memories               | `~/.serena/memories`      |
 | `commandcode/`      | Command Code commands                | `~/.commandcode/commands` |
 | `.commandcode/`     | Command Code settings, MCP, skills   | `~/.commandcode/`         |
 

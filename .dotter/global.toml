@@ -3,6 +3,7 @@
 [default]
 depends = []
 [default.files]
+"serena/memories" = "~/.serena/memories"
 bat = "~/.config/bat"
 fastfetch = "~/.config/fastfetch"
 flameshot = "~/.config/flameshot"

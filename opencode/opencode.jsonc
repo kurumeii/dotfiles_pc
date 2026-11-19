@@ -57,6 +57,11 @@
         "headers": {
           "x-api-key": "{env:EXA_API_KEY}"
         }
+      },
+      "serena": {
+        "type": "local",
+        "command": ["serena", "start-mcp-server", "--context", "ide", "--project-from-cwd"],
+        "enabled": true
       }
     }
   },
