@@ -28,9 +28,9 @@ args = []
 
 [window]
 mode = "Maximized"
-blur = true
-opacity = 0.8
-opacity-cells = true
+blur = false
+# opacity = 0.8
+# opacity-cells = true
 decorations = "Disabled"
 
 [fonts]
