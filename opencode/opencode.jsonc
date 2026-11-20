@@ -63,26 +63,17 @@
       },
       "serena": {
         "type": "local",
-        "command": ["serena", "start-mcp-server", "--context", "ide", "--project-from-cwd"],
+        "command": [
+          "serena",
+          "start-mcp-server",
+          "--context",
+          "ide",
+          "--project-from-cwd"
+        ],
         "enabled": true
       }
     }
   },
-  // "plugins": [
-  //   {
-  //     "package": "opencode-exit-plan",
-  //     "options": {
-  //       "agent": "build",
-  //       "phrases": [
-  //         "go ahead",
-  //         "ship it",
-  //         "approved",
-  //         "go",
-  //         "proceed"
-  //       ]
-  //     }
-  //   }
-  // ],
   "agents": {
     "plan": {
       "model": "opencode-go/glm-5.3-flash",
