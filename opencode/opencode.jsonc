@@ -52,15 +52,6 @@
         "type": "remote",
         "url": "https://mcp.deepwiki.com/mcp"
       },
-      "exa": {
-        "disabled": false,
-        "type": "remote",
-        "url": "https://mcp.exa.ai/mcp",
-        "oauth": false,
-        "headers": {
-          "x-api-key": "{env:EXA_API_KEY}"
-        }
-      },
       "serena": {
         "type": "local",
         "command": [
@@ -69,6 +60,25 @@
           "--context",
           "ide",
           "--project-from-cwd"
+        ],
+        "enabled": true
+      },
+      "chrome-devtools": {
+        // ~/.local/bin/chrome-ct resolves the newest Chrome for Testing under
+        // ~/.local/share/chrome-ct (install: bunx @puppeteer/browsers install
+        // chrome@stable --path "$HOME/.local/share/chrome-ct") and falls back to
+        // Playwright's cached Chromium. --no-sandbox is required in this environment,
+        // where the Chrome sandbox cannot start.
+        "type": "local",
+        "command": [
+          "bunx",
+          "chrome-devtools-mcp@1.13.0",
+          "--executablePath",
+          "/home/andrew.nguyen1@Techvify.Internal/.local/bin/chrome-ct",
+          "--headless",
+          "--isolated",
+          "--chromeArg=--no-sandbox",
+          "--chromeArg=--disable-dev-shm-usage"
         ],
         "enabled": true
       }
