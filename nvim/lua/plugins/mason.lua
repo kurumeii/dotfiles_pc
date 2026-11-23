@@ -42,13 +42,12 @@ return {
         "fish_lsp",
         "shfmt",
         "alejandra",
-        "marksman",
       },
     })
 
     require("mason-lspconfig").setup({
       automatic_enable = {
-        exclude = { "oxfmt", "vtsls" },
+        exclude = { "oxfmt", "vtsls", "marksman" },
       },
     })
   end,

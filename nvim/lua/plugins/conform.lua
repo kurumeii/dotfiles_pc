@@ -24,7 +24,9 @@ return {
       -- re-writes the file, doubling every "Saved" notification).
       format_on_save = {},
       formatters_by_ft = {
-        markdown = { "markdownlint-cli2", "prettierd" },
+        -- markdownlint fixes MD rules, prettierd formats tables/wrapping;
+        -- run both (global stop_after_first would otherwise pick only one).
+        markdown = { "markdownlint-cli2", "prettierd", stop_after_first = false },
         lua = { "stylua" },
         json = { "biome-defaults" },
         yaml = { "yamlfix" },
@@ -61,14 +63,6 @@ return {
               end
               return false
             end
-          end,
-        },
-        ["markdownlint-cli2"] = {
-          condition = function(_, ctx)
-            local diag = vim.tbl_filter(function(d)
-              return d.source == "markdownlint"
-            end, vim.diagnostic.get(ctx.buf))
-            return #diag > 0
           end,
         },
       },

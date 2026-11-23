@@ -7,7 +7,6 @@ return {
     local utils = require("config.utils")
     local opts = {
       linters_by_ft = {
-        markdown = { "markdownlint-cli2" },
         css = { "stylelint", "biome" },
         scss = { "stylelint", "biome" },
         javascriptreact = { "biome" },
