@@ -5,7 +5,6 @@
   },
   "plugins": [
     "./herdr-opencode",
-    "@chenlongapps/opencode-token-usage",
     "@dietrichgebert/ponytail",
     "opencode-ghost",
     {

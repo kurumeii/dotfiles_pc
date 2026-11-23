@@ -46,6 +46,9 @@
   "instructions": [
     "~/.config/opencode/instructions/*.md"
   ],
+  "plugins": [
+    "github:ionutale/opencode-go-usage-plugin"
+  ],
   "mcp": {
     "servers": {
       "deepwiki": {
@@ -64,11 +67,6 @@
         "enabled": true
       },
       "chrome-devtools": {
-        // ~/.local/bin/chrome-ct resolves the newest Chrome for Testing under
-        // ~/.local/share/chrome-ct (install: bunx @puppeteer/browsers install
-        // chrome@stable --path "$HOME/.local/share/chrome-ct") and falls back to
-        // Playwright's cached Chromium. --no-sandbox is required in this environment,
-        // where the Chrome sandbox cannot start.
         "type": "local",
         "command": [
           "bunx",
